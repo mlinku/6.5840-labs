@@ -10,10 +10,18 @@ import (
 )
 
 type Coordinator struct {
-	// Your definitions here.
-
 	// mantain a counter for worker IDs, initialize to 0
-	workerIDCounter int
+	WorkerIDCounter int
+	// input files for map tasks
+	MapFiles []string
+	// map task ID, used to assign unique IDs to map tasks and track progress
+	MapTaskID int
+	// number of reduce workers
+	NReduce int
+	// intermediate files for reduce tasks
+	ReduceFiles []string
+	// reduce task ID, used to assign unique IDs to reduce tasks and track progress
+	ReduceTaskID int
 }
 
 // Your code here -- RPC handlers for the worker to call.
@@ -29,15 +37,31 @@ func (c *Coordinator) Example(args *ExampleArgs, reply *ExampleReply) error {
 
 // init worker RPC handler
 func (c *Coordinator) InitWorker(args *WorkerArgs, reply *InitWorkerReply) error {
-	reply.WorkerID = c.workerIDCounter
-	c.workerIDCounter++
+	reply.WorkerID = c.WorkerIDCounter
+	c.WorkerIDCounter++
 	fmt.Println("Init Worker RPC called with WorkerID:", reply.WorkerID)
 	return nil
 }
 
+// CoordinateTask is a helper function to assign tasks to workers
+// first complete all map tasks, then reduce tasks
+func CoordinateTask(c *Coordinator, reply *AssignTaskReply) {
+	// if there are remaining map tasks, assign a map task
+	if c.MapTaskID < len(c.MapFiles) {
+		reply.TaskType = TaskMap
+		reply.TaskFile = c.MapFiles[c.MapTaskID]
+		// generate intermediate file prefix
+		reply.GenerateFile = fmt.Sprintf("mr-%d-", c.MapTaskID)
+		c.MapTaskID++
+		fmt.Printf("Assigned Map task for file %v to WorkerID %v\n", reply.TaskFile, reply.WorkerID)
+		return
+	}
+}
 func (c *Coordinator) AssignTask(arg *WorkerArgs, reply *AssignTaskReply) error {
-	// temp implementation for testing
 	reply.WorkerID = arg.WorkerID
+
+	CoordinateTask(c, reply)
+
 	reply.TaskType = TaskMap
 	reply.TaskFile = "pg-being_ernest.txt"
 	fmt.Printf("Assign Task RPC called for WorkerID %v: assigned Map task for file %v\n", reply.WorkerID, reply.TaskFile)
@@ -73,7 +97,7 @@ func (c *Coordinator) Done() bool {
 // nReduce is the number of reduce tasks to use.
 func MakeCoordinator(files []string, nReduce int) *Coordinator {
 	c := Coordinator{}
-	c.workerIDCounter = 0
+	c.WorkerIDCounter = 0
 	// Your code here.
 
 	c.server()

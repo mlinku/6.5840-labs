@@ -33,9 +33,10 @@ type InitWorkerReply struct {
 }
 
 type AssignTaskReply struct {
-	WorkerID int
-	TaskType TaskType //  0: Map 1: Reduce 2: Wait 3: Exit
-	TaskFile string   // 仅 Map 时有效
+	WorkerID     int
+	TaskType     TaskType //  0: Map 1: Reduce 2: Wait 3: Exit
+	TaskFile     string   // Map task: input file; Reduce task: intermediate files
+	GenerateFile string   // Map task: intermediate file prefix; Reduce task: output file
 }
 
 type CallType int
