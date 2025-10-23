@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/rpc"
 	"os"
+	"time"
 )
 
 // Map functions return a slice of KeyValue.
@@ -41,7 +42,7 @@ func Worker(mapf func(string, string) []KeyValue,
 				// map task
 				state = 1
 				fmt.Printf("Worker %v: received Map task for file %v\n", reply.WorkerID, reply.TaskFile)
-				MapTask(reply.TaskFile, mapf)
+				MapTask(&reply, mapf)
 			}
 
 		}
@@ -53,26 +54,42 @@ func Worker(mapf func(string, string) []KeyValue,
 	}
 }
 
-func MapTask(filename string, mapf func(string, string) []KeyValue) {
+func MapTask(reply *AssignTaskReply, mapf func(string, string) []KeyValue) {
 	// read file content
 	intermediate := []KeyValue{}
-	file, err := os.Open(filename)
+	file, err := os.Open(reply.TaskFile)
 	if err != nil {
-		log.Fatalf("cannot open %v", filename)
+		log.Fatalf("cannot open %v", reply.TaskFile)
 	}
 	content, err := io.ReadAll(file)
 	if err != nil {
-		log.Fatalf("cannot read %v", filename)
+		log.Fatalf("cannot read %v", reply.TaskFile)
 	}
 	file.Close()
 
 	// call mapf
-	kva := mapf(filename, string(content))
-	intermediate = append(intermediate, kva...)
-	fmt.Printf("MapTask: read %v and produced %v key-value pairs\n", filename, len(intermediate))
+	kva := mapf(reply.TaskFile, string(content))
 
-	// partition intermediate key-value pairs
-	// write to intermediate files
+	intermediate = append(intermediate, kva...)
+	fmt.Printf("MapTask: read %v and produced %v key-value pairs\n", reply.TaskFile, len(intermediate))
+
+	fmt.Printf("MapTask: generated intermediate files %v\n", reply.TaskFile)
+	fmt.Printf("MapTask: generated intermediate files %v\n", reply.GenerateFile)
+	time.Sleep(100 * time.Second)
+	NReduce := int(reply.GenerateFile[len(reply.GenerateFile)-1] - '0') // extract NReduce from filename
+
+	// write intermediate key-value pairs to intermediate files
+	for _, kv := range intermediate {
+		reduceTaskNum := ihash(kv.Key) % NReduce
+		intermediateFileName := fmt.Sprintf("mr-%d-%d", reply.WorkerID, reduceTaskNum)
+		intermediateFile, err := os.OpenFile(intermediateFileName, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0644)
+		if err != nil {
+			log.Fatalf("cannot open intermediate file %v", intermediateFileName)
+		}
+		fmt.Fprintf(intermediateFile, "%v %v\n", kv.Key, kv.Value)
+		intermediateFile.Close()
+	}
+	fmt.Printf("MapTask: Worker %v completed Map task for file %v\n", reply.WorkerID, reply.TaskFile)
 }
 
 // call init worker for workID

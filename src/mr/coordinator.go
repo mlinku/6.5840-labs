@@ -51,20 +51,27 @@ func CoordinateTask(c *Coordinator, reply *AssignTaskReply) {
 		reply.TaskType = TaskMap
 		reply.TaskFile = c.MapFiles[c.MapTaskID]
 		// generate intermediate file prefix
-		reply.GenerateFile = fmt.Sprintf("mr-%d-", c.MapTaskID)
+		reply.GenerateFile = c.MapFiles[c.MapTaskID]
 		c.MapTaskID++
-		fmt.Printf("Assigned Map task for file %v to WorkerID %v\n", reply.TaskFile, reply.WorkerID)
+		fmt.Printf("Assigned Map task for file %v to WorkerID %v, generated intermediate files %v\n", reply.TaskFile, reply.WorkerID, reply.GenerateFile)
+		return
+	} else if c.ReduceTaskID < c.NReduce {
+		reply.TaskType = TaskReduce
+		reply.TaskFile = fmt.Sprintf("mr-%d-%d", c.MapTaskID, c.ReduceTaskID)
+		reply.GenerateFile = fmt.Sprintf("mr-out-%d", c.ReduceTaskID)
+		c.ReduceTaskID++
+		fmt.Printf("Assigned Reduce task for file %v to WorkerID %v\n", reply.TaskFile, reply.WorkerID)
 		return
 	}
+	// if all tasks are offered, assign a wait task
+	reply.TaskType = TaskWait
+	fmt.Printf("All tasks offered. Instructing WorkerID %v to wait.\n", reply.WorkerID)
+
 }
 func (c *Coordinator) AssignTask(arg *WorkerArgs, reply *AssignTaskReply) error {
 	reply.WorkerID = arg.WorkerID
 
 	CoordinateTask(c, reply)
-
-	reply.TaskType = TaskMap
-	reply.TaskFile = "pg-being_ernest.txt"
-	fmt.Printf("Assign Task RPC called for WorkerID %v: assigned Map task for file %v\n", reply.WorkerID, reply.TaskFile)
 	return nil
 }
 
