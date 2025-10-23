@@ -7,7 +7,6 @@ import (
 	"log"
 	"net/rpc"
 	"os"
-	"time"
 )
 
 // Map functions return a slice of KeyValue.
@@ -73,10 +72,9 @@ func MapTask(reply *AssignTaskReply, mapf func(string, string) []KeyValue) {
 	intermediate = append(intermediate, kva...)
 	fmt.Printf("MapTask: read %v and produced %v key-value pairs\n", reply.TaskFile, len(intermediate))
 
-	fmt.Printf("MapTask: generated intermediate files %v\n", reply.TaskFile)
 	fmt.Printf("MapTask: generated intermediate files %v\n", reply.GenerateFile)
-	time.Sleep(100 * time.Second)
-	NReduce := int(reply.GenerateFile[len(reply.GenerateFile)-1] - '0') // extract NReduce from filename
+	NReduce := int(reply.GenerateFile[len(reply.GenerateFile)-1]) // extract NReduce from filename
+	fmt.Printf("MapTask: NReduce is %v\n", NReduce)
 
 	// write intermediate key-value pairs to intermediate files
 	for _, kv := range intermediate {

@@ -51,7 +51,7 @@ func CoordinateTask(c *Coordinator, reply *AssignTaskReply) {
 		reply.TaskType = TaskMap
 		reply.TaskFile = c.MapFiles[c.MapTaskID]
 		// generate intermediate file prefix
-		reply.GenerateFile = c.MapFiles[c.MapTaskID]
+		reply.GenerateFile = fmt.Sprintf("mr-%d-%d", c.MapTaskID, c.NReduce)
 		c.MapTaskID++
 		fmt.Printf("Assigned Map task for file %v to WorkerID %v, generated intermediate files %v\n", reply.TaskFile, reply.WorkerID, reply.GenerateFile)
 		return
@@ -62,10 +62,11 @@ func CoordinateTask(c *Coordinator, reply *AssignTaskReply) {
 		c.ReduceTaskID++
 		fmt.Printf("Assigned Reduce task for file %v to WorkerID %v\n", reply.TaskFile, reply.WorkerID)
 		return
+	} else {
+		reply.TaskType = TaskWait
+		fmt.Printf("All tasks offered. Instructing WorkerID %v to wait.\n", reply.WorkerID)
 	}
 	// if all tasks are offered, assign a wait task
-	reply.TaskType = TaskWait
-	fmt.Printf("All tasks offered. Instructing WorkerID %v to wait.\n", reply.WorkerID)
 
 }
 func (c *Coordinator) AssignTask(arg *WorkerArgs, reply *AssignTaskReply) error {
@@ -105,6 +106,10 @@ func (c *Coordinator) Done() bool {
 func MakeCoordinator(files []string, nReduce int) *Coordinator {
 	c := Coordinator{}
 	c.WorkerIDCounter = 0
+	c.MapFiles = files
+	c.NReduce = nReduce
+	c.MapTaskID = 0
+	c.ReduceTaskID = 0
 	// Your code here.
 
 	c.server()
