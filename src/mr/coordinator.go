@@ -7,27 +7,34 @@ import (
 	"net/http"
 	"net/rpc"
 	"os"
+	"sync"
+)
+
+type TaskState int
+
+const (
+	TaskStatePending TaskState = iota
+	TaskStateInProgress
+	TaskStateCompleted
 )
 
 type Coordinator struct {
+	// lock to protect shared state
+	mu sync.Mutex
 	// mantain a counter for worker IDs, initialize to 0
 	WorkerIDCounter int
 	// input files for map tasks
 	MapFiles []string
-	// map task ID, used to assign unique IDs to map tasks and track progress
-	MapTaskID int
-	// record successful map tasks
-	MapTaskDone map[int]bool
+	// record map tasks state
+	MapTaskState map[int]TaskState
 	// record number of successful map tasks
 	NumDoneMapTasks int
 	// number of reduce workers
 	NReduce int
 	// intermediate files for reduce tasks
 	ReduceFiles []string
-	// reduce task ID, used to assign unique IDs to reduce tasks and track progress
-	ReduceTaskID int
-	// record successful reduce tasks
-	ReduceTaskDone map[int]bool
+	// record reduce tasks state
+	ReduceTaskState map[int]TaskState
 	// record number of successful reduce tasks
 	NumDoneReduceTasks int
 }
@@ -55,26 +62,25 @@ func (c *Coordinator) InitWorker(args *WorkerArgs, reply *InitWorkerReply) error
 // first complete all map tasks, then reduce tasks
 func CoordinateTask(c *Coordinator, reply *AssignTaskReply) {
 	// if there are remaining map tasks, assign a map task
-	if c.MapTaskID < len(c.MapFiles) {
+	if MapTaskID := freeMapTaskID(c); MapTaskID != -1 {
 		reply.TaskType = TaskMap
-		reply.TaskFile = c.MapFiles[c.MapTaskID]
+		reply.TaskFile = c.MapFiles[MapTaskID]
 		// generate intermediate file prefix
-		reply.TaskID = c.MapTaskID
+		reply.TaskID = MapTaskID
 		reply.TaskNum = c.NReduce
-		c.MapTaskID++
+		c.MapTaskState[MapTaskID] = TaskStateInProgress
 		fmt.Printf("Assigned Map task for file %v to WorkerID %v\n", reply.TaskFile, reply.WorkerID)
 		return
-	} else if c.MapTaskID == len(c.MapFiles) && c.NumDoneMapTasks < len(c.MapFiles) {
+	} else if c.NumDoneMapTasks < len(c.MapFiles) {
 		// there are still map tasks in progress
 		reply.TaskType = TaskWait
 		fmt.Printf("Map tasks in progress. Instructing WorkerID %v to wait.\n", reply.WorkerID)
 		return
-	} else if c.NumDoneMapTasks == len(c.MapFiles) && c.ReduceTaskID < c.NReduce {
+	} else if ReduceTaskID := freeReduceTaskID(c); ReduceTaskID != -1 {
 		reply.TaskType = TaskReduce
-		reply.TaskFile = fmt.Sprintf("mr-%d-%d", c.MapTaskID, c.ReduceTaskID)
-		reply.TaskID = c.ReduceTaskID
+		reply.TaskFile = fmt.Sprintf("mr-%d-%d", c.MapTaskID, ReduceTaskID)
+		reply.TaskID = ReduceTaskID
 		reply.TaskNum = len(c.MapFiles)
-		c.ReduceTaskID++
 		fmt.Printf("Assigned Reduce task for file %v to WorkerID %v\n", reply.TaskFile, reply.WorkerID)
 		return
 	} else if c.ReduceTaskID == c.NReduce && c.NumDoneReduceTasks < c.NReduce {
