@@ -16,12 +16,20 @@ type Coordinator struct {
 	MapFiles []string
 	// map task ID, used to assign unique IDs to map tasks and track progress
 	MapTaskID int
+	// record successful map tasks
+	MapTaskDone map[int]bool
+	// record number of successful map tasks
+	NumDoneMapTasks int
 	// number of reduce workers
 	NReduce int
 	// intermediate files for reduce tasks
 	ReduceFiles []string
 	// reduce task ID, used to assign unique IDs to reduce tasks and track progress
 	ReduceTaskID int
+	// record successful reduce tasks
+	ReduceTaskDone map[int]bool
+	// record number of successful reduce tasks
+	NumDoneReduceTasks int
 }
 
 // Your code here -- RPC handlers for the worker to call.
@@ -51,28 +59,53 @@ func CoordinateTask(c *Coordinator, reply *AssignTaskReply) {
 		reply.TaskType = TaskMap
 		reply.TaskFile = c.MapFiles[c.MapTaskID]
 		// generate intermediate file prefix
-		reply.GenerateFile = fmt.Sprintf("mr-%d-%d", c.MapTaskID, c.NReduce)
+		reply.TaskID = c.MapTaskID
+		reply.TaskNum = c.NReduce
 		c.MapTaskID++
-		fmt.Printf("Assigned Map task for file %v to WorkerID %v, generated intermediate files %v\n", reply.TaskFile, reply.WorkerID, reply.GenerateFile)
+		fmt.Printf("Assigned Map task for file %v to WorkerID %v\n", reply.TaskFile, reply.WorkerID)
 		return
-	} else if c.ReduceTaskID < c.NReduce {
+	} else if c.MapTaskID == len(c.MapFiles) && c.NumDoneMapTasks < len(c.MapFiles) {
+		// there are still map tasks in progress
+		reply.TaskType = TaskWait
+		fmt.Printf("Map tasks in progress. Instructing WorkerID %v to wait.\n", reply.WorkerID)
+		return
+	} else if c.NumDoneMapTasks == len(c.MapFiles) && c.ReduceTaskID < c.NReduce {
 		reply.TaskType = TaskReduce
 		reply.TaskFile = fmt.Sprintf("mr-%d-%d", c.MapTaskID, c.ReduceTaskID)
-		reply.GenerateFile = fmt.Sprintf("mr-out-%d", c.ReduceTaskID)
+		reply.TaskID = c.ReduceTaskID
+		reply.TaskNum = len(c.MapFiles)
 		c.ReduceTaskID++
 		fmt.Printf("Assigned Reduce task for file %v to WorkerID %v\n", reply.TaskFile, reply.WorkerID)
 		return
-	} else {
+	} else if c.ReduceTaskID == c.NReduce && c.NumDoneReduceTasks < c.NReduce {
+		// there are still reduce tasks in progress
 		reply.TaskType = TaskWait
-		fmt.Printf("All tasks offered. Instructing WorkerID %v to wait.\n", reply.WorkerID)
+		fmt.Printf("Reduce tasks in progress. Instructing WorkerID %v to wait.\n", reply.WorkerID)
+		return
+	} else if c.NumDoneMapTasks == len(c.MapFiles) && c.NumDoneReduceTasks == c.NReduce {
+		reply.TaskType = TaskExit
+		fmt.Printf("All tasks offered. Instructing WorkerID %v to exit.\n", reply.WorkerID)
 	}
-	// if all tasks are offered, assign a wait task
-
 }
 func (c *Coordinator) AssignTask(arg *WorkerArgs, reply *AssignTaskReply) error {
 	reply.WorkerID = arg.WorkerID
 
 	CoordinateTask(c, reply)
+	return nil
+}
+
+func (c *Coordinator) ReportTask(arg *WorkerArgs, reply *ReportTaskReply) error {
+	// update the coordinator's state based on the worker's report
+	switch arg.CallType {
+	case CallReportMap:
+		c.NumDoneMapTasks++
+		c.MapTaskDone[arg.TaskID] = true
+		reply.Success = true
+	case CallReportReduce:
+		c.NumDoneReduceTasks++
+		c.ReduceTaskDone[arg.TaskID] = true
+		reply.Success = true
+	}
 	return nil
 }
 
@@ -110,6 +143,10 @@ func MakeCoordinator(files []string, nReduce int) *Coordinator {
 	c.NReduce = nReduce
 	c.MapTaskID = 0
 	c.ReduceTaskID = 0
+	c.MapTaskDone = make(map[int]bool)
+	c.ReduceTaskDone = make(map[int]bool)
+	c.NumDoneMapTasks = 0
+	c.NumDoneReduceTasks = 0
 	// Your code here.
 
 	c.server()

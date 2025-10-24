@@ -25,7 +25,8 @@ type ExampleReply struct {
 // worker_rpc_definition
 type WorkerArgs struct {
 	WorkerID int
-	CallType CallType // 0: init 1: assign task 2: report task
+	CallType CallType // 0: init 1: assign task 2: report map task 3: report reduce task
+	TaskID   int      // used for report task
 }
 
 type InitWorkerReply struct {
@@ -33,18 +34,24 @@ type InitWorkerReply struct {
 }
 
 type AssignTaskReply struct {
-	WorkerID     int
-	TaskType     TaskType //  0: Map 1: Reduce 2: Wait 3: Exit
-	TaskFile     string   // Map task: input file; Reduce task: intermediate files
-	GenerateFile string   // Map task: intermediate file prefix; Reduce task: output file
+	WorkerID int
+	TaskType TaskType //  0: Map 1: Reduce 2: Wait 3: Exit
+	TaskFile string   // Map task: input file; Reduce task: intermediate files
+	TaskID   int      // TaskID
+	TaskNum  int      // Total number of tasks
+}
+
+type ReportTaskReply struct {
+	Success bool
 }
 
 type CallType int
 
 const (
 	CallInit CallType = iota
-	CallAssignTask
-	CallReportTask
+	CallAssign
+	CallReportMap
+	CallReportReduce
 )
 
 type TaskType int
