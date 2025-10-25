@@ -17,6 +17,7 @@ const (
 	TaskStatePending TaskState = iota
 	TaskStateInProgress
 	TaskStateCompleted
+	TaskStateNoExist
 )
 
 type Coordinator struct {
@@ -30,7 +31,8 @@ type Coordinator struct {
 	mapTasks        []MapTask
 	numDoneMapTasks int
 	// number of reduce workers
-	nReduce int
+	nReduce    int
+	nReduceNum int
 	// intermediate files for reduce tasks
 	reduceTasks        []ReduceTask
 	numDoneReduceTasks int
@@ -69,14 +71,14 @@ func CoordinateTask(c *Coordinator, reply *AssignTaskReply) {
 		defer c.mu.Unlock()
 		c.mapTasks[MapTaskID].State = TaskStateInProgress
 		c.mapTasks[MapTaskID].AssignTime = time.Now()
-		fmt.Printf("Assigned Map task for file %v to WorkerID %v\n", reply.TaskFile, reply.WorkerID)
+		// fmt.Printf("Assigned Map task for file %v to WorkerID %v\n", reply.TaskFile, reply.WorkerID)
 		return
 	} else if c.numDoneMapTasks < c.mMap {
 		// there are still map tasks in progress
 		reply.TaskType = TaskWait
-		fmt.Printf("Map tasks in progress. Instructing WorkerID %v to wait.\n", reply.WorkerID)
+		// fmt.Printf("Map tasks in progress. Instructing WorkerID %v to wait.\n", reply.WorkerID)
 		return
-	} else if ReduceTaskID := FindFreeReduceTaskID(c); ReduceTaskID != -1 {
+	} else if ReduceTaskID := FindFreeReduceTaskID(c); ReduceTaskID != -1 && c.numDoneMapTasks == c.mMap {
 		reply.TaskType = TaskReduce
 		reply.TaskFile = "" // reduce tasks do not have specific input files
 		reply.TaskID = ReduceTaskID
@@ -85,16 +87,16 @@ func CoordinateTask(c *Coordinator, reply *AssignTaskReply) {
 		defer c.mu.Unlock()
 		c.reduceTasks[ReduceTaskID].State = TaskStateInProgress
 		c.reduceTasks[ReduceTaskID].AssignTime = time.Now()
-		fmt.Printf("Assigned Reduce task for file %v to WorkerID %v\n", reply.TaskFile, reply.WorkerID)
+		// fmt.Printf("Assigned Reduce task for file %v to WorkerID %v\n", reply.TaskFile, reply.WorkerID)
 		return
-	} else if c.numDoneReduceTasks < c.nReduce {
+	} else if c.numDoneReduceTasks < c.nReduceNum {
 		// there are still reduce tasks in progress
 		reply.TaskType = TaskWait
-		fmt.Printf("Reduce tasks in progress. Instructing WorkerID %v to wait.\n", reply.WorkerID)
+		// fmt.Printf("Reduce tasks in progress. Instructing WorkerID %v to wait.\n", reply.WorkerID)
 		return
-	} else if c.numDoneMapTasks == c.mMap && c.numDoneReduceTasks == c.nReduce {
+	} else if c.numDoneMapTasks == c.mMap && c.numDoneReduceTasks == c.nReduceNum {
 		reply.TaskType = TaskExit
-		fmt.Printf("All tasks offered. Instructing WorkerID %v to exit.\n", reply.WorkerID)
+		// fmt.Printf("All tasks offered. Instructing WorkerID %v to exit.\n", reply.WorkerID)
 	}
 }
 
@@ -102,6 +104,8 @@ func FindFreeMapTaskID(c *Coordinator) int {
 	if c.numDoneMapTasks == c.mMap {
 		return -1
 	}
+	c.mu.Lock()
+	defer c.mu.Unlock()
 	for i, mapTask := range c.mapTasks {
 		if mapTask.State == TaskStatePending {
 			return i
@@ -111,9 +115,11 @@ func FindFreeMapTaskID(c *Coordinator) int {
 }
 
 func FindFreeReduceTaskID(c *Coordinator) int {
-	if c.numDoneReduceTasks == c.nReduce {
+	if c.numDoneReduceTasks == c.nReduceNum {
 		return -1
 	}
+	c.mu.Lock()
+	defer c.mu.Unlock()
 	for i, reduceTask := range c.reduceTasks {
 		if reduceTask.State == TaskStatePending {
 			return i
@@ -135,12 +141,26 @@ func (c *Coordinator) ReportTask(arg *WorkerArgs, reply *ReportTaskReply) error 
 	defer c.mu.Unlock()
 	switch arg.CallType {
 	case CallReportMap:
-		c.numDoneMapTasks++
-		c.mapTasks[arg.TaskID].State = TaskStateCompleted
+
+		if c.mapTasks[arg.TaskID].State != TaskStateCompleted {
+			c.mapTasks[arg.TaskID].State = TaskStateCompleted
+			c.numDoneMapTasks++
+			for _, reduceTaskID := range arg.SuccessReduce {
+				if c.reduceTasks[reduceTaskID].State == TaskStateNoExist {
+					c.reduceTasks[reduceTaskID].State = TaskStatePending
+					c.nReduceNum++
+				}
+			}
+
+			// fmt.Printf("Worker %d reported completion of Map task %d\n", arg.WorkerID, arg.TaskID)
+		}
 		reply.Success = true
 	case CallReportReduce:
-		c.numDoneReduceTasks++
-		c.reduceTasks[arg.TaskID].State = TaskStateCompleted
+		if c.reduceTasks[arg.TaskID].State != TaskStateCompleted {
+			c.reduceTasks[arg.TaskID].State = TaskStateCompleted
+			c.numDoneReduceTasks++
+			// fmt.Printf("Worker %d reported completion of Reduce task %d\n", arg.WorkerID, arg.TaskID)
+		}
 		reply.Success = true
 	}
 	return nil
@@ -158,22 +178,22 @@ func (c *Coordinator) CheckTaskTimeouts() {
 			// check for map task timeouts
 			for i := range c.mapTasks {
 				if c.mapTasks[i].State == TaskStateInProgress {
-					if time.Since(c.mapTasks[i].AssignTime) > 10*time.Second {
+					if time.Since(c.mapTasks[i].AssignTime) > 3*time.Second {
 						c.mapTasks[i].State = TaskStatePending
 						c.mapTasks[i].AssignTime = time.Time{}
-						fmt.Printf("Map task for file %v timed out. Resetting to pending.\n", c.mapTasks[i].FileName)
+						// fmt.Printf("Map task for file %v timed out. Resetting to pending.\n", c.mapTasks[i].FileName)
 					}
 				}
 			}
 		}
-		if c.numDoneReduceTasks != c.nReduce {
+		if c.numDoneReduceTasks != c.nReduceNum {
 			// check for reduce task timeouts
 			for i := range c.reduceTasks {
 				if c.reduceTasks[i].State == TaskStateInProgress {
 					if time.Since(c.reduceTasks[i].AssignTime) > 3*time.Second {
 						c.reduceTasks[i].State = TaskStatePending
 						c.reduceTasks[i].AssignTime = time.Time{}
-						fmt.Printf("Reduce task %v timed out. Resetting to pending.\n", i)
+						// fmt.Printf("Reduce task %v timed out. Resetting to pending.\n", i)
 					}
 				}
 			}
@@ -203,9 +223,11 @@ func (c *Coordinator) server() {
 // if the entire job has finished.
 func (c *Coordinator) Done() bool {
 	ret := false
-
-	// Your code here.
-
+	c.mu.Lock()
+	defer c.mu.Unlock()
+	if c.numDoneMapTasks == c.mMap && c.numDoneReduceTasks == c.nReduceNum {
+		ret = true
+	}
 	return ret
 }
 
@@ -224,10 +246,10 @@ func MakeCoordinator(files []string, nReduce int) *Coordinator {
 	c.nReduce = nReduce
 	c.reduceTasks = make([]ReduceTask, nReduce)
 	for i := 0; i < nReduce; i++ {
-		c.reduceTasks[i] = ReduceTask{State: TaskStatePending}
+		c.reduceTasks[i] = ReduceTask{State: TaskStateNoExist}
 	}
 	c.numDoneReduceTasks = 0
-
+	c.nReduceNum = 0
 	c.server()
 	return &c
 }

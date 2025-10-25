@@ -27,6 +27,8 @@ type WorkerArgs struct {
 	WorkerID int
 	CallType CallType // 0: init 1: assign task 2: report map task 3: report reduce task
 	TaskID   int      // used for report task
+	// for report map task
+	SuccessReduce []int
 }
 
 type InitWorkerReply struct {

@@ -53,26 +53,26 @@ func Worker(mapf func(string, string) []KeyValue,
 			case TaskMap:
 				// map task
 				state = 1
-				fmt.Printf("Worker %v: received Map task for file %v\n", reply.WorkerID, reply.TaskFile)
+				// fmt.Printf("Worker %v: received Map task for file %v\n", reply.WorkerID, reply.TaskFile)
 				go ExecuteMapTask(&reply, mapf, &state)
 			case TaskReduce:
 				// reduce task
 				state = 2
-				fmt.Printf("Worker %v: received Reduce task for file %v\n", reply.WorkerID, reply.TaskFile)
+				// fmt.Printf("Worker %v: received Reduce task for file %v\n", reply.WorkerID, reply.TaskFile)
 				go ExecuteReduceTask(&reply, reducef, &state)
 			case TaskWait:
 				// wait task
 				state = 3
-				fmt.Printf("Worker %v: received Wait task\n", reply.WorkerID)
+				// fmt.Printf("Worker %v: received Wait task\n", reply.WorkerID)
 				time.Sleep(time.Second)
 				state = 0
 			case TaskExit:
 				// exit task
 				state = 4
-				fmt.Printf("Worker %v: received Exit task, exiting\n", reply.WorkerID)
+				// fmt.Printf("Worker %v: received Exit task, exiting\n", reply.WorkerID)
 				return
 			default:
-				fmt.Printf("Worker %v: received unknown task type %v\n", reply.WorkerID, reply.TaskType)
+				// fmt.Printf("Worker %v: received unknown task type %v\n", reply.WorkerID, reply.TaskType)
 			}
 
 		}
@@ -101,10 +101,10 @@ func ExecuteMapTask(reply *AssignTaskReply, mapf func(string, string) []KeyValue
 	kva := mapf(reply.TaskFile, string(content))
 
 	intermediate = append(intermediate, kva...)
-	fmt.Printf("MapTask: read %v and produced %v key-value pairs\n", reply.TaskFile, len(intermediate))
+	// fmt.Printf("MapTask: read %v and produced %v key-value pairs\n", reply.TaskFile, len(intermediate))
 
 	NReduce := reply.TaskNum
-	fmt.Printf("MapTask: NReduce is %v\n", NReduce)
+	// fmt.Printf("MapTask: NReduce is %v\n", NReduce)
 
 	// randnum used to generate unique temp file names
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
@@ -125,18 +125,24 @@ func ExecuteMapTask(reply *AssignTaskReply, mapf func(string, string) []KeyValue
 		}
 		intermediateFile.Close()
 	}
-	fmt.Printf("MapTask: Worker %v completed Map task for file %v\n", reply.WorkerID, reply.TaskFile)
+	// fmt.Printf("MapTask: Worker %v completed Map task for file %v\n", reply.WorkerID, reply.TaskFile)
 	*state = 0
 	// rename tmp files
+	successReduce := []int{}
 	for reduceTaskNum := 0; reduceTaskNum < NReduce; reduceTaskNum++ {
 		tmpFileName := fmt.Sprintf("mr-%d-%d-tmp-%d", reply.TaskID, reduceTaskNum, randNum)
 		finalFileName := fmt.Sprintf("mr-%d-%d", reply.TaskID, reduceTaskNum)
 		err := os.Rename(tmpFileName, finalFileName)
 		if err != nil {
-			log.Fatalf("cannot rename file %v to %v", tmpFileName, finalFileName)
+			// log.Printf("cannot rename file %v to %v", tmpFileName, finalFileName)
+			// log.Printf("error: %v", err.Error())
+			// delete tmp files
+			// os.Remove(tmpFileName)
+		} else {
+			successReduce = append(successReduce, reduceTaskNum)
 		}
 	}
-	CallReportMapTask(reply.WorkerID, reply.TaskID)
+	CallReportMapTask(reply.WorkerID, reply.TaskID, successReduce)
 }
 
 func ExecuteReduceTask(reply *AssignTaskReply, reducef func(string, []string) string, state *int) {
@@ -164,7 +170,7 @@ func ExecuteReduceTask(reply *AssignTaskReply, reducef func(string, []string) st
 			intermediate = append(intermediate, kv)
 		}
 	}
-	fmt.Printf("ReduceTask: Worker %v read %v key-value pairs for Reduce task %v\n", reply.WorkerID, len(intermediate), ReduceID)
+	// fmt.Printf("ReduceTask: Worker %v read %v key-value pairs for Reduce task %v\n", reply.WorkerID, len(intermediate), ReduceID)
 
 	// sort intermediate key-value pairs by key
 	kvMap := make(map[string][]string)
@@ -187,9 +193,11 @@ func ExecuteReduceTask(reply *AssignTaskReply, reducef func(string, []string) st
 	finalOutputFileName := fmt.Sprintf("mr-out-%d", ReduceID)
 	err = os.Rename(outputFileName, finalOutputFileName)
 	if err != nil {
-		log.Fatalf("cannot rename file %v to %v", outputFileName, finalOutputFileName)
+		// log.Printf("cannot rename file %v to %v", outputFileName, finalOutputFileName)
+		// delete tmp output file
+		os.Remove(outputFileName)
 	}
-	fmt.Printf("ReduceTask: Worker %v completed Reduce task %v\n", reply.WorkerID, ReduceID)
+	// fmt.Printf("ReduceTask: Worker %v completed Reduce task %v\n", reply.WorkerID, ReduceID)
 	*state = 0
 	CallReportReduceTask(reply.WorkerID, reply.TaskID)
 }
@@ -204,10 +212,10 @@ func CallInitWorker() int {
 
 	ok := call("Coordinator.InitWorker", &args, &reply)
 	if ok {
-		fmt.Printf("Init Worker reply WorkerID %v\n", reply.WorkerID)
+		// fmt.Printf("Init Worker reply WorkerID %v\n", reply.WorkerID)
 		return reply.WorkerID
 	} else {
-		fmt.Printf("call failed!\n")
+		// fmt.Printf("call failed!\n")
 	}
 	return -1
 }
@@ -219,28 +227,29 @@ func CallTask(workerID int) (reply AssignTaskReply) {
 	args.WorkerID = workerID
 	ok := call("Coordinator.AssignTask", &args, &reply)
 	if ok {
-		fmt.Printf("Assign Task reply WorkerID %v TaskType %v TaskFile %v\n", reply.WorkerID, reply.TaskType, reply.TaskFile)
+		// fmt.Printf("Assign Task reply WorkerID %v TaskType %v TaskFile %v\n", reply.WorkerID, reply.TaskType, reply.TaskFile)
 
 	} else {
-		fmt.Printf("call failed!\n")
+		// fmt.Printf("call failed!\n")
 	}
 	return
 
 }
 
-func CallReportMapTask(workerID int, taskID int) {
+func CallReportMapTask(workerID int, taskID int, successReduce []int) {
 	args := WorkerArgs{}
 	args.WorkerID = workerID
 	args.CallType = CallReportMap
 	args.TaskID = taskID
+	args.SuccessReduce = successReduce
 
 	reply := ReportTaskReply{}
 
 	ok := call("Coordinator.ReportTask", &args, &reply)
 	if ok {
-		fmt.Printf("Report Task reply Success %v\n", reply.Success)
+		// fmt.Printf("Report Task reply Success %v\n", reply.Success)
 	} else {
-		fmt.Printf("call failed!\n")
+		// fmt.Printf("call failed!\n")
 	}
 }
 
@@ -254,9 +263,9 @@ func CallReportReduceTask(workerID int, taskID int) {
 
 	ok := call("Coordinator.ReportTask", &args, &reply)
 	if ok {
-		fmt.Printf("Report Task reply Success %v\n", reply.Success)
+		// fmt.Printf("Report Task reply Success %v\n", reply.Success)
 	} else {
-		fmt.Printf("call failed!\n")
+		// fmt.Printf("call failed!\n")
 	}
 }
 
