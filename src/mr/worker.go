@@ -6,6 +6,7 @@ import (
 	"hash/fnv"
 	"io"
 	"log"
+	"math/rand"
 	"net/rpc"
 	"os"
 	"time"
@@ -15,6 +16,16 @@ import (
 type KeyValue struct {
 	Key   string
 	Value string
+}
+type MapTask struct {
+	FileName   string
+	State      TaskState
+	AssignTime time.Time
+}
+
+type ReduceTask struct {
+	State      TaskState
+	AssignTime time.Time
 }
 
 // use ihash(key) % NReduce to choose the reduce
@@ -30,25 +41,25 @@ func Worker(mapf func(string, string) []KeyValue,
 	reducef func(string, []string) string) {
 
 	// init worker RPC call for unique workerID
-	CallInitWorker()
+	workerID := CallInitWorker()
 
 	state := 0 // 0: idle 1: map 2: reduce 3: wait 4: exit
 
 	for {
 		if state == 0 {
 			// idle state, call task from coordinator
-			reply := CallTask()
+			reply := CallTask(workerID)
 			switch reply.TaskType {
 			case TaskMap:
 				// map task
 				state = 1
 				fmt.Printf("Worker %v: received Map task for file %v\n", reply.WorkerID, reply.TaskFile)
-				go MapTask(&reply, mapf, &state)
+				go ExecuteMapTask(&reply, mapf, &state)
 			case TaskReduce:
 				// reduce task
 				state = 2
 				fmt.Printf("Worker %v: received Reduce task for file %v\n", reply.WorkerID, reply.TaskFile)
-				go ReduceTask(&reply, reducef, &state)
+				go ExecuteReduceTask(&reply, reducef, &state)
 			case TaskWait:
 				// wait task
 				state = 3
@@ -73,7 +84,7 @@ func Worker(mapf func(string, string) []KeyValue,
 	}
 }
 
-func MapTask(reply *AssignTaskReply, mapf func(string, string) []KeyValue, state *int) {
+func ExecuteMapTask(reply *AssignTaskReply, mapf func(string, string) []KeyValue, state *int) {
 	// read file content
 	intermediate := []KeyValue{}
 	file, err := os.Open(reply.TaskFile)
@@ -95,10 +106,14 @@ func MapTask(reply *AssignTaskReply, mapf func(string, string) []KeyValue, state
 	NReduce := reply.TaskNum
 	fmt.Printf("MapTask: NReduce is %v\n", NReduce)
 
+	// randnum used to generate unique temp file names
+	r := rand.New(rand.NewSource(time.Now().UnixNano()))
+	randNum := r.Intn(1000000)
+
 	// write intermediate key-value pairs to intermediate files
 	for _, kv := range intermediate {
 		reduceTaskNum := ihash(kv.Key) % NReduce
-		intermediateFileName := fmt.Sprintf("mr-%d-%d", reply.TaskID, reduceTaskNum)
+		intermediateFileName := fmt.Sprintf("mr-%d-%d-tmp-%d", reply.TaskID, reduceTaskNum, randNum)
 		intermediateFile, err := os.OpenFile(intermediateFileName, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0644)
 		if err != nil {
 			log.Fatalf("cannot open intermediate file %v", intermediateFileName)
@@ -112,15 +127,27 @@ func MapTask(reply *AssignTaskReply, mapf func(string, string) []KeyValue, state
 	}
 	fmt.Printf("MapTask: Worker %v completed Map task for file %v\n", reply.WorkerID, reply.TaskFile)
 	*state = 0
+	// rename tmp files
+	for reduceTaskNum := 0; reduceTaskNum < NReduce; reduceTaskNum++ {
+		tmpFileName := fmt.Sprintf("mr-%d-%d-tmp-%d", reply.TaskID, reduceTaskNum, randNum)
+		finalFileName := fmt.Sprintf("mr-%d-%d", reply.TaskID, reduceTaskNum)
+		err := os.Rename(tmpFileName, finalFileName)
+		if err != nil {
+			log.Fatalf("cannot rename file %v to %v", tmpFileName, finalFileName)
+		}
+	}
 	CallReportMapTask(reply.WorkerID, reply.TaskID)
 }
 
-func ReduceTask(reply *AssignTaskReply, reducef func(string, []string) string, state *int) {
+func ExecuteReduceTask(reply *AssignTaskReply, reducef func(string, []string) string, state *int) {
 	intermediate := []KeyValue{}
 
 	ReduceID := reply.TaskID
 	NMap := reply.TaskNum
 
+	// randnum used to generate unique temp file names
+	r := rand.New(rand.NewSource(time.Now().UnixNano()))
+	randNum := r.Intn(1000000)
 	// read intermediate files
 	for m := 0; m < NMap; m++ {
 		intermediateFileName := fmt.Sprintf("mr-%d-%d", m, ReduceID)
@@ -146,7 +173,7 @@ func ReduceTask(reply *AssignTaskReply, reducef func(string, []string) string, s
 	}
 
 	// write output file
-	outputFileName := fmt.Sprintf("mr-out-%d", ReduceID)
+	outputFileName := fmt.Sprintf("mr-out-%d-tmp-%d", ReduceID, randNum)
 	outputFile, err := os.Create(outputFileName)
 	if err != nil {
 		log.Fatalf("cannot create output file %v", outputFileName)
@@ -156,13 +183,19 @@ func ReduceTask(reply *AssignTaskReply, reducef func(string, []string) string, s
 		fmt.Fprintf(outputFile, "%v %v\n", key, output)
 	}
 	outputFile.Close()
+	// rename tmp output file to final output file
+	finalOutputFileName := fmt.Sprintf("mr-out-%d", ReduceID)
+	err = os.Rename(outputFileName, finalOutputFileName)
+	if err != nil {
+		log.Fatalf("cannot rename file %v to %v", outputFileName, finalOutputFileName)
+	}
 	fmt.Printf("ReduceTask: Worker %v completed Reduce task %v\n", reply.WorkerID, ReduceID)
 	*state = 0
 	CallReportReduceTask(reply.WorkerID, reply.TaskID)
 }
 
 // call init worker for workID
-func CallInitWorker() {
+func CallInitWorker() int {
 	args := WorkerArgs{}
 	args.WorkerID = 0
 	args.CallType = CallInit
@@ -172,17 +205,18 @@ func CallInitWorker() {
 	ok := call("Coordinator.InitWorker", &args, &reply)
 	if ok {
 		fmt.Printf("Init Worker reply WorkerID %v\n", reply.WorkerID)
+		return reply.WorkerID
 	} else {
 		fmt.Printf("call failed!\n")
 	}
-
+	return -1
 }
 
 // call task from coordinator
-func CallTask() (reply AssignTaskReply) {
+func CallTask(workerID int) (reply AssignTaskReply) {
 	args := WorkerArgs{}
 	args.CallType = CallAssign
-
+	args.WorkerID = workerID
 	ok := call("Coordinator.AssignTask", &args, &reply)
 	if ok {
 		fmt.Printf("Assign Task reply WorkerID %v TaskType %v TaskFile %v\n", reply.WorkerID, reply.TaskType, reply.TaskFile)

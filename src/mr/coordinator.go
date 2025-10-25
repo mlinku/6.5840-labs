@@ -8,6 +8,7 @@ import (
 	"net/rpc"
 	"os"
 	"sync"
+	"time"
 )
 
 type TaskState int
@@ -21,22 +22,18 @@ const (
 type Coordinator struct {
 	// lock to protect shared state
 	mu sync.Mutex
-	// mantain a counter for worker IDs, initialize to 0
-	WorkerIDCounter int
-	// input files for map tasks
-	MapFiles []string
-	// record map tasks state
-	MapTaskState map[int]TaskState
-	// record number of successful map tasks
-	NumDoneMapTasks int
+	// worker id counter
+	workerIDCounter int
+	// number of map tasks
+	mMap int
+	// map tasks and their state
+	mapTasks        []MapTask
+	numDoneMapTasks int
 	// number of reduce workers
-	NReduce int
+	nReduce int
 	// intermediate files for reduce tasks
-	ReduceFiles []string
-	// record reduce tasks state
-	ReduceTaskState map[int]TaskState
-	// record number of successful reduce tasks
-	NumDoneReduceTasks int
+	reduceTasks        []ReduceTask
+	numDoneReduceTasks int
 }
 
 // Your code here -- RPC handlers for the worker to call.
@@ -52,8 +49,8 @@ func (c *Coordinator) Example(args *ExampleArgs, reply *ExampleReply) error {
 
 // init worker RPC handler
 func (c *Coordinator) InitWorker(args *WorkerArgs, reply *InitWorkerReply) error {
-	reply.WorkerID = c.WorkerIDCounter
-	c.WorkerIDCounter++
+	reply.WorkerID = c.workerIDCounter
+	c.workerIDCounter++
 	fmt.Println("Init Worker RPC called with WorkerID:", reply.WorkerID)
 	return nil
 }
@@ -62,37 +59,69 @@ func (c *Coordinator) InitWorker(args *WorkerArgs, reply *InitWorkerReply) error
 // first complete all map tasks, then reduce tasks
 func CoordinateTask(c *Coordinator, reply *AssignTaskReply) {
 	// if there are remaining map tasks, assign a map task
-	if MapTaskID := freeMapTaskID(c); MapTaskID != -1 {
+	if MapTaskID := FindFreeMapTaskID(c); MapTaskID != -1 {
 		reply.TaskType = TaskMap
-		reply.TaskFile = c.MapFiles[MapTaskID]
+		reply.TaskFile = c.mapTasks[MapTaskID].FileName
 		// generate intermediate file prefix
 		reply.TaskID = MapTaskID
-		reply.TaskNum = c.NReduce
-		c.MapTaskState[MapTaskID] = TaskStateInProgress
+		reply.TaskNum = c.nReduce
+		c.mu.Lock()
+		defer c.mu.Unlock()
+		c.mapTasks[MapTaskID].State = TaskStateInProgress
+		c.mapTasks[MapTaskID].AssignTime = time.Now()
 		fmt.Printf("Assigned Map task for file %v to WorkerID %v\n", reply.TaskFile, reply.WorkerID)
 		return
-	} else if c.NumDoneMapTasks < len(c.MapFiles) {
+	} else if c.numDoneMapTasks < c.mMap {
 		// there are still map tasks in progress
 		reply.TaskType = TaskWait
 		fmt.Printf("Map tasks in progress. Instructing WorkerID %v to wait.\n", reply.WorkerID)
 		return
-	} else if ReduceTaskID := freeReduceTaskID(c); ReduceTaskID != -1 {
+	} else if ReduceTaskID := FindFreeReduceTaskID(c); ReduceTaskID != -1 {
 		reply.TaskType = TaskReduce
-		reply.TaskFile = fmt.Sprintf("mr-%d-%d", c.MapTaskID, ReduceTaskID)
+		reply.TaskFile = "" // reduce tasks do not have specific input files
 		reply.TaskID = ReduceTaskID
-		reply.TaskNum = len(c.MapFiles)
+		reply.TaskNum = c.mMap
+		c.mu.Lock()
+		defer c.mu.Unlock()
+		c.reduceTasks[ReduceTaskID].State = TaskStateInProgress
+		c.reduceTasks[ReduceTaskID].AssignTime = time.Now()
 		fmt.Printf("Assigned Reduce task for file %v to WorkerID %v\n", reply.TaskFile, reply.WorkerID)
 		return
-	} else if c.ReduceTaskID == c.NReduce && c.NumDoneReduceTasks < c.NReduce {
+	} else if c.numDoneReduceTasks < c.nReduce {
 		// there are still reduce tasks in progress
 		reply.TaskType = TaskWait
 		fmt.Printf("Reduce tasks in progress. Instructing WorkerID %v to wait.\n", reply.WorkerID)
 		return
-	} else if c.NumDoneMapTasks == len(c.MapFiles) && c.NumDoneReduceTasks == c.NReduce {
+	} else if c.numDoneMapTasks == c.mMap && c.numDoneReduceTasks == c.nReduce {
 		reply.TaskType = TaskExit
 		fmt.Printf("All tasks offered. Instructing WorkerID %v to exit.\n", reply.WorkerID)
 	}
 }
+
+func FindFreeMapTaskID(c *Coordinator) int {
+	if c.numDoneMapTasks == c.mMap {
+		return -1
+	}
+	for i, mapTask := range c.mapTasks {
+		if mapTask.State == TaskStatePending {
+			return i
+		}
+	}
+	return -1
+}
+
+func FindFreeReduceTaskID(c *Coordinator) int {
+	if c.numDoneReduceTasks == c.nReduce {
+		return -1
+	}
+	for i, reduceTask := range c.reduceTasks {
+		if reduceTask.State == TaskStatePending {
+			return i
+		}
+	}
+	return -1
+}
+
 func (c *Coordinator) AssignTask(arg *WorkerArgs, reply *AssignTaskReply) error {
 	reply.WorkerID = arg.WorkerID
 
@@ -102,17 +131,56 @@ func (c *Coordinator) AssignTask(arg *WorkerArgs, reply *AssignTaskReply) error 
 
 func (c *Coordinator) ReportTask(arg *WorkerArgs, reply *ReportTaskReply) error {
 	// update the coordinator's state based on the worker's report
+	c.mu.Lock()
+	defer c.mu.Unlock()
 	switch arg.CallType {
 	case CallReportMap:
-		c.NumDoneMapTasks++
-		c.MapTaskDone[arg.TaskID] = true
+		c.numDoneMapTasks++
+		c.mapTasks[arg.TaskID].State = TaskStateCompleted
 		reply.Success = true
 	case CallReportReduce:
-		c.NumDoneReduceTasks++
-		c.ReduceTaskDone[arg.TaskID] = true
+		c.numDoneReduceTasks++
+		c.reduceTasks[arg.TaskID].State = TaskStateCompleted
 		reply.Success = true
 	}
 	return nil
+}
+
+func (c *Coordinator) CheckTaskTimeouts() {
+	ticker := time.NewTicker(1 * time.Second)
+	defer ticker.Stop()
+
+	for range ticker.C {
+		c.mu.Lock()
+
+		//
+		if c.numDoneMapTasks != c.mMap {
+			// check for map task timeouts
+			for i := range c.mapTasks {
+				if c.mapTasks[i].State == TaskStateInProgress {
+					if time.Since(c.mapTasks[i].AssignTime) > 10*time.Second {
+						c.mapTasks[i].State = TaskStatePending
+						c.mapTasks[i].AssignTime = time.Time{}
+						fmt.Printf("Map task for file %v timed out. Resetting to pending.\n", c.mapTasks[i].FileName)
+					}
+				}
+			}
+		}
+		if c.numDoneReduceTasks != c.nReduce {
+			// check for reduce task timeouts
+			for i := range c.reduceTasks {
+				if c.reduceTasks[i].State == TaskStateInProgress {
+					if time.Since(c.reduceTasks[i].AssignTime) > 3*time.Second {
+						c.reduceTasks[i].State = TaskStatePending
+						c.reduceTasks[i].AssignTime = time.Time{}
+						fmt.Printf("Reduce task %v timed out. Resetting to pending.\n", i)
+					}
+				}
+			}
+		}
+
+		c.mu.Unlock()
+	}
 }
 
 // start a thread that listens for RPCs from worker.go
@@ -126,7 +194,9 @@ func (c *Coordinator) server() {
 	if e != nil {
 		log.Fatal("listen error:", e)
 	}
+
 	go http.Serve(l, nil)
+	go c.CheckTaskTimeouts()
 }
 
 // main/mrcoordinator.go calls Done() periodically to find out
@@ -144,16 +214,19 @@ func (c *Coordinator) Done() bool {
 // nReduce is the number of reduce tasks to use.
 func MakeCoordinator(files []string, nReduce int) *Coordinator {
 	c := Coordinator{}
-	c.WorkerIDCounter = 0
-	c.MapFiles = files
-	c.NReduce = nReduce
-	c.MapTaskID = 0
-	c.ReduceTaskID = 0
-	c.MapTaskDone = make(map[int]bool)
-	c.ReduceTaskDone = make(map[int]bool)
-	c.NumDoneMapTasks = 0
-	c.NumDoneReduceTasks = 0
-	// Your code here.
+	c.workerIDCounter = 0
+	c.mMap = len(files)
+	c.mapTasks = make([]MapTask, len(files))
+	for i := 0; i < len(files); i++ {
+		c.mapTasks[i] = MapTask{FileName: files[i], State: TaskStatePending}
+	}
+	c.numDoneMapTasks = 0
+	c.nReduce = nReduce
+	c.reduceTasks = make([]ReduceTask, nReduce)
+	for i := 0; i < nReduce; i++ {
+		c.reduceTasks[i] = ReduceTask{State: TaskStatePending}
+	}
+	c.numDoneReduceTasks = 0
 
 	c.server()
 	return &c
