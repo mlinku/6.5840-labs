@@ -10,6 +10,7 @@ import (
 type Clerk struct {
 	clnt   *tester.Clnt
 	server string
+	
 }
 
 func MakeClerk(clnt *tester.Clnt, server string) kvtest.IKVClerk {
@@ -30,6 +31,14 @@ func MakeClerk(clnt *tester.Clnt, server string) kvtest.IKVClerk {
 // arguments. Additionally, reply must be passed as a pointer.
 func (ck *Clerk) Get(key string) (string, rpc.Tversion, rpc.Err) {
 	// You will have to modify this function.
+	args := rpc.GetArgs{}
+	args.Key = key
+	
+	reply := rpc.GetReply{}
+	ok := ck.clnt.Call(ck.server,"KVServer.Get", &args, &reply)
+	if ok && reply.Err == rpc.OK {
+		return reply.Value, reply.Version, reply.Err
+	}
 	return "", 0, rpc.ErrNoKey
 }
 
@@ -52,5 +61,21 @@ func (ck *Clerk) Get(key string) (string, rpc.Tversion, rpc.Err) {
 // arguments. Additionally, reply must be passed as a pointer.
 func (ck *Clerk) Put(key, value string, version rpc.Tversion) rpc.Err {
 	// You will have to modify this function.
-	return rpc.ErrNoKey
+	args := rpc.PutArgs{}
+	args.Key = key
+	args.Value = value
+	args.Version = version
+
+	reply := rpc.PutReply{}
+	ok := ck.clnt.Call(ck.server,"KVServer.Put", &args, &reply)
+	if ok {
+		if reply.Err == rpc.ErrVersion {
+			return rpc.ErrVersion
+		}else if reply.Err == rpc.ErrNoKey {
+			return rpc.ErrNoKey
+		}
+		return rpc.OK
+	}
+	return rpc.ErrMaybe
 }
+
