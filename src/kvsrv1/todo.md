@@ -30,3 +30,50 @@
    - 客户端的 ck.clnt.Call() 返回 true 表示客户端收到了服务器的 RPC 回复；返回 false 表示没有收到回复
    - 你的解决方案不应该需要对服务器进行任何更改
 - **调用RPC时，reply要是全新的**
+
+#### task4
+- 存在errmaybe被锁的情况，但是不知道是自己的还是别人的，导致出错，因此要定义ID
+
+MIT 6.5840 Lab 1 (Lock) 错误复盘简报
+
+1. 基础机制层面
+
+RPC 变量污染
+
+现象：测试报错 labgob warning: Decoding into a non-default variable。
+
+原因：在循环外定义 reply 变量，导致上一次调用的残留数据影响下一次解码。
+
+✅ 修正：将 reply 声明移至 for 循环内部，确保每次调用前变量为零值。
+
+死循环 (Hang)
+
+现象：测试超时。
+
+原因：Release 在收到 ErrVersion（意味着锁已释放或版本已更新）时，逻辑判断错误导致无限重试。
+
+✅ 修正：Release 遇到 ErrVersion 应直接视为操作成功（锁已不在我手中）并返回。
+
+2. 并发控制层面
+
+破坏原子性 (Race Condition)
+
+现象：多个客户端通过 Check-Then-Act 逻辑同时认为自己可以加锁。
+
+原因：Acquire 中先 Get 检查状态，再直接 Put，中间存在时间隙。
+
+✅ 修正：利用 Put 的 version 参数实现 CAS (Compare-And-Swap) 机制，只有版本匹配才允许写入。
+
+3. 不可靠网络层面 (核心难点)
+
+自我死锁 (Self-Deadlock)
+
+现象：加锁成功但 ACK 丢失，客户端重试后发现锁被占用，误以为是别人抢占，于是休眠等待自己释放锁。
+
+身份冒领 (Critical Bug)
+
+现象：测试报错 two clients acquired lock。
+
+原因：使用通用的 "locked" 字符串作为锁的值。Client B 在重试时，误将 Client A 成功的锁（状态 "locked"）当成是自己丢包后的成功结果。
+
+✅ 修正：引入 Unique ID（随机数或 UUID），只有 Get 回来的值严格等于自己的 ID 时
