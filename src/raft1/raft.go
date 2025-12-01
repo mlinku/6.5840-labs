@@ -324,11 +324,7 @@ func (rf *Raft) startElection() {
 			if ok {
 				rf.mu.Lock()
 				defer rf.mu.Unlock()
-				if rf.state != stateCandidate || rf.currentTerm != requestVoteArgs.Term{
-					// no longer candidate or term changed
-					return
-				}
-				// process reply
+				// process reply 必须处理term更大的情况，并及时更新
 				if requestVoteReply.Term > rf.currentTerm {
 					rf.currentTerm = requestVoteReply.Term
 					rf.state = stateFollower
@@ -336,6 +332,12 @@ func (rf *Raft) startElection() {
 					rf.lastRPCtime = time.Now()
 					return
 				}
+
+				if rf.state != stateCandidate || rf.currentTerm != requestVoteArgs.Term{
+					// no longer candidate or term changed
+					return
+				}
+
 				if requestVoteReply.VoteGranted {
 					// count votes
 					voteCount++
