@@ -22,10 +22,16 @@ import (
 	"6.5840/tester1"
 )
 
+// Debugging
+const Debug_raft = true
+
 // 全局 Logger，用于写入文件
 var DLog *log.Logger
 
 func init() {
+	if !Debug_raft {
+		return
+	}
 	// 打开或创建 raft-debug.log 文件，追加模式
 	f, err := os.OpenFile("raft-debug.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
 	if err != nil {
@@ -34,6 +40,7 @@ func init() {
 	}
 	// 初始化 logger，包含时间戳
 	DLog = log.New(f, "", log.LstdFlags|log.Lmicroseconds)
+
 }
 
 // A Go object defines each log
@@ -69,11 +76,19 @@ type Raft struct {
 	commitIndex	  int // index of highest log entry known to be committed
 	lastApplied	  int // index of highest log entry applied to state machine
 	lastRPCtime	  time.Time // time of last RPC received
+	electionTimeout time.Duration // time to wait before starting election
+	rng             *rand.Rand    // 新增专用随机生成器
 	// Look at the paper's Figure 2 for a description of what
 	// state a Raft server must maintain.
 
 	nextIndex	  []int // for each server, index of the next log entry to send to that server
 	matchIndex	  []int // for each server, index of highest log entry known to be replicated on server
+}
+
+func (rf *Raft) resetElectionTimer() {
+	rf.lastRPCtime = time.Now()
+	ms := 500 + (rf.rng.Int63() % 300)
+	rf.electionTimeout = time.Duration(ms) * time.Millisecond
 }
 
 // return currentTerm and whether this server
@@ -190,10 +205,10 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 	// Your code here (3A, 3B).
 	rf.mu.Lock()
 	defer rf.mu.Unlock()
-	defer rf.persist()
 
 	// fmt.Printf("Server %d received RequestVote from %d, term %d\n", rf.me, args.CandidateId, args.Term)
-
+	if DLog != nil { DLog.Printf("[Comn] Server %d received RequestVote from %d, term %d\n", rf.me, args.CandidateId, args.Term) }
+	isPersist := false
 	reply.VoteGranted = false
 	// reply false if term < currentTerm
 	if args.Term < rf.currentTerm {
@@ -203,9 +218,11 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
 		rf.currentTerm = args.Term
 		rf.state = stateFollower
 		rf.votedFor = -1
-		if DLog != nil { DLog.Printf("Server %d became follower in term %d (RequestVote from %d)\n", rf.me, rf.currentTerm, args.CandidateId) }
+		isPersist = true
+		// rf.lastRPCtime = time.Now()
+		// rf.resetElectionTimer()
+		if DLog != nil { DLog.Printf("[Role] Server %d became follower in term %d (RequestVote from %d)\n", rf.me, rf.currentTerm, args.CandidateId) }
 	}
-	rf.lastRPCtime = time.Now()
 
 	reply.Term = rf.currentTerm
 
@@ -218,10 +235,21 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
            (args.LastLogTerm == lastLogTerm && args.LastLogIndex >= lastLogIndex) {
 			rf.votedFor = args.CandidateId
 			reply.VoteGranted = true
-			
-			if DLog != nil { DLog.Printf("Server %d granted vote to %d in term %d\n", rf.me, args.CandidateId, rf.currentTerm) }
+			rf.resetElectionTimer()
+			isPersist = true
+			if DLog != nil { DLog.Printf("[Vote] Server %d granted vote to %d in term %d\n", rf.me, args.CandidateId, rf.currentTerm) }
+		}else{
+			if args.LastLogTerm < lastLogTerm{
+				if DLog != nil { DLog.Printf("[Vote] Server %d denied vote to %d in term %d (due to arg.LastLogTerm %d < lastLogTerm %d) \n", rf.me, args.CandidateId, rf.currentTerm, args.LastLogTerm, lastLogTerm) }
+			}else{
+				if DLog != nil { DLog.Printf("[Vote] Server %d denied vote to %d in term %d (due to arg.LastLogIndex %d < lastLogIndex %d) \n", rf.me, args.CandidateId, rf.currentTerm, args.LastLogIndex, lastLogIndex) }
+			}
 		}
 	}
+	if isPersist {
+		rf.persist()
+	}
+	
 	return
 }
 
@@ -229,6 +257,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
     rf.mu.Lock()
     defer rf.mu.Unlock()
     
+	if DLog != nil { DLog.Printf("[Comn] Server %d received AppendEntries from %d, term %d, PrevLogIndex %d, PrevLogTerm %d, EntriesLen %d, LeaderCommit %d\n", rf.me, args.LeaderId, args.Term, args.PrevLogIndex, args.PrevLogTerm, len(args.Entries), args.LeaderCommit) }
     // 标记是否需要持久化，替代低效的 defer rf.persist()
     persistNeeded := false
 
@@ -236,11 +265,12 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
     if args.Term < rf.currentTerm {
         reply.Term = rf.currentTerm
         reply.Success = false
+		if DLog != nil { DLog.Printf("[Comn] Server %d rejected AppendEntries from %d due to stale term %d < %d\n", rf.me, args.LeaderId, args.Term, rf.currentTerm) }
         return
     }
 
     // 2. 收到有效 Leader 的消息，重置心跳时间
-    rf.lastRPCtime = time.Now()
+    rf.resetElectionTimer()
 
     // 3. 状态流转：发现更大的 Term，或者自己是 Candidate 收到当前 Term 的 Leader 消消息
     if args.Term > rf.currentTerm || (rf.state == stateCandidate && args.Term == rf.currentTerm) {
@@ -250,15 +280,14 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
             persistNeeded = true
         }
         rf.state = stateFollower
-		if DLog != nil { DLog.Printf("Server %d became follower from AppendEntries in term %d (Leader %d)\n", rf.me, rf.currentTerm, args.LeaderId) }
-        // state 变化不需要持久化，但 votedFor/currentTerm 变化需要
+		if DLog != nil { DLog.Printf("[Role] Server %d became follower from AppendEntries in term %d (Leader %d)\n", rf.me, rf.currentTerm, args.LeaderId) }
     }
 
     // 4. 一致性检查 (Consistency Check)
     // 检查 PrevLogIndex 是否存在，以及 Term 是否匹配
     if args.PrevLogIndex >= len(rf.log) {
         // Case 1: Follower 的日志太短，找不到 PrevLogIndex
-		if DLog != nil { DLog.Printf("Server %d log too short for AppendEntries. PrevLogIndex: %d, LogLen: %d\n", rf.me, args.PrevLogIndex, len(rf.log)) }
+		if DLog != nil { DLog.Printf("[Log] Server %d log too short for AppendEntries. PrevLogIndex: %d, LogLen: %d\n", rf.me, args.PrevLogIndex, len(rf.log)) }
         reply.Success = false
         reply.Term = rf.currentTerm
         reply.XTerm = 0
@@ -271,7 +300,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 
     if rf.log[args.PrevLogIndex].Term != args.PrevLogTerm {
         // Case 2: PrevLogIndex 处存在日志，但 Term 不匹配（冲突）
-		if DLog != nil { DLog.Printf("Server %d conflict in AppendEntries. PrevLogIndex: %d, MyTerm: %d, ArgsTerm: %d\n", rf.me, args.PrevLogIndex, rf.log[args.PrevLogIndex].Term, args.PrevLogTerm) }
+		if DLog != nil { DLog.Printf("[Log] Server %d conflict in AppendEntries. PrevLogIndex: %d, MyTerm: %d, ArgsTerm: %d\n", rf.me, args.PrevLogIndex, rf.log[args.PrevLogIndex].Term, args.PrevLogTerm) }
         reply.Success = false
         reply.Term = rf.currentTerm
         
@@ -293,7 +322,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
         return
     }
 
-// 5. 日志追加 (Log Appending) - 彻底重写
+	// 5. 日志追加 (Log Appending)
     logChanged := false
     
     // 找到第一个冲突的位置，或者第一个新日志的位置
@@ -323,17 +352,24 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
     }
 
     // 6. 更新 CommitIndex
-    if args.LeaderCommit > rf.commitIndex {
-        // 依据论文：commitIndex = min(leaderCommit, index of last new entry)
-        // 注意：这里的 last new entry 指的是追加操作后日志的最后一条索引
-        lastNewLogIndex := args.PrevLogIndex + len(args.Entries)
-        if args.LeaderCommit < lastNewLogIndex {
-            rf.commitIndex = args.LeaderCommit
-        } else {
-            rf.commitIndex = lastNewLogIndex
-        }
-		// fmt.Printf("Server %d updated commitIndex to %d\n", rf.me, rf.commitIndex)
-    }
+	if args.LeaderCommit > rf.commitIndex {
+		// 计算本次 RPC 确认的最新日志位置
+		lastNewLogIndex := len(rf.log) - 1
+		
+		// 论文逻辑：commitIndex = min(LeaderCommit, Index of Last New Entry)
+		var newCommitIndex int
+		if args.LeaderCommit < lastNewLogIndex {
+			newCommitIndex = args.LeaderCommit
+		} else {
+			newCommitIndex = lastNewLogIndex
+		}
+
+		// 【关键修正】只有当计算出的 newCommitIndex 比当前大时，才更新！
+		if newCommitIndex > rf.commitIndex {
+			rf.commitIndex = newCommitIndex
+			// fmt.Printf("Server %d updated commitIndex to %d\n", rf.me, rf.commitIndex)
+		}
+	}
 
     // 7. 持久化与返回
     if persistNeeded || logChanged {
@@ -416,7 +452,7 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 	rf.log = append(rf.log, newLogEntry)
 	index = newLogEntry.Index
 	rf.persist()
-	if DLog != nil { DLog.Printf("Server %d Start command index %d term %d\n", rf.me, index, term) }
+	if DLog != nil { DLog.Printf("[Log] Server %d Start command index %d term %d\n", rf.me, index, term) }
 
 	// signal replicators to send new log entries
 	rf.sendAllNewLogEntries()
@@ -438,7 +474,7 @@ func (rf *Raft) Start(command interface{}) (int, int, bool) {
 // should call killed() to check whether it should stop.
 func (rf *Raft) Kill() {
 	atomic.StoreInt32(&rf.dead, 1)
-	if DLog != nil { DLog.Printf("Server %d killed\n", rf.me) }
+	if DLog != nil { DLog.Printf("[Lifecycle] Server %d killed\n", rf.me) }
 	// Your code here, if desired.
 }
 
@@ -450,15 +486,15 @@ func (rf *Raft) killed() bool {
 func (rf *Raft) startElection() {
 	// Placeholder for any election initialization logic
 	rf.mu.Lock()
-	lastLogIndex := len(rf.log) - 1
+	lastLogIndex := len(rf.log)-1
 	lastLogTerm := rf.log[lastLogIndex].Term
 
 	rf.currentTerm += 1
 	rf.votedFor = rf.me
 	rf.state = stateCandidate
-	rf.lastRPCtime = time.Now()
+	rf.resetElectionTimer()
 	voteCount := 1 // vote for self
-	if DLog != nil { DLog.Printf("Server %d starting election for term %d\n", rf.me, rf.currentTerm) }
+	if DLog != nil { DLog.Printf("[Role] Server %d starting election for term %d\n", rf.me, rf.currentTerm) }
 
 	// send RequestVote RPCs to all other servers
 	requestVoteArgs := &RequestVoteArgs{
@@ -485,9 +521,9 @@ func (rf *Raft) startElection() {
 					rf.currentTerm = requestVoteReply.Term
 					rf.state = stateFollower
 					rf.votedFor = -1
-					rf.lastRPCtime = time.Now()
+					rf.resetElectionTimer()
 					rf.persist()
-					if DLog != nil { DLog.Printf("Server %d became follower (higher term in RequestVote reply from %d)\n", rf.me, server) }
+					if DLog != nil { DLog.Printf("[Role] Server %d became follower (higher term in RequestVote reply from %d)\n", rf.me, server) }
 					return
 				}
 
@@ -499,10 +535,11 @@ func (rf *Raft) startElection() {
 				if requestVoteReply.VoteGranted {
 					// count votes
 					voteCount++
+					if DLog != nil { DLog.Printf("[Vote] Server %d received vote from %d for term %d (total votes: %d)\n", rf.me, server, rf.currentTerm, voteCount) }
 					// if votes received from majority of servers: become leader
 					if voteCount > len(rf.peers)/2 {
 						rf.state = stateLeader
-						if DLog != nil { DLog.Printf("Server %d became leader for term %d\n", rf.me, rf.currentTerm) }
+						if DLog != nil { DLog.Printf("[Role] Server %d became leader for term %d\n", rf.me, rf.currentTerm) }
 						// initialize leader state
 						rf.nextIndex = make([]int, len(rf.peers))
 						rf.matchIndex = make([]int, len(rf.peers))
@@ -535,24 +572,24 @@ func (rf *Raft) sendAllNewLogEntries() {
 		}
 	}	
 }
-func (rf *Raft) sendNewLogEntries(server int, args *AppendEntriesArgs, reply *AppendEntriesReply) (ok bool) {
-	ok = rf.sendAppendEntries(server, args, reply)
+func (rf *Raft) sendNewLogEntries(server int, args *AppendEntriesArgs, reply *AppendEntriesReply)  bool {
+	ok := rf.sendAppendEntries(server, args, reply)
 	if ok {
 		rf.mu.Lock()
 		defer rf.mu.Unlock()
 		if reply.Term > rf.currentTerm {
-				rf.currentTerm = reply.Term
-				rf.state = stateFollower
-				rf.votedFor = -1
-				rf.lastRPCtime = time.Now()
-				rf.persist()
-				if DLog != nil { DLog.Printf("Server %d became follower (higher term in AppendEntries reply from %d)\n", rf.me, server) }
-				return 
-			}
+			rf.currentTerm = reply.Term
+			rf.state = stateFollower
+			rf.votedFor = -1
+			rf.resetElectionTimer()
+			rf.persist()
+			if DLog != nil { DLog.Printf("[Role] Server %d became follower (higher term in AppendEntries reply from %d)\n", rf.me, server) }
+			return true
+		}
 
 		if rf.state != stateLeader || rf.currentTerm != args.Term {
 			// no longer leader or term changed
-			return
+			return true
 		}
 		// isLeader and term is correct
 		if !reply.Success {
@@ -561,7 +598,7 @@ func (rf *Raft) sendNewLogEntries(server int, args *AppendEntriesArgs, reply *Ap
 			xIndex := reply.XIndex
 			xLen := reply.XLen
 			
-			if DLog != nil { DLog.Printf("Server %d AppendEntries failed for %d. XTerm %d, XIndex %d, XLen %d\n", rf.me, server, xTerm, xIndex, xLen) }
+			if DLog != nil { DLog.Printf("[Log] Server %d AppendEntries failed for %d. XTerm %d, XIndex %d, XLen %d\n", rf.me, server, xTerm, xIndex, xLen) }
 
 			if xTerm != 0 {
 				// find xTerm in log
@@ -595,8 +632,11 @@ func (rf *Raft) sendNewLogEntries(server int, args *AppendEntriesArgs, reply *Ap
 			return false
 		}else{
 			// update nextIndex and matchIndex
-			rf.nextIndex[server] = args.PrevLogIndex + len(args.Entries) + 1
-			rf.matchIndex[server] = rf.nextIndex[server] - 1
+			newMatchIndex := args.PrevLogIndex + len(args.Entries)
+			if newMatchIndex > rf.matchIndex[server] {
+				rf.matchIndex[server] = newMatchIndex
+			}
+			rf.nextIndex[server] = rf.matchIndex[server] + 1
 
 			// update commitIndex if possible
 			for N := rf.commitIndex + 1; N < len(rf.log); N++ {
@@ -612,8 +652,10 @@ func (rf *Raft) sendNewLogEntries(server int, args *AppendEntriesArgs, reply *Ap
 				}
 			}
 		}			
+	} else {
+		if DLog != nil { DLog.Printf("[Comm] Server %d lost connection with %d (AppendEntries timeout)\n", rf.me, server) }
 	}
-	return
+	return ok
 }
 
 // func (rf *Raft) broadcastHeartbeat() {
@@ -662,11 +704,11 @@ func (rf *Raft) ticker() {
         rf.mu.Lock()
 		state := rf.state
         lastRPC := rf.lastRPCtime
+		timeout := rf.electionTimeout
         rf.mu.Unlock()
 
 
-		// 生成随机超时 (300~450ms)
-		timeout := time.Duration(300 + (rand.Int63() % 300)) * time.Millisecond
+		// 使用保存的 timeout
 		if state != stateLeader && time.Since(lastRPC) > timeout {
 			rf.startElection()
 		}
@@ -761,27 +803,18 @@ func (rf *Raft) replicator(server int) {
             continue
         }
 
-        // --- 1. 边界保护 ---
-        // 防止 nextIndex 意外变为 0 导致 panic
-        if rf.nextIndex[server] < 1 {
-            rf.nextIndex[server] = 1
-        }
+		if DLog != nil { DLog.Printf("[Replicator] Server %d replicating to %d. nextIndex %d, logLen %d\n", rf.me, server, rf.nextIndex[server], len(rf.log)) }
+
         
         serverNextIndex := rf.nextIndex[server]
         prevLogIndex := serverNextIndex - 1
         
-        // 再次检查越界 (防御性编程)
-        if prevLogIndex < 0 || prevLogIndex >= len(rf.log) {
-            // 理论上不应发生，但为了防止 panic，重置为合理值
-            prevLogIndex = len(rf.log) - 1
-        }
         
         prevLogTerm := rf.log[prevLogIndex].Term
         
-        // --- 2. 批处理 (Batching) ---
         // 即使日志很长，一次也只发 100 条
         // 这对于通过 Unreliable 测试至关重要！
-        batchSize := 10 
+        batchSize := 100 
         lastIndex := len(rf.log) - 1
         var entries []LogEntry
         
@@ -804,11 +837,39 @@ func (rf *Raft) replicator(server int) {
             LeaderCommit: rf.commitIndex,
         }
         rf.mu.Unlock()
+		go func(){
+			reply := &AppendEntriesReply{}
+			if !rf.sendNewLogEntries(server, args, reply) {
+				shouldRetry = true
+				time.Sleep(20 * time.Millisecond) // 避免忙等待
+			}else {
+				// Case B: 发送成功。
+				// 检查是否还有更多日志需要发送？如果有，不要等待，立即触发下一次发送
+				rf.mu.Lock()
+				if rf.nextIndex[server] < len(rf.log) {
+					shouldRetry = true // 还有数据，趁热打铁，立即发送下一批
+				}
+				rf.mu.Unlock()
+				time.Sleep(20 * time.Millisecond) // 避免忙等待
+			}
+		}()
+		// go func(){
+			// reply := &AppendEntriesReply{}
+			// if !rf.sendNewLogEntries(server, args, reply) {
+			// 	shouldRetry = true
+			// 	time.Sleep(20 * time.Millisecond) // 避免忙等待
+			// }else {
+			// 	// Case B: 发送成功。
+			// 	// 检查是否还有更多日志需要发送？如果有，不要等待，立即触发下一次发送
+			// 	rf.mu.Lock()
+			// 	if rf.nextIndex[server] < len(rf.log) {
+			// 		shouldRetry = true // 还有数据，趁热打铁，立即发送下一批
+			// 	}
+			// 	rf.mu.Unlock()
+			// 	time.Sleep(20 * time.Millisecond) // 避免忙等待
+			// }
+		// }()
 
-        reply := &AppendEntriesReply{}
-        if !rf.sendNewLogEntries(server, args, reply) {
-            shouldRetry = true
-        }
     }
 }
 // the service or tester wants to create a Raft server. the ports
@@ -835,17 +896,20 @@ func Make(peers []*labrpc.ClientEnd, me int,
 		}
 	}
 	// Your initialization code here (3A, 3B, 3C).
+	source := rand.NewSource(time.Now().UnixNano() + int64(me))
+	rf.rng = rand.New(source)
+
 	rf.currentTerm = 0
 	rf.votedFor = -1
 	rf.log = make([]LogEntry, 0)
 	rf.log = append(rf.log, LogEntry{Index: 0, Term: 0, Command: nil}) // dummy log entry at index 0
 	rf.state = stateFollower
-	rf.lastRPCtime = time.Now()	
+	rf.resetElectionTimer()
 	rf.commitIndex = 0
 	// initialize from state persisted before a crash
 	rf.readPersist(persister.ReadRaftState())
 
-	if DLog != nil { DLog.Printf("Server %d started\n", rf.me) }
+	if DLog != nil { DLog.Printf("[Lifecycle] Server %d started\n", rf.me) }
 
 	// start ticker goroutine to start elections
 	go rf.ticker()

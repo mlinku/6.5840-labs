@@ -45,3 +45,5 @@
     - 基于Persister 存储最近持久化的状态
         - 使用 Persister 的 ReadRaftState() 和 Save() 方法
 - 在raft.go中完成persist()和readPersist()，以保存和恢复持久状态
+
+- 史诗级大坑 在 ticker 循环的每一轮（每 10ms）都重新生成了一个随机超时时间，导致你的真实超时时间在统计学上总是趋向于随机范围的最小值，从而破坏了 Raft 避免选票瓜分所需的随机性。
