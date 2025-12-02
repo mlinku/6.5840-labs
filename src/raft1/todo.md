@@ -38,3 +38,10 @@
 - 纯心跳无法推动commitIndex，这样子会导致commitIndex状态机停滞
 - 多协程启动，在replicator内部也用协程，导致发送日志可能乱序
 - 没用select/default去向通道发送数据，导致阻塞
+
+#### task 3C
+- Raft服务器重启时应该从之前的状态恢复
+    - 注意图2中说需要持久化的状态
+    - 基于Persister 存储最近持久化的状态
+        - 使用 Persister 的 ReadRaftState() 和 Save() 方法
+- 在raft.go中完成persist()和readPersist()，以保存和恢复持久状态

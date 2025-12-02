@@ -1,0 +1,2704 @@
+2025/12/02 09:54:56.424287 Server 0 started
+2025/12/02 09:54:56.424931 Server 1 started
+2025/12/02 09:54:56.425053 Server 2 started
+2025/12/02 09:54:56.425121 Server 3 started
+2025/12/02 09:54:56.425249 Server 4 started
+2025/12/02 09:54:56.754558 Server 0 starting election for term 1
+2025/12/02 09:54:56.755675 Server 3 starting election for term 1
+2025/12/02 09:54:56.762292 Server 2 became follower in term 1 (RequestVote from 3)
+2025/12/02 09:54:56.762333 Server 2 granted vote to 3 in term 1
+2025/12/02 09:54:56.766317 Server 1 starting election for term 1
+2025/12/02 09:54:56.770353 Server 4 became follower in term 1 (RequestVote from 3)
+2025/12/02 09:54:56.770576 Server 4 granted vote to 3 in term 1
+2025/12/02 09:54:56.770801 Server 3 became leader for term 1
+2025/12/02 09:54:56.776663 Server 1 became follower from AppendEntries in term 1 (Leader 3)
+2025/12/02 09:54:56.779398 Server 3 Start command index 1 term 1
+2025/12/02 09:54:56.801853 Server 0 became follower from AppendEntries in term 1 (Leader 3)
+2025/12/02 09:54:56.820371 Server 3 Start command index 2 term 1
+2025/12/02 09:54:56.832012 Server 3 Start command index 3 term 1
+2025/12/02 09:54:56.834237 Server 3 Start command index 4 term 1
+2025/12/02 09:54:56.839513 Server 3 Start command index 5 term 1
+2025/12/02 09:54:56.847818 Server 3 Start command index 6 term 1
+2025/12/02 09:54:56.859358 Server 3 Start command index 7 term 1
+2025/12/02 09:54:56.864790 Server 3 Start command index 8 term 1
+2025/12/02 09:54:56.875275 Server 3 Start command index 9 term 1
+2025/12/02 09:54:56.888050 Server 3 Start command index 10 term 1
+2025/12/02 09:54:56.888110 Server 3 Start command index 11 term 1
+2025/12/02 09:54:57.127800 Server 2 starting election for term 2
+2025/12/02 09:54:57.134193 Server 0 became follower in term 2 (RequestVote from 2)
+2025/12/02 09:54:57.138505 Server 1 became follower in term 2 (RequestVote from 2)
+2025/12/02 09:54:57.144638 Server 4 became follower in term 2 (RequestVote from 2)
+2025/12/02 09:54:57.144697 Server 4 granted vote to 2 in term 2
+2025/12/02 09:54:57.237455 Server 3 Start command index 12 term 1
+2025/12/02 09:54:57.240685 Server 3 Start command index 13 term 1
+2025/12/02 09:54:57.243965 Server 3 Start command index 14 term 1
+2025/12/02 09:54:57.254311 Server 3 Start command index 15 term 1
+2025/12/02 09:54:57.263619 Server 3 Start command index 16 term 1
+2025/12/02 09:54:57.274899 Server 3 Start command index 17 term 1
+2025/12/02 09:54:57.282035 Server 3 Start command index 18 term 1
+2025/12/02 09:54:57.282119 Server 3 Start command index 19 term 1
+2025/12/02 09:54:57.285388 Server 3 Start command index 20 term 1
+2025/12/02 09:54:57.292614 Server 3 Start command index 21 term 1
+2025/12/02 09:54:57.300898 Server 3 Start command index 22 term 1
+2025/12/02 09:54:57.312206 Server 3 Start command index 23 term 1
+2025/12/02 09:54:57.314364 Server 3 Start command index 24 term 1
+2025/12/02 09:54:57.317631 Server 3 Start command index 25 term 1
+2025/12/02 09:54:57.497012 Server 1 starting election for term 3
+2025/12/02 09:54:57.497390 Server 4 became follower in term 3 (RequestVote from 1)
+2025/12/02 09:54:57.497408 Server 4 granted vote to 1 in term 3
+2025/12/02 09:54:57.504662 Server 0 became follower in term 3 (RequestVote from 1)
+2025/12/02 09:54:57.504708 Server 0 granted vote to 1 in term 3
+2025/12/02 09:54:57.504919 Server 1 became leader for term 3
+2025/12/02 09:54:57.517760 Server 2 starting election for term 3
+2025/12/02 09:54:57.524254 Server 4 log too short for AppendEntries. PrevLogIndex: 2, LogLen: 2
+2025/12/02 09:54:57.524414 Server 1 AppendEntries failed for 4. XTerm 0, XIndex 0, XLen 2
+2025/12/02 09:54:57.530479 Server 2 became follower from AppendEntries in term 3 (Leader 1)
+2025/12/02 09:54:57.530508 Server 2 log too short for AppendEntries. PrevLogIndex: 2, LogLen: 2
+2025/12/02 09:54:57.530672 Server 1 AppendEntries failed for 2. XTerm 0, XIndex 0, XLen 2
+2025/12/02 09:54:57.679857 Server 1 Start command index 3 term 3
+2025/12/02 09:54:57.679952 Server 3 Start command index 26 term 1
+2025/12/02 09:54:57.685182 Server 1 Start command index 4 term 3
+2025/12/02 09:54:57.685300 Server 3 Start command index 27 term 1
+2025/12/02 09:54:57.685340 Server 1 Start command index 5 term 3
+2025/12/02 09:54:57.685409 Server 3 Start command index 28 term 1
+2025/12/02 09:54:57.693650 Server 1 Start command index 6 term 3
+2025/12/02 09:54:57.693759 Server 3 Start command index 29 term 1
+2025/12/02 09:54:57.951636 Server 2 starting election for term 4
+2025/12/02 09:54:57.960450 Server 0 became follower in term 4 (RequestVote from 2)
+2025/12/02 09:54:58.024588 Server 1 Start command index 7 term 3
+2025/12/02 09:54:58.024712 Server 3 Start command index 30 term 1
+2025/12/02 09:54:58.024796 Server 1 Start command index 8 term 3
+2025/12/02 09:54:58.024870 Server 3 Start command index 31 term 1
+2025/12/02 09:54:58.024909 Server 1 Start command index 9 term 3
+2025/12/02 09:54:58.024990 Server 3 Start command index 32 term 1
+2025/12/02 09:54:58.025582 Server 4 starting election for term 4
+2025/12/02 09:54:58.028301 Server 0 granted vote to 4 in term 4
+2025/12/02 09:54:58.035364 Server 1 Start command index 10 term 3
+2025/12/02 09:54:58.035473 Server 3 Start command index 33 term 1
+2025/12/02 09:54:58.037556 Server 1 Start command index 11 term 3
+2025/12/02 09:54:58.037930 Server 3 Start command index 34 term 1
+2025/12/02 09:54:58.046032 Server 1 Start command index 12 term 3
+2025/12/02 09:54:58.046122 Server 3 Start command index 35 term 1
+2025/12/02 09:54:58.049247 Server 1 Start command index 13 term 3
+2025/12/02 09:54:58.049413 Server 3 Start command index 36 term 1
+2025/12/02 09:54:58.050555 Server 1 Start command index 14 term 3
+2025/12/02 09:54:58.050631 Server 3 Start command index 37 term 1
+2025/12/02 09:54:58.053824 Server 1 Start command index 15 term 3
+2025/12/02 09:54:58.053942 Server 3 Start command index 38 term 1
+2025/12/02 09:54:58.059140 Server 1 Start command index 16 term 3
+2025/12/02 09:54:58.059235 Server 3 Start command index 39 term 1
+2025/12/02 09:54:58.387841 Server 2 starting election for term 5
+2025/12/02 09:54:58.387875 Server 0 starting election for term 5
+2025/12/02 09:54:58.399646 Server 4 became follower in term 5 (RequestVote from 2)
+2025/12/02 09:54:58.404919 Server 4 granted vote to 0 in term 5
+2025/12/02 09:54:58.543452 Server 1 Start command index 17 term 3
+2025/12/02 09:54:58.543585 Server 3 Start command index 40 term 1
+2025/12/02 09:54:58.549816 Server 1 Start command index 18 term 3
+2025/12/02 09:54:58.549946 Server 3 Start command index 41 term 1
+2025/12/02 09:54:58.559239 Server 1 Start command index 19 term 3
+2025/12/02 09:54:58.559348 Server 3 Start command index 42 term 1
+2025/12/02 09:54:58.568613 Server 1 Start command index 20 term 3
+2025/12/02 09:54:58.568705 Server 3 Start command index 43 term 1
+2025/12/02 09:54:58.578093 Server 1 Start command index 21 term 3
+2025/12/02 09:54:58.578210 Server 3 Start command index 44 term 1
+2025/12/02 09:54:58.590497 Server 1 Start command index 22 term 3
+2025/12/02 09:54:58.590615 Server 3 Start command index 45 term 1
+2025/12/02 09:54:58.592835 Server 1 Start command index 23 term 3
+2025/12/02 09:54:58.592960 Server 3 Start command index 46 term 1
+2025/12/02 09:54:58.645600 Server 1 Start command index 24 term 3
+2025/12/02 09:54:58.645696 Server 3 Start command index 47 term 1
+2025/12/02 09:54:58.645771 Server 1 Start command index 25 term 3
+2025/12/02 09:54:58.645861 Server 3 Start command index 48 term 1
+2025/12/02 09:54:58.658282 Server 1 Start command index 26 term 3
+2025/12/02 09:54:58.658384 Server 3 Start command index 49 term 1
+2025/12/02 09:54:58.668678 Server 1 Start command index 27 term 3
+2025/12/02 09:54:58.668804 Server 3 Start command index 50 term 1
+2025/12/02 09:54:58.670889 Server 1 Start command index 28 term 3
+2025/12/02 09:54:58.670989 Server 3 Start command index 51 term 1
+2025/12/02 09:54:58.678220 Server 1 Start command index 29 term 3
+2025/12/02 09:54:58.678321 Server 3 Start command index 52 term 1
+2025/12/02 09:54:58.686566 Server 1 Start command index 30 term 3
+2025/12/02 09:54:58.686670 Server 3 Start command index 53 term 1
+2025/12/02 09:54:58.688881 Server 1 Start command index 31 term 3
+2025/12/02 09:54:58.689024 Server 3 Start command index 54 term 1
+2025/12/02 09:54:58.691041 Server 1 Start command index 32 term 3
+2025/12/02 09:54:58.691166 Server 3 Start command index 55 term 1
+2025/12/02 09:54:58.702553 Server 1 Start command index 33 term 3
+2025/12/02 09:54:58.702659 Server 3 Start command index 56 term 1
+2025/12/02 09:54:58.710802 Server 1 Start command index 34 term 3
+2025/12/02 09:54:58.710927 Server 3 Start command index 57 term 1
+2025/12/02 09:54:58.711021 Server 1 Start command index 35 term 3
+2025/12/02 09:54:58.711119 Server 3 Start command index 58 term 1
+2025/12/02 09:54:58.714068 Server 1 Start command index 36 term 3
+2025/12/02 09:54:58.714182 Server 3 Start command index 59 term 1
+2025/12/02 09:54:58.726455 Server 1 Start command index 37 term 3
+2025/12/02 09:54:58.726625 Server 3 Start command index 60 term 1
+2025/12/02 09:54:58.762374 Server 2 starting election for term 6
+2025/12/02 09:54:58.772566 Server 0 starting election for term 6
+2025/12/02 09:54:58.773945 Server 4 became follower in term 6 (RequestVote from 2)
+2025/12/02 09:54:58.774238 Server 4 granted vote to 0 in term 6
+2025/12/02 09:54:59.104358 Server 2 starting election for term 7
+2025/12/02 09:54:59.106818 Server 0 became follower in term 7 (RequestVote from 2)
+2025/12/02 09:54:59.146880 Server 4 starting election for term 7
+2025/12/02 09:54:59.160980 Server 0 granted vote to 4 in term 7
+2025/12/02 09:54:59.179519 Server 1 Start command index 38 term 3
+2025/12/02 09:54:59.179661 Server 3 Start command index 61 term 1
+2025/12/02 09:54:59.182931 Server 1 Start command index 39 term 3
+2025/12/02 09:54:59.183065 Server 3 Start command index 62 term 1
+2025/12/02 09:54:59.191300 Server 1 Start command index 40 term 3
+2025/12/02 09:54:59.191419 Server 3 Start command index 63 term 1
+2025/12/02 09:54:59.199592 Server 1 Start command index 41 term 3
+2025/12/02 09:54:59.199763 Server 3 Start command index 64 term 1
+2025/12/02 09:54:59.207843 Server 1 Start command index 42 term 3
+2025/12/02 09:54:59.207968 Server 3 Start command index 65 term 1
+2025/12/02 09:54:59.219233 Server 1 Start command index 43 term 3
+2025/12/02 09:54:59.219366 Server 3 Start command index 66 term 1
+2025/12/02 09:54:59.230675 Server 1 Start command index 44 term 3
+2025/12/02 09:54:59.230824 Server 3 Start command index 67 term 1
+2025/12/02 09:54:59.236093 Server 1 Start command index 45 term 3
+2025/12/02 09:54:59.236238 Server 3 Start command index 68 term 1
+2025/12/02 09:54:59.238519 Server 1 Start command index 46 term 3
+2025/12/02 09:54:59.238673 Server 3 Start command index 69 term 1
+2025/12/02 09:54:59.242838 Server 1 Start command index 47 term 3
+2025/12/02 09:54:59.242991 Server 3 Start command index 70 term 1
+2025/12/02 09:54:59.248242 Server 1 Start command index 48 term 3
+2025/12/02 09:54:59.248389 Server 3 Start command index 71 term 1
+2025/12/02 09:54:59.249569 Server 1 Start command index 49 term 3
+2025/12/02 09:54:59.249702 Server 3 Start command index 72 term 1
+2025/12/02 09:54:59.255975 Server 1 Start command index 50 term 3
+2025/12/02 09:54:59.256111 Server 3 Start command index 73 term 1
+2025/12/02 09:54:59.258194 Server 1 Start command index 51 term 3
+2025/12/02 09:54:59.258329 Server 3 Start command index 74 term 1
+2025/12/02 09:54:59.267695 Server 1 Start command index 52 term 3
+2025/12/02 09:54:59.267853 Server 3 Start command index 75 term 1
+2025/12/02 09:54:59.295922 Server 1 Start command index 53 term 3
+2025/12/02 09:54:59.296064 Server 3 Start command index 76 term 1
+2025/12/02 09:54:59.298327 Server 1 Start command index 54 term 3
+2025/12/02 09:54:59.298472 Server 3 Start command index 77 term 1
+2025/12/02 09:54:59.310061 Server 1 Start command index 55 term 3
+2025/12/02 09:54:59.310241 Server 3 Start command index 78 term 1
+2025/12/02 09:54:59.315431 Server 1 Start command index 56 term 3
+2025/12/02 09:54:59.315564 Server 3 Start command index 79 term 1
+2025/12/02 09:54:59.322868 Server 1 Start command index 57 term 3
+2025/12/02 09:54:59.323006 Server 3 Start command index 80 term 1
+2025/12/02 09:54:59.328272 Server 1 Start command index 58 term 3
+2025/12/02 09:54:59.328432 Server 3 Start command index 81 term 1
+2025/12/02 09:54:59.336575 Server 1 Start command index 59 term 3
+2025/12/02 09:54:59.336725 Server 3 Start command index 82 term 1
+2025/12/02 09:54:59.339042 Server 1 Start command index 60 term 3
+2025/12/02 09:54:59.339193 Server 3 Start command index 83 term 1
+2025/12/02 09:54:59.344249 Server 1 Start command index 61 term 3
+2025/12/02 09:54:59.344408 Server 3 Start command index 84 term 1
+2025/12/02 09:54:59.355609 Server 1 Start command index 62 term 3
+2025/12/02 09:54:59.355770 Server 3 Start command index 85 term 1
+2025/12/02 09:54:59.361068 Server 1 Start command index 63 term 3
+2025/12/02 09:54:59.361239 Server 3 Start command index 86 term 1
+2025/12/02 09:54:59.371647 Server 1 Start command index 64 term 3
+2025/12/02 09:54:59.371884 Server 3 Start command index 87 term 1
+2025/12/02 09:54:59.385060 Server 1 Start command index 65 term 3
+2025/12/02 09:54:59.385207 Server 3 Start command index 88 term 1
+2025/12/02 09:54:59.482505 Server 4 starting election for term 8
+2025/12/02 09:54:59.489167 Server 2 became follower in term 8 (RequestVote from 4)
+2025/12/02 09:54:59.489198 Server 2 granted vote to 4 in term 8
+2025/12/02 09:54:59.495761 Server 0 became follower in term 8 (RequestVote from 4)
+2025/12/02 09:54:59.495795 Server 0 granted vote to 4 in term 8
+2025/12/02 09:54:59.496021 Server 4 became leader for term 8
+2025/12/02 09:54:59.496326 Server 2 log too short for AppendEntries. PrevLogIndex: 3, LogLen: 3
+2025/12/02 09:54:59.496475 Server 4 AppendEntries failed for 2. XTerm 0, XIndex 0, XLen 3
+2025/12/02 09:54:59.829561 Server 1 Start command index 66 term 3
+2025/12/02 09:54:59.829762 Server 3 Start command index 89 term 1
+2025/12/02 09:54:59.829809 Server 4 Start command index 4 term 8
+2025/12/02 09:54:59.834027 Server 1 Start command index 67 term 3
+2025/12/02 09:54:59.834203 Server 3 Start command index 90 term 1
+2025/12/02 09:54:59.834244 Server 4 Start command index 5 term 8
+2025/12/02 09:54:59.843336 Server 1 Start command index 68 term 3
+2025/12/02 09:54:59.843523 Server 3 Start command index 91 term 1
+2025/12/02 09:54:59.843562 Server 4 Start command index 6 term 8
+2025/12/02 09:54:59.855929 Server 1 Start command index 69 term 3
+2025/12/02 09:54:59.856108 Server 3 Start command index 92 term 1
+2025/12/02 09:54:59.856154 Server 4 Start command index 7 term 8
+2025/12/02 09:54:59.858102 Server 1 Start command index 70 term 3
+2025/12/02 09:54:59.858266 Server 3 Start command index 93 term 1
+2025/12/02 09:54:59.858327 Server 4 Start command index 8 term 8
+2025/12/02 09:54:59.867593 Server 1 Start command index 71 term 3
+2025/12/02 09:54:59.867806 Server 3 Start command index 94 term 1
+2025/12/02 09:54:59.867858 Server 4 Start command index 9 term 8
+2025/12/02 09:54:59.873864 Server 1 Start command index 72 term 3
+2025/12/02 09:54:59.874024 Server 3 Start command index 95 term 1
+2025/12/02 09:54:59.874065 Server 4 Start command index 10 term 8
+2025/12/02 09:54:59.880301 Server 1 Start command index 73 term 3
+2025/12/02 09:54:59.880449 Server 3 Start command index 96 term 1
+2025/12/02 09:54:59.880493 Server 4 Start command index 11 term 8
+2025/12/02 09:54:59.889695 Server 1 Start command index 74 term 3
+2025/12/02 09:54:59.889876 Server 3 Start command index 97 term 1
+2025/12/02 09:54:59.889921 Server 4 Start command index 12 term 8
+2025/12/02 09:54:59.893942 Server 1 Start command index 75 term 3
+2025/12/02 09:54:59.894136 Server 3 Start command index 98 term 1
+2025/12/02 09:54:59.894189 Server 4 Start command index 13 term 8
+2025/12/02 09:54:59.906341 Server 1 Start command index 76 term 3
+2025/12/02 09:54:59.906496 Server 3 Start command index 99 term 1
+2025/12/02 09:54:59.906558 Server 4 Start command index 14 term 8
+2025/12/02 09:54:59.919214 Server 1 Start command index 77 term 3
+2025/12/02 09:54:59.919389 Server 3 Start command index 100 term 1
+2025/12/02 09:54:59.919438 Server 4 Start command index 15 term 8
+2025/12/02 09:55:00.169128 Server 2 starting election for term 9
+2025/12/02 09:55:00.183935 Server 1 became follower in term 9 (RequestVote from 2)
+2025/12/02 09:55:00.183978 Server 1 granted vote to 2 in term 9
+2025/12/02 09:55:00.221340 Server 0 starting election for term 9
+2025/12/02 09:55:00.319020 Server 3 Start command index 101 term 1
+2025/12/02 09:55:00.319104 Server 4 Start command index 16 term 8
+2025/12/02 09:55:00.324358 Server 3 Start command index 102 term 1
+2025/12/02 09:55:00.324440 Server 4 Start command index 17 term 8
+2025/12/02 09:55:00.324592 Server 3 Start command index 103 term 1
+2025/12/02 09:55:00.324640 Server 4 Start command index 18 term 8
+2025/12/02 09:55:00.335897 Server 3 Start command index 104 term 1
+2025/12/02 09:55:00.335960 Server 4 Start command index 19 term 8
+2025/12/02 09:55:00.339186 Server 3 Start command index 105 term 1
+2025/12/02 09:55:00.339275 Server 4 Start command index 20 term 8
+2025/12/02 09:55:00.339450 Server 3 Start command index 106 term 1
+2025/12/02 09:55:00.339508 Server 4 Start command index 21 term 8
+2025/12/02 09:55:00.347405 Server 3 Start command index 107 term 1
+2025/12/02 09:55:00.347479 Server 4 Start command index 22 term 8
+2025/12/02 09:55:00.354628 Server 3 Start command index 108 term 1
+2025/12/02 09:55:00.354695 Server 4 Start command index 23 term 8
+2025/12/02 09:55:00.358106 Server 3 Start command index 109 term 1
+2025/12/02 09:55:00.358272 Server 4 Start command index 24 term 8
+2025/12/02 09:55:00.360079 Server 3 Start command index 110 term 1
+2025/12/02 09:55:00.360148 Server 4 Start command index 25 term 8
+2025/12/02 09:55:00.367352 Server 3 Start command index 111 term 1
+2025/12/02 09:55:00.367423 Server 4 Start command index 26 term 8
+2025/12/02 09:55:00.374925 Server 3 Start command index 112 term 1
+2025/12/02 09:55:00.375030 Server 4 Start command index 27 term 8
+2025/12/02 09:55:00.375196 Server 3 Start command index 113 term 1
+2025/12/02 09:55:00.375253 Server 4 Start command index 28 term 8
+2025/12/02 09:55:00.380254 Server 3 Start command index 114 term 1
+2025/12/02 09:55:00.380341 Server 4 Start command index 29 term 8
+2025/12/02 09:55:00.387706 Server 3 Start command index 115 term 1
+2025/12/02 09:55:00.387797 Server 4 Start command index 30 term 8
+2025/12/02 09:55:00.398150 Server 3 Start command index 116 term 1
+2025/12/02 09:55:00.398628 Server 4 Start command index 31 term 8
+2025/12/02 09:55:00.410671 Server 3 Start command index 117 term 1
+2025/12/02 09:55:00.410773 Server 4 Start command index 32 term 8
+2025/12/02 09:55:00.417920 Server 3 Start command index 118 term 1
+2025/12/02 09:55:00.418040 Server 4 Start command index 33 term 8
+2025/12/02 09:55:00.429511 Server 3 Start command index 119 term 1
+2025/12/02 09:55:00.429618 Server 4 Start command index 34 term 8
+2025/12/02 09:55:00.433901 Server 3 Start command index 120 term 1
+2025/12/02 09:55:00.434009 Server 4 Start command index 35 term 8
+2025/12/02 09:55:00.443262 Server 3 Start command index 121 term 1
+2025/12/02 09:55:00.443357 Server 4 Start command index 36 term 8
+2025/12/02 09:55:00.444665 Server 3 Start command index 122 term 1
+2025/12/02 09:55:00.444769 Server 4 Start command index 37 term 8
+2025/12/02 09:55:00.452943 Server 3 Start command index 123 term 1
+2025/12/02 09:55:00.453034 Server 4 Start command index 38 term 8
+2025/12/02 09:55:00.463204 Server 3 Start command index 124 term 1
+2025/12/02 09:55:00.463299 Server 4 Start command index 39 term 8
+2025/12/02 09:55:00.493116 Server 3 Start command index 125 term 1
+2025/12/02 09:55:00.493251 Server 4 Start command index 40 term 8
+2025/12/02 09:55:00.497382 Server 3 Start command index 126 term 1
+2025/12/02 09:55:00.497482 Server 4 Start command index 41 term 8
+2025/12/02 09:55:00.500827 Server 3 Start command index 127 term 1
+2025/12/02 09:55:00.500914 Server 4 Start command index 42 term 8
+2025/12/02 09:55:00.508131 Server 3 Start command index 128 term 1
+2025/12/02 09:55:00.508222 Server 4 Start command index 43 term 8
+2025/12/02 09:55:00.520601 Server 3 Start command index 129 term 1
+2025/12/02 09:55:00.520711 Server 4 Start command index 44 term 8
+2025/12/02 09:55:00.528193 Server 3 Start command index 130 term 1
+2025/12/02 09:55:00.528308 Server 4 Start command index 45 term 8
+2025/12/02 09:55:00.535497 Server 3 Start command index 131 term 1
+2025/12/02 09:55:00.535592 Server 4 Start command index 46 term 8
+2025/12/02 09:55:00.539786 Server 3 Start command index 132 term 1
+2025/12/02 09:55:00.539886 Server 4 Start command index 47 term 8
+2025/12/02 09:55:00.545329 Server 3 Start command index 133 term 1
+2025/12/02 09:55:00.545456 Server 4 Start command index 48 term 8
+2025/12/02 09:55:00.551543 Server 3 Start command index 134 term 1
+2025/12/02 09:55:00.551644 Server 4 Start command index 49 term 8
+2025/12/02 09:55:00.555073 Server 3 Start command index 135 term 1
+2025/12/02 09:55:00.555184 Server 4 Start command index 50 term 8
+2025/12/02 09:55:00.563427 Server 3 Start command index 136 term 1
+2025/12/02 09:55:00.563546 Server 4 Start command index 51 term 8
+2025/12/02 09:55:00.566415 Server 1 starting election for term 10
+2025/12/02 09:55:00.570955 Server 3 Start command index 137 term 1
+2025/12/02 09:55:00.571062 Server 4 Start command index 52 term 8
+2025/12/02 09:55:00.575298 Server 3 Start command index 138 term 1
+2025/12/02 09:55:00.575410 Server 4 Start command index 53 term 8
+2025/12/02 09:55:00.577464 Server 2 became follower in term 10 (RequestVote from 1)
+2025/12/02 09:55:00.587778 Server 0 became follower in term 10 (RequestVote from 1)
+2025/12/02 09:55:00.587794 Server 3 Start command index 139 term 1
+2025/12/02 09:55:00.587801 Server 0 granted vote to 1 in term 10
+2025/12/02 09:55:00.587911 Server 4 Start command index 54 term 8
+2025/12/02 09:55:00.598148 Server 3 Start command index 140 term 1
+2025/12/02 09:55:00.598259 Server 4 Start command index 55 term 8
+2025/12/02 09:55:00.598470 Server 3 Start command index 141 term 1
+2025/12/02 09:55:00.598564 Server 4 Start command index 56 term 8
+2025/12/02 09:55:00.602374 Server 3 Start command index 142 term 1
+2025/12/02 09:55:00.602486 Server 4 Start command index 57 term 8
+2025/12/02 09:55:00.612845 Server 3 Start command index 143 term 1
+2025/12/02 09:55:00.612953 Server 4 Start command index 58 term 8
+2025/12/02 09:55:00.624450 Server 3 Start command index 144 term 1
+2025/12/02 09:55:00.624585 Server 4 Start command index 59 term 8
+2025/12/02 09:55:00.629025 Server 3 Start command index 145 term 1
+2025/12/02 09:55:00.629153 Server 4 Start command index 60 term 8
+2025/12/02 09:55:00.639371 Server 3 Start command index 146 term 1
+2025/12/02 09:55:00.639491 Server 4 Start command index 61 term 8
+2025/12/02 09:55:00.639695 Server 3 Start command index 147 term 1
+2025/12/02 09:55:00.639831 Server 4 Start command index 62 term 8
+2025/12/02 09:55:00.650894 Server 3 Start command index 148 term 1
+2025/12/02 09:55:00.651017 Server 4 Start command index 63 term 8
+2025/12/02 09:55:00.659193 Server 3 Start command index 149 term 1
+2025/12/02 09:55:00.659312 Server 4 Start command index 64 term 8
+2025/12/02 09:55:00.668581 Server 3 Start command index 150 term 1
+2025/12/02 09:55:00.668707 Server 4 Start command index 65 term 8
+2025/12/02 09:55:00.675075 Server 3 Start command index 151 term 1
+2025/12/02 09:55:00.675203 Server 4 Start command index 66 term 8
+2025/12/02 09:55:00.686676 Server 3 Start command index 152 term 1
+2025/12/02 09:55:00.686803 Server 4 Start command index 67 term 8
+2025/12/02 09:55:00.695149 Server 3 Start command index 153 term 1
+2025/12/02 09:55:00.695278 Server 4 Start command index 68 term 8
+2025/12/02 09:55:00.697689 Server 3 Start command index 154 term 1
+2025/12/02 09:55:00.697822 Server 4 Start command index 69 term 8
+2025/12/02 09:55:00.700211 Server 3 Start command index 155 term 1
+2025/12/02 09:55:00.700377 Server 4 Start command index 70 term 8
+2025/12/02 09:55:00.711643 Server 3 Start command index 156 term 1
+2025/12/02 09:55:00.711775 Server 4 Start command index 71 term 8
+2025/12/02 09:55:00.714859 Server 3 Start command index 157 term 1
+2025/12/02 09:55:00.714985 Server 4 Start command index 72 term 8
+2025/12/02 09:55:00.720075 Server 3 Start command index 158 term 1
+2025/12/02 09:55:00.720210 Server 4 Start command index 73 term 8
+2025/12/02 09:55:00.732641 Server 3 Start command index 159 term 1
+2025/12/02 09:55:00.732819 Server 4 Start command index 74 term 8
+2025/12/02 09:55:00.743021 Server 3 Start command index 160 term 1
+2025/12/02 09:55:00.743145 Server 4 Start command index 75 term 8
+2025/12/02 09:55:00.754450 Server 3 Start command index 161 term 1
+2025/12/02 09:55:00.754576 Server 4 Start command index 76 term 8
+2025/12/02 09:55:00.767017 Server 3 Start command index 162 term 1
+2025/12/02 09:55:00.767186 Server 4 Start command index 77 term 8
+2025/12/02 09:55:00.772189 Server 3 Start command index 163 term 1
+2025/12/02 09:55:00.772316 Server 4 Start command index 78 term 8
+2025/12/02 09:55:00.775398 Server 3 Start command index 164 term 1
+2025/12/02 09:55:00.775555 Server 4 Start command index 79 term 8
+2025/12/02 09:55:00.779653 Server 3 Start command index 165 term 1
+2025/12/02 09:55:00.779814 Server 4 Start command index 80 term 8
+2025/12/02 09:55:00.785219 Server 3 Start command index 166 term 1
+2025/12/02 09:55:00.785363 Server 4 Start command index 81 term 8
+2025/12/02 09:55:00.796623 Server 3 Start command index 167 term 1
+2025/12/02 09:55:00.796765 Server 4 Start command index 82 term 8
+2025/12/02 09:55:00.920382 Server 2 starting election for term 11
+2025/12/02 09:55:00.925865 Server 1 became follower in term 11 (RequestVote from 2)
+2025/12/02 09:55:00.925893 Server 1 granted vote to 2 in term 11
+2025/12/02 09:55:00.944560 Server 0 became follower in term 11 (RequestVote from 2)
+2025/12/02 09:55:00.944593 Server 0 granted vote to 2 in term 11
+2025/12/02 09:55:00.944801 Server 2 became leader for term 11
+2025/12/02 09:55:00.953862 Server 1 conflict in AppendEntries. PrevLogIndex: 4, MyTerm: 3, ArgsTerm: 8
+2025/12/02 09:55:00.954023 Server 2 AppendEntries failed for 1. XTerm 3, XIndex 3, XLen 78
+2025/12/02 09:55:00.959109 Server 0 log too short for AppendEntries. PrevLogIndex: 4, LogLen: 4
+2025/12/02 09:55:00.959275 Server 2 AppendEntries failed for 0. XTerm 0, XIndex 0, XLen 4
+2025/12/02 09:55:01.221538 Server 2 Start command index 5 term 11
+2025/12/02 09:55:01.221821 Server 3 Start command index 168 term 1
+2025/12/02 09:55:01.221958 Server 4 Start command index 83 term 8
+2025/12/02 09:55:01.225878 Server 2 Start command index 6 term 11
+2025/12/02 09:55:01.226146 Server 3 Start command index 169 term 1
+2025/12/02 09:55:01.226283 Server 4 Start command index 84 term 8
+2025/12/02 09:55:01.236393 Server 2 Start command index 7 term 11
+2025/12/02 09:55:01.236673 Server 3 Start command index 170 term 1
+2025/12/02 09:55:01.236836 Server 4 Start command index 85 term 8
+2025/12/02 09:55:01.597029 Server 0 starting election for term 12
+2025/12/02 09:55:01.607410 Server 1 starting election for term 12
+2025/12/02 09:55:01.682419 Server 2 Start command index 8 term 11
+2025/12/02 09:55:01.682704 Server 3 Start command index 171 term 1
+2025/12/02 09:55:01.682856 Server 4 Start command index 86 term 8
+2025/12/02 09:55:01.685697 Server 2 Start command index 9 term 11
+2025/12/02 09:55:01.686011 Server 3 Start command index 172 term 1
+2025/12/02 09:55:01.686215 Server 4 Start command index 87 term 8
+2025/12/02 09:55:01.697189 Server 2 Start command index 10 term 11
+2025/12/02 09:55:01.697482 Server 3 Start command index 173 term 1
+2025/12/02 09:55:01.697628 Server 4 Start command index 88 term 8
+2025/12/02 09:55:01.698815 Server 2 Start command index 11 term 11
+2025/12/02 09:55:01.699107 Server 3 Start command index 174 term 1
+2025/12/02 09:55:01.699254 Server 4 Start command index 89 term 8
+2025/12/02 09:55:01.712284 Server 2 Start command index 12 term 11
+2025/12/02 09:55:01.712548 Server 3 Start command index 175 term 1
+2025/12/02 09:55:01.712698 Server 4 Start command index 90 term 8
+2025/12/02 09:55:01.716577 Server 2 Start command index 13 term 11
+2025/12/02 09:55:01.716938 Server 3 Start command index 176 term 1
+2025/12/02 09:55:01.717470 Server 4 Start command index 91 term 8
+2025/12/02 09:55:01.727202 Server 2 Start command index 14 term 11
+2025/12/02 09:55:01.727471 Server 3 Start command index 177 term 1
+2025/12/02 09:55:01.727612 Server 4 Start command index 92 term 8
+2025/12/02 09:55:01.735505 Server 2 Start command index 15 term 11
+2025/12/02 09:55:01.735772 Server 3 Start command index 178 term 1
+2025/12/02 09:55:01.735918 Server 4 Start command index 93 term 8
+2025/12/02 09:55:01.737678 Server 2 Start command index 16 term 11
+2025/12/02 09:55:01.737961 Server 3 Start command index 179 term 1
+2025/12/02 09:55:01.738117 Server 4 Start command index 94 term 8
+2025/12/02 09:55:01.750126 Server 2 Start command index 17 term 11
+2025/12/02 09:55:01.750388 Server 3 Start command index 180 term 1
+2025/12/02 09:55:01.750530 Server 4 Start command index 95 term 8
+2025/12/02 09:55:01.755452 Server 2 Start command index 18 term 11
+2025/12/02 09:55:01.755727 Server 3 Start command index 181 term 1
+2025/12/02 09:55:01.755893 Server 4 Start command index 96 term 8
+2025/12/02 09:55:01.767915 Server 2 Start command index 19 term 11
+2025/12/02 09:55:01.768190 Server 3 Start command index 182 term 1
+2025/12/02 09:55:01.768343 Server 4 Start command index 97 term 8
+2025/12/02 09:55:01.991547 Server 0 starting election for term 13
+2025/12/02 09:55:01.991573 Server 1 starting election for term 13
+2025/12/02 09:55:02.111060 Server 2 Start command index 20 term 11
+2025/12/02 09:55:02.111323 Server 3 Start command index 183 term 1
+2025/12/02 09:55:02.111467 Server 4 Start command index 98 term 8
+2025/12/02 09:55:02.111522 Server 2 Start command index 21 term 11
+2025/12/02 09:55:02.111792 Server 3 Start command index 184 term 1
+2025/12/02 09:55:02.111938 Server 4 Start command index 99 term 8
+2025/12/02 09:55:02.115189 Server 2 Start command index 22 term 11
+2025/12/02 09:55:02.115468 Server 3 Start command index 185 term 1
+2025/12/02 09:55:02.115618 Server 4 Start command index 100 term 8
+2025/12/02 09:55:02.121525 Server 2 Start command index 23 term 11
+2025/12/02 09:55:02.121788 Server 3 Start command index 186 term 1
+2025/12/02 09:55:02.121937 Server 4 Start command index 101 term 8
+2025/12/02 09:55:02.292388 Server 2 Start command index 24 term 11
+2025/12/02 09:55:02.292695 Server 3 Start command index 187 term 1
+2025/12/02 09:55:02.292887 Server 4 Start command index 102 term 8
+2025/12/02 09:55:02.344227 Server 0 starting election for term 14
+2025/12/02 09:55:02.361117 Server 1 became follower in term 14 (RequestVote from 0)
+2025/12/02 09:55:02.361138 Server 1 granted vote to 0 in term 14
+2025/12/02 09:55:02.362310 Server 3 became follower in term 14 (RequestVote from 0)
+2025/12/02 09:55:02.362355 Server 3 granted vote to 0 in term 14
+2025/12/02 09:55:02.363091 Server 0 became leader for term 14
+2025/12/02 09:55:02.378946 Server 3 conflict in AppendEntries. PrevLogIndex: 5, MyTerm: 1, ArgsTerm: 11
+2025/12/02 09:55:02.379112 Server 0 AppendEntries failed for 3. XTerm 1, XIndex 1, XLen 188
+2025/12/02 09:55:02.647166 Server 0 Start command index 6 term 14
+2025/12/02 09:55:02.647272 Server 2 Start command index 25 term 11
+2025/12/02 09:55:02.647431 Server 4 Start command index 103 term 8
+2025/12/02 09:55:02.655578 Server 0 Start command index 7 term 14
+2025/12/02 09:55:02.655669 Server 2 Start command index 26 term 11
+2025/12/02 09:55:02.655840 Server 4 Start command index 104 term 8
+2025/12/02 09:55:02.668149 Server 0 Start command index 8 term 14
+2025/12/02 09:55:02.668255 Server 2 Start command index 27 term 11
+2025/12/02 09:55:02.668418 Server 4 Start command index 105 term 8
+2025/12/02 09:55:02.679568 Server 0 Start command index 9 term 14
+2025/12/02 09:55:02.679647 Server 2 Start command index 28 term 11
+2025/12/02 09:55:02.679833 Server 4 Start command index 106 term 8
+2025/12/02 09:55:03.040822 Server 1 starting election for term 15
+2025/12/02 09:55:03.045242 Server 3 became follower in term 15 (RequestVote from 1)
+2025/12/02 09:55:03.045273 Server 3 granted vote to 1 in term 15
+2025/12/02 09:55:03.058708 Server 2 became follower in term 15 (RequestVote from 1)
+2025/12/02 09:55:03.058766 Server 2 granted vote to 1 in term 15
+2025/12/02 09:55:03.058974 Server 1 became leader for term 15
+2025/12/02 09:55:03.092836 Server 0 Start command index 10 term 14
+2025/12/02 09:55:03.092934 Server 1 Start command index 8 term 15
+2025/12/02 09:55:03.093139 Server 4 Start command index 107 term 8
+2025/12/02 09:55:03.105257 Server 0 Start command index 11 term 14
+2025/12/02 09:55:03.105312 Server 1 Start command index 9 term 15
+2025/12/02 09:55:03.105470 Server 4 Start command index 108 term 8
+2025/12/02 09:55:03.105513 Server 0 Start command index 12 term 14
+2025/12/02 09:55:03.105550 Server 1 Start command index 10 term 15
+2025/12/02 09:55:03.105705 Server 4 Start command index 109 term 8
+2025/12/02 09:55:03.118802 Server 0 Start command index 13 term 14
+2025/12/02 09:55:03.118870 Server 1 Start command index 11 term 15
+2025/12/02 09:55:03.119031 Server 4 Start command index 110 term 8
+2025/12/02 09:55:03.119106 Server 0 Start command index 14 term 14
+2025/12/02 09:55:03.119145 Server 1 Start command index 12 term 15
+2025/12/02 09:55:03.119305 Server 4 Start command index 111 term 8
+2025/12/02 09:55:03.132391 Server 0 Start command index 15 term 14
+2025/12/02 09:55:03.132441 Server 1 Start command index 13 term 15
+2025/12/02 09:55:03.132601 Server 4 Start command index 112 term 8
+2025/12/02 09:55:03.138851 Server 0 Start command index 16 term 14
+2025/12/02 09:55:03.138922 Server 1 Start command index 14 term 15
+2025/12/02 09:55:03.139086 Server 4 Start command index 113 term 8
+2025/12/02 09:55:03.143313 Server 0 Start command index 17 term 14
+2025/12/02 09:55:03.143373 Server 1 Start command index 15 term 15
+2025/12/02 09:55:03.143537 Server 4 Start command index 114 term 8
+2025/12/02 09:55:03.149812 Server 0 Start command index 18 term 14
+2025/12/02 09:55:03.149873 Server 1 Start command index 16 term 15
+2025/12/02 09:55:03.150109 Server 4 Start command index 115 term 8
+2025/12/02 09:55:03.151317 Server 0 Start command index 19 term 14
+2025/12/02 09:55:03.151395 Server 1 Start command index 17 term 15
+2025/12/02 09:55:03.151566 Server 4 Start command index 116 term 8
+2025/12/02 09:55:03.158582 Server 0 Start command index 20 term 14
+2025/12/02 09:55:03.158656 Server 1 Start command index 18 term 15
+2025/12/02 09:55:03.158899 Server 4 Start command index 117 term 8
+2025/12/02 09:55:03.163801 Server 0 Start command index 21 term 14
+2025/12/02 09:55:03.163868 Server 1 Start command index 19 term 15
+2025/12/02 09:55:03.164048 Server 4 Start command index 118 term 8
+2025/12/02 09:55:03.172281 Server 0 Start command index 22 term 14
+2025/12/02 09:55:03.172344 Server 1 Start command index 20 term 15
+2025/12/02 09:55:03.172525 Server 4 Start command index 119 term 8
+2025/12/02 09:55:03.179746 Server 0 Start command index 23 term 14
+2025/12/02 09:55:03.179876 Server 1 Start command index 21 term 15
+2025/12/02 09:55:03.180191 Server 4 Start command index 120 term 8
+2025/12/02 09:55:03.191139 Server 0 Start command index 24 term 14
+2025/12/02 09:55:03.191217 Server 1 Start command index 22 term 15
+2025/12/02 09:55:03.191394 Server 4 Start command index 121 term 8
+2025/12/02 09:55:03.348650 Server 0 Start command index 25 term 14
+2025/12/02 09:55:03.348722 Server 1 Start command index 23 term 15
+2025/12/02 09:55:03.348923 Server 4 Start command index 122 term 8
+2025/12/02 09:55:03.353251 Server 0 Start command index 26 term 14
+2025/12/02 09:55:03.353342 Server 1 Start command index 24 term 15
+2025/12/02 09:55:03.353546 Server 4 Start command index 123 term 8
+2025/12/02 09:55:03.353598 Server 3 starting election for term 16
+2025/12/02 09:55:03.358605 Server 0 Start command index 27 term 14
+2025/12/02 09:55:03.358671 Server 1 Start command index 25 term 15
+2025/12/02 09:55:03.358854 Server 4 Start command index 124 term 8
+2025/12/02 09:55:03.363123 Server 0 Start command index 28 term 14
+2025/12/02 09:55:03.363203 Server 1 Start command index 26 term 15
+2025/12/02 09:55:03.363412 Server 4 Start command index 125 term 8
+2025/12/02 09:55:03.366495 Server 2 became follower in term 16 (RequestVote from 3)
+2025/12/02 09:55:03.366518 Server 2 granted vote to 3 in term 16
+2025/12/02 09:55:03.371855 Server 4 became follower in term 16 (RequestVote from 3)
+2025/12/02 09:55:03.371877 Server 4 granted vote to 3 in term 16
+2025/12/02 09:55:03.376033 Server 0 Start command index 29 term 14
+2025/12/02 09:55:03.376105 Server 1 Start command index 27 term 15
+2025/12/02 09:55:03.376186 Server 0 Start command index 30 term 14
+2025/12/02 09:55:03.376245 Server 1 Start command index 28 term 15
+2025/12/02 09:55:03.381238 Server 0 Start command index 31 term 14
+2025/12/02 09:55:03.381324 Server 1 Start command index 29 term 15
+2025/12/02 09:55:03.391721 Server 0 Start command index 32 term 14
+2025/12/02 09:55:03.391821 Server 1 Start command index 30 term 15
+2025/12/02 09:55:03.401140 Server 0 Start command index 33 term 14
+2025/12/02 09:55:03.401215 Server 1 Start command index 31 term 15
+2025/12/02 09:55:03.413617 Server 0 Start command index 34 term 14
+2025/12/02 09:55:03.413701 Server 1 Start command index 32 term 15
+2025/12/02 09:55:03.426285 Server 0 Start command index 35 term 14
+2025/12/02 09:55:03.426368 Server 1 Start command index 33 term 15
+2025/12/02 09:55:03.706710 Server 3 starting election for term 17
+2025/12/02 09:55:03.721488 Server 2 became follower in term 17 (RequestVote from 3)
+2025/12/02 09:55:03.721516 Server 2 granted vote to 3 in term 17
+2025/12/02 09:55:03.723611 Server 4 became follower in term 17 (RequestVote from 3)
+2025/12/02 09:55:03.723641 Server 4 granted vote to 3 in term 17
+2025/12/02 09:55:03.738101 Server 0 Start command index 36 term 14
+2025/12/02 09:55:03.738187 Server 1 Start command index 34 term 15
+2025/12/02 09:55:03.748393 Server 0 Start command index 37 term 14
+2025/12/02 09:55:03.748476 Server 1 Start command index 35 term 15
+2025/12/02 09:55:03.758767 Server 0 Start command index 38 term 14
+2025/12/02 09:55:03.758894 Server 1 Start command index 36 term 15
+2025/12/02 09:55:03.768024 Server 0 Start command index 39 term 14
+2025/12/02 09:55:03.768113 Server 1 Start command index 37 term 15
+2025/12/02 09:55:03.772387 Server 0 Start command index 40 term 14
+2025/12/02 09:55:03.772477 Server 1 Start command index 38 term 15
+2025/12/02 09:55:03.774581 Server 0 Start command index 41 term 14
+2025/12/02 09:55:03.774668 Server 1 Start command index 39 term 15
+2025/12/02 09:55:03.775834 Server 0 Start command index 42 term 14
+2025/12/02 09:55:03.775957 Server 1 Start command index 40 term 15
+2025/12/02 09:55:03.778003 Server 0 Start command index 43 term 14
+2025/12/02 09:55:03.778090 Server 1 Start command index 41 term 15
+2025/12/02 09:55:03.782318 Server 0 Start command index 44 term 14
+2025/12/02 09:55:03.782409 Server 1 Start command index 42 term 15
+2025/12/02 09:55:03.789669 Server 0 Start command index 45 term 14
+2025/12/02 09:55:03.789794 Server 1 Start command index 43 term 15
+2025/12/02 09:55:03.789886 Server 0 Start command index 46 term 14
+2025/12/02 09:55:03.789962 Server 1 Start command index 44 term 15
+2025/12/02 09:55:03.801108 Server 0 Start command index 47 term 14
+2025/12/02 09:55:03.801209 Server 1 Start command index 45 term 15
+2025/12/02 09:55:03.812591 Server 0 Start command index 48 term 14
+2025/12/02 09:55:03.812683 Server 1 Start command index 46 term 15
+2025/12/02 09:55:03.817815 Server 0 Start command index 49 term 14
+2025/12/02 09:55:03.817914 Server 1 Start command index 47 term 15
+2025/12/02 09:55:03.830600 Server 0 Start command index 50 term 14
+2025/12/02 09:55:03.830694 Server 1 Start command index 48 term 15
+2025/12/02 09:55:03.835986 Server 0 Start command index 51 term 14
+2025/12/02 09:55:03.836099 Server 1 Start command index 49 term 15
+2025/12/02 09:55:03.840377 Server 0 Start command index 52 term 14
+2025/12/02 09:55:03.840487 Server 1 Start command index 50 term 15
+2025/12/02 09:55:03.848845 Server 0 Start command index 53 term 14
+2025/12/02 09:55:03.848944 Server 1 Start command index 51 term 15
+2025/12/02 09:55:03.852062 Server 0 Start command index 54 term 14
+2025/12/02 09:55:03.852168 Server 1 Start command index 52 term 15
+2025/12/02 09:55:03.856360 Server 0 Start command index 55 term 14
+2025/12/02 09:55:03.856462 Server 1 Start command index 53 term 15
+2025/12/02 09:55:03.866694 Server 0 Start command index 56 term 14
+2025/12/02 09:55:03.866833 Server 1 Start command index 54 term 15
+2025/12/02 09:55:03.872126 Server 0 Start command index 57 term 14
+2025/12/02 09:55:03.872237 Server 1 Start command index 55 term 15
+2025/12/02 09:55:03.881675 Server 0 Start command index 58 term 14
+2025/12/02 09:55:03.881794 Server 1 Start command index 56 term 15
+2025/12/02 09:55:04.031539 Server 2 starting election for term 18
+2025/12/02 09:55:04.033209 Server 3 became follower in term 18 (RequestVote from 2)
+2025/12/02 09:55:04.048549 Server 4 became follower in term 18 (RequestVote from 2)
+2025/12/02 09:55:04.048635 Server 4 granted vote to 2 in term 18
+2025/12/02 09:55:04.343153 Server 0 Start command index 59 term 14
+2025/12/02 09:55:04.343309 Server 1 Start command index 57 term 15
+2025/12/02 09:55:04.346366 Server 0 Start command index 60 term 14
+2025/12/02 09:55:04.346499 Server 1 Start command index 58 term 15
+2025/12/02 09:55:04.353650 Server 0 Start command index 61 term 14
+2025/12/02 09:55:04.353782 Server 1 Start command index 59 term 15
+2025/12/02 09:55:04.359976 Server 0 Start command index 62 term 14
+2025/12/02 09:55:04.360100 Server 1 Start command index 60 term 15
+2025/12/02 09:55:04.364009 Server 3 starting election for term 19
+2025/12/02 09:55:04.371554 Server 0 Start command index 63 term 14
+2025/12/02 09:55:04.371670 Server 1 Start command index 61 term 15
+2025/12/02 09:55:04.378100 Server 0 Start command index 64 term 14
+2025/12/02 09:55:04.378234 Server 1 Start command index 62 term 15
+2025/12/02 09:55:04.384531 Server 4 became follower in term 19 (RequestVote from 3)
+2025/12/02 09:55:04.384556 Server 4 granted vote to 3 in term 19
+2025/12/02 09:55:04.386596 Server 0 Start command index 65 term 14
+2025/12/02 09:55:04.386705 Server 2 became follower in term 19 (RequestVote from 3)
+2025/12/02 09:55:04.386755 Server 2 granted vote to 3 in term 19
+2025/12/02 09:55:04.386717 Server 1 Start command index 63 term 15
+2025/12/02 09:55:04.395785 Server 0 Start command index 66 term 14
+2025/12/02 09:55:04.395919 Server 1 Start command index 64 term 15
+2025/12/02 09:55:04.401071 Server 0 Start command index 67 term 14
+2025/12/02 09:55:04.401195 Server 1 Start command index 65 term 15
+2025/12/02 09:55:04.402422 Server 0 Start command index 68 term 14
+2025/12/02 09:55:04.402550 Server 1 Start command index 66 term 15
+2025/12/02 09:55:04.405829 Server 0 Start command index 69 term 14
+2025/12/02 09:55:04.405949 Server 1 Start command index 67 term 15
+2025/12/02 09:55:04.418340 Server 0 Start command index 70 term 14
+2025/12/02 09:55:04.418478 Server 1 Start command index 68 term 15
+2025/12/02 09:55:04.429905 Server 0 Start command index 71 term 14
+2025/12/02 09:55:04.430042 Server 1 Start command index 69 term 15
+2025/12/02 09:55:04.435167 Server 0 Start command index 72 term 14
+2025/12/02 09:55:04.435288 Server 1 Start command index 70 term 15
+2025/12/02 09:55:04.443466 Server 0 Start command index 73 term 14
+2025/12/02 09:55:04.443634 Server 1 Start command index 71 term 15
+2025/12/02 09:55:04.451872 Server 0 Start command index 74 term 14
+2025/12/02 09:55:04.452006 Server 1 Start command index 72 term 15
+2025/12/02 09:55:04.458004 Server 0 Start command index 75 term 14
+2025/12/02 09:55:04.458141 Server 1 Start command index 73 term 15
+2025/12/02 09:55:04.462280 Server 0 Start command index 76 term 14
+2025/12/02 09:55:04.462407 Server 1 Start command index 74 term 15
+2025/12/02 09:55:04.462533 Server 0 Start command index 77 term 14
+2025/12/02 09:55:04.462646 Server 1 Start command index 75 term 15
+2025/12/02 09:55:04.469601 Server 0 Start command index 78 term 14
+2025/12/02 09:55:04.469744 Server 1 Start command index 76 term 15
+2025/12/02 09:55:04.472880 Server 0 Start command index 79 term 14
+2025/12/02 09:55:04.473013 Server 1 Start command index 77 term 15
+2025/12/02 09:55:04.707710 Server 3 starting election for term 20
+2025/12/02 09:55:04.712208 Server 4 became follower in term 20 (RequestVote from 3)
+2025/12/02 09:55:04.712242 Server 4 granted vote to 3 in term 20
+2025/12/02 09:55:04.719464 Server 2 became follower in term 20 (RequestVote from 3)
+2025/12/02 09:55:04.719520 Server 2 granted vote to 3 in term 20
+2025/12/02 09:55:04.766197 Server 0 Start command index 80 term 14
+2025/12/02 09:55:04.766349 Server 1 Start command index 78 term 15
+2025/12/02 09:55:04.773562 Server 0 Start command index 81 term 14
+2025/12/02 09:55:04.773715 Server 1 Start command index 79 term 15
+2025/12/02 09:55:04.774981 Server 0 Start command index 82 term 14
+2025/12/02 09:55:04.775138 Server 1 Start command index 80 term 15
+2025/12/02 09:55:04.783532 Server 0 Start command index 83 term 14
+2025/12/02 09:55:04.783670 Server 1 Start command index 81 term 15
+2025/12/02 09:55:04.789865 Server 0 Start command index 84 term 14
+2025/12/02 09:55:04.790021 Server 1 Start command index 82 term 15
+2025/12/02 09:55:04.798240 Server 0 Start command index 85 term 14
+2025/12/02 09:55:04.798389 Server 1 Start command index 83 term 15
+2025/12/02 09:55:04.802478 Server 0 Start command index 86 term 14
+2025/12/02 09:55:04.802622 Server 1 Start command index 84 term 15
+2025/12/02 09:55:04.805662 Server 0 Start command index 87 term 14
+2025/12/02 09:55:04.805819 Server 1 Start command index 85 term 15
+2025/12/02 09:55:04.810952 Server 0 Start command index 88 term 14
+2025/12/02 09:55:04.811097 Server 1 Start command index 86 term 15
+2025/12/02 09:55:04.815289 Server 0 Start command index 89 term 14
+2025/12/02 09:55:04.815436 Server 1 Start command index 87 term 15
+2025/12/02 09:55:04.824687 Server 0 Start command index 90 term 14
+2025/12/02 09:55:04.824852 Server 1 Start command index 88 term 15
+2025/12/02 09:55:04.836136 Server 0 Start command index 91 term 14
+2025/12/02 09:55:04.836289 Server 1 Start command index 89 term 15
+2025/12/02 09:55:04.846774 Server 0 Start command index 92 term 14
+2025/12/02 09:55:04.846933 Server 1 Start command index 90 term 15
+2025/12/02 09:55:04.849975 Server 0 Start command index 93 term 14
+2025/12/02 09:55:04.850124 Server 1 Start command index 91 term 15
+2025/12/02 09:55:04.859331 Server 0 Start command index 94 term 14
+2025/12/02 09:55:04.859477 Server 1 Start command index 92 term 15
+2025/12/02 09:55:04.866752 Server 0 Start command index 95 term 14
+2025/12/02 09:55:04.867044 Server 1 Start command index 93 term 15
+2025/12/02 09:55:04.871377 Server 0 Start command index 96 term 14
+2025/12/02 09:55:04.871543 Server 1 Start command index 94 term 15
+2025/12/02 09:55:05.042545 Server 4 starting election for term 21
+2025/12/02 09:55:05.052998 Server 3 starting election for term 21
+2025/12/02 09:55:05.071927 Server 2 became follower in term 21 (RequestVote from 3)
+2025/12/02 09:55:05.071954 Server 2 granted vote to 3 in term 21
+2025/12/02 09:55:05.344725 Server 0 Start command index 97 term 14
+2025/12/02 09:55:05.344931 Server 1 Start command index 95 term 15
+2025/12/02 09:55:05.405550 Server 2 starting election for term 22
+2025/12/02 09:55:05.409001 Server 3 became follower in term 22 (RequestVote from 2)
+2025/12/02 09:55:05.488549 Server 4 starting election for term 22
+2025/12/02 09:55:05.623344 Server 0 Start command index 98 term 14
+2025/12/02 09:55:05.623547 Server 1 Start command index 96 term 15
+2025/12/02 09:55:05.635823 Server 0 Start command index 99 term 14
+2025/12/02 09:55:05.636010 Server 1 Start command index 97 term 15
+2025/12/02 09:55:05.645141 Server 0 Start command index 100 term 14
+2025/12/02 09:55:05.645339 Server 1 Start command index 98 term 15
+2025/12/02 09:55:05.653581 Server 0 Start command index 101 term 14
+2025/12/02 09:55:05.653755 Server 1 Start command index 99 term 15
+2025/12/02 09:55:05.663906 Server 0 Start command index 102 term 14
+2025/12/02 09:55:05.664068 Server 1 Start command index 100 term 15
+2025/12/02 09:55:05.668262 Server 0 Start command index 103 term 14
+2025/12/02 09:55:05.668421 Server 1 Start command index 101 term 15
+2025/12/02 09:55:05.677750 Server 0 Start command index 104 term 14
+2025/12/02 09:55:05.677936 Server 1 Start command index 102 term 15
+2025/12/02 09:55:05.688042 Server 0 Start command index 105 term 14
+2025/12/02 09:55:05.688199 Server 1 Start command index 103 term 15
+2025/12/02 09:55:05.694341 Server 0 Start command index 106 term 14
+2025/12/02 09:55:05.694524 Server 1 Start command index 104 term 15
+2025/12/02 09:55:05.705977 Server 0 Start command index 107 term 14
+2025/12/02 09:55:05.706154 Server 1 Start command index 105 term 15
+2025/12/02 09:55:05.708125 Server 0 Start command index 108 term 14
+2025/12/02 09:55:05.708290 Server 1 Start command index 106 term 15
+2025/12/02 09:55:05.719619 Server 0 Start command index 109 term 14
+2025/12/02 09:55:05.719838 Server 1 Start command index 107 term 15
+2025/12/02 09:55:05.730148 Server 0 Start command index 110 term 14
+2025/12/02 09:55:05.730317 Server 1 Start command index 108 term 15
+2025/12/02 09:55:05.738448 Server 0 Start command index 111 term 14
+2025/12/02 09:55:05.738609 Server 1 Start command index 109 term 15
+2025/12/02 09:55:05.740650 Server 0 Start command index 112 term 14
+2025/12/02 09:55:05.740829 Server 1 Start command index 110 term 15
+2025/12/02 09:55:05.748898 Server 0 Start command index 113 term 14
+2025/12/02 09:55:05.749075 Server 1 Start command index 111 term 15
+2025/12/02 09:55:05.760487 Server 0 Start command index 114 term 14
+2025/12/02 09:55:05.760709 Server 1 Start command index 112 term 15
+2025/12/02 09:55:05.772927 Server 0 Start command index 115 term 14
+2025/12/02 09:55:05.773103 Server 1 Start command index 113 term 15
+2025/12/02 09:55:05.781353 Server 0 Start command index 116 term 14
+2025/12/02 09:55:05.781525 Server 1 Start command index 114 term 15
+2025/12/02 09:55:05.789775 Server 0 Start command index 117 term 14
+2025/12/02 09:55:05.789963 Server 1 Start command index 115 term 15
+2025/12/02 09:55:05.821697 Server 4 starting election for term 23
+2025/12/02 09:55:05.828261 Server 3 became follower in term 23 (RequestVote from 4)
+2025/12/02 09:55:05.830404 Server 2 became follower in term 23 (RequestVote from 4)
+2025/12/02 09:55:06.186355 Server 3 starting election for term 24
+2025/12/02 09:55:06.186374 Server 2 starting election for term 24
+2025/12/02 09:55:06.198171 Server 4 became follower in term 24 (RequestVote from 2)
+2025/12/02 09:55:06.198205 Server 4 granted vote to 2 in term 24
+2025/12/02 09:55:06.267924 Server 0 Start command index 118 term 14
+2025/12/02 09:55:06.268118 Server 1 Start command index 116 term 15
+2025/12/02 09:55:06.279376 Server 0 Start command index 119 term 14
+2025/12/02 09:55:06.279576 Server 1 Start command index 117 term 15
+2025/12/02 09:55:06.287711 Server 0 Start command index 120 term 14
+2025/12/02 09:55:06.287902 Server 1 Start command index 118 term 15
+2025/12/02 09:55:06.290259 Server 0 Start command index 121 term 14
+2025/12/02 09:55:06.290476 Server 1 Start command index 119 term 15
+2025/12/02 09:55:06.290661 Server 0 Start command index 122 term 14
+2025/12/02 09:55:06.290850 Server 1 Start command index 120 term 15
+2025/12/02 09:55:06.296674 Server 0 Start command index 123 term 14
+2025/12/02 09:55:06.296948 Server 1 Start command index 121 term 15
+2025/12/02 09:55:06.307469 Server 0 Start command index 124 term 14
+2025/12/02 09:55:06.307656 Server 1 Start command index 122 term 15
+2025/12/02 09:55:06.310729 Server 0 Start command index 125 term 14
+2025/12/02 09:55:06.311023 Server 1 Start command index 123 term 15
+2025/12/02 09:55:06.314591 Server 0 Start command index 126 term 14
+2025/12/02 09:55:06.314823 Server 1 Start command index 124 term 15
+2025/12/02 09:55:06.319871 Server 0 Start command index 127 term 14
+2025/12/02 09:55:06.320080 Server 1 Start command index 125 term 15
+2025/12/02 09:55:06.331391 Server 0 Start command index 128 term 14
+2025/12/02 09:55:06.331599 Server 1 Start command index 126 term 15
+2025/12/02 09:55:06.334572 Server 0 Start command index 129 term 14
+2025/12/02 09:55:06.334781 Server 1 Start command index 127 term 15
+2025/12/02 09:55:06.337145 Server 0 Start command index 130 term 14
+2025/12/02 09:55:06.337341 Server 1 Start command index 128 term 15
+2025/12/02 09:55:06.346527 Server 0 Start command index 131 term 14
+2025/12/02 09:55:06.346720 Server 1 Start command index 129 term 15
+2025/12/02 09:55:06.531776 Server 4 starting election for term 25
+2025/12/02 09:55:06.549710 Server 2 became follower in term 25 (RequestVote from 4)
+2025/12/02 09:55:06.555068 Server 3 became follower in term 25 (RequestVote from 4)
+2025/12/02 09:55:06.747441 Server 0 Start command index 132 term 14
+2025/12/02 09:55:06.747653 Server 1 Start command index 130 term 15
+2025/12/02 09:55:06.748971 Server 0 Start command index 133 term 14
+2025/12/02 09:55:06.749187 Server 1 Start command index 131 term 15
+2025/12/02 09:55:06.757436 Server 0 Start command index 134 term 14
+2025/12/02 09:55:06.757637 Server 1 Start command index 132 term 15
+2025/12/02 09:55:06.767873 Server 0 Start command index 135 term 14
+2025/12/02 09:55:06.768068 Server 1 Start command index 133 term 15
+2025/12/02 09:55:06.779489 Server 0 Start command index 136 term 14
+2025/12/02 09:55:06.779682 Server 1 Start command index 134 term 15
+2025/12/02 09:55:06.783053 Server 0 Start command index 137 term 14
+2025/12/02 09:55:06.783271 Server 1 Start command index 135 term 15
+2025/12/02 09:55:06.791396 Server 0 Start command index 138 term 14
+2025/12/02 09:55:06.791591 Server 1 Start command index 136 term 15
+2025/12/02 09:55:06.796660 Server 0 Start command index 139 term 14
+2025/12/02 09:55:06.796907 Server 1 Start command index 137 term 15
+2025/12/02 09:55:06.809207 Server 0 Start command index 140 term 14
+2025/12/02 09:55:06.809420 Server 1 Start command index 138 term 15
+2025/12/02 09:55:06.818661 Server 0 Start command index 141 term 14
+2025/12/02 09:55:06.818895 Server 1 Start command index 139 term 15
+2025/12/02 09:55:06.828256 Server 0 Start command index 142 term 14
+2025/12/02 09:55:06.828471 Server 1 Start command index 140 term 15
+2025/12/02 09:55:06.832572 Server 0 Start command index 143 term 14
+2025/12/02 09:55:06.832785 Server 1 Start command index 141 term 15
+2025/12/02 09:55:06.836173 Server 0 Start command index 144 term 14
+2025/12/02 09:55:06.836379 Server 1 Start command index 142 term 15
+2025/12/02 09:55:06.847383 Server 4 starting election for term 26
+2025/12/02 09:55:06.847591 Server 0 Start command index 145 term 14
+2025/12/02 09:55:06.847872 Server 1 Start command index 143 term 15
+2025/12/02 09:55:06.851968 Server 0 Start command index 146 term 14
+2025/12/02 09:55:06.852181 Server 1 Start command index 144 term 15
+2025/12/02 09:55:06.853493 Server 0 Start command index 147 term 14
+2025/12/02 09:55:06.853712 Server 1 Start command index 145 term 15
+2025/12/02 09:55:06.856108 Server 0 Start command index 148 term 14
+2025/12/02 09:55:06.856319 Server 1 Start command index 146 term 15
+2025/12/02 09:55:06.865650 Server 2 became follower in term 26 (RequestVote from 4)
+2025/12/02 09:55:06.866794 Server 0 Start command index 149 term 14
+2025/12/02 09:55:06.867006 Server 1 Start command index 147 term 15
+2025/12/02 09:55:06.871036 Server 0 Start command index 150 term 14
+2025/12/02 09:55:06.871260 Server 1 Start command index 148 term 15
+2025/12/02 09:55:06.874163 Server 3 became follower in term 26 (RequestVote from 4)
+2025/12/02 09:55:06.999236 Server 0 Start command index 151 term 14
+2025/12/02 09:55:06.999475 Server 1 Start command index 149 term 15
+2025/12/02 09:55:07.002374 Server 0 Start command index 152 term 14
+2025/12/02 09:55:07.002617 Server 1 Start command index 150 term 15
+2025/12/02 09:55:07.007674 Server 0 Start command index 153 term 14
+2025/12/02 09:55:07.007939 Server 1 Start command index 151 term 15
+2025/12/02 09:55:07.011854 Server 0 Start command index 154 term 14
+2025/12/02 09:55:07.012077 Server 1 Start command index 152 term 15
+2025/12/02 09:55:07.173228 Server 4 starting election for term 27
+2025/12/02 09:55:07.174844 Server 3 became follower in term 27 (RequestVote from 4)
+2025/12/02 09:55:07.188485 Server 2 became follower in term 27 (RequestVote from 4)
+2025/12/02 09:55:07.439038 Server 0 Start command index 155 term 14
+2025/12/02 09:55:07.439281 Server 1 Start command index 153 term 15
+2025/12/02 09:55:07.441704 Server 0 Start command index 156 term 14
+2025/12/02 09:55:07.441979 Server 1 Start command index 154 term 15
+2025/12/02 09:55:07.443827 Server 0 Start command index 157 term 14
+2025/12/02 09:55:07.444054 Server 1 Start command index 155 term 15
+2025/12/02 09:55:07.449169 Server 0 Start command index 158 term 14
+2025/12/02 09:55:07.449410 Server 1 Start command index 156 term 15
+2025/12/02 09:55:07.453818 Server 0 Start command index 159 term 14
+2025/12/02 09:55:07.454043 Server 1 Start command index 157 term 15
+2025/12/02 09:55:07.459208 Server 0 Start command index 160 term 14
+2025/12/02 09:55:07.459433 Server 1 Start command index 158 term 15
+2025/12/02 09:55:07.460775 Server 0 Start command index 161 term 14
+2025/12/02 09:55:07.461000 Server 1 Start command index 159 term 15
+2025/12/02 09:55:07.473288 Server 0 Start command index 162 term 14
+2025/12/02 09:55:07.473513 Server 1 Start command index 160 term 15
+2025/12/02 09:55:07.476574 Server 0 Start command index 163 term 14
+2025/12/02 09:55:07.476815 Server 1 Start command index 161 term 15
+2025/12/02 09:55:07.506560 Server 3 starting election for term 28
+2025/12/02 09:55:07.508004 Server 4 became follower in term 28 (RequestVote from 3)
+2025/12/02 09:55:07.508024 Server 4 granted vote to 3 in term 28
+2025/12/02 09:55:07.591216 Server 2 starting election for term 28
+2025/12/02 09:55:07.796897 Server 0 Start command index 164 term 14
+2025/12/02 09:55:07.797162 Server 1 Start command index 162 term 15
+2025/12/02 09:55:07.803088 Server 0 Start command index 165 term 14
+2025/12/02 09:55:07.803337 Server 1 Start command index 163 term 15
+2025/12/02 09:55:07.814652 Server 0 Start command index 166 term 14
+2025/12/02 09:55:07.814942 Server 1 Start command index 164 term 15
+2025/12/02 09:55:07.825242 Server 0 Start command index 167 term 14
+2025/12/02 09:55:07.825505 Server 1 Start command index 165 term 15
+2025/12/02 09:55:07.856807 Server 0 Start command index 168 term 14
+2025/12/02 09:55:07.857065 Server 1 Start command index 166 term 15
+2025/12/02 09:55:07.861977 Server 0 Start command index 169 term 14
+2025/12/02 09:55:07.862247 Server 1 Start command index 167 term 15
+2025/12/02 09:55:07.864671 Server 0 Start command index 170 term 14
+2025/12/02 09:55:07.864975 Server 1 Start command index 168 term 15
+2025/12/02 09:55:07.872134 Server 0 Start command index 171 term 14
+2025/12/02 09:55:07.872372 Server 1 Start command index 169 term 15
+2025/12/02 09:55:07.879638 Server 0 Start command index 172 term 14
+2025/12/02 09:55:07.879907 Server 1 Start command index 170 term 15
+2025/12/02 09:55:07.881814 Server 0 Start command index 173 term 14
+2025/12/02 09:55:07.882077 Server 1 Start command index 171 term 15
+2025/12/02 09:55:07.894388 Server 0 Start command index 174 term 14
+2025/12/02 09:55:07.894658 Server 1 Start command index 172 term 15
+2025/12/02 09:55:07.898790 Server 0 Start command index 175 term 14
+2025/12/02 09:55:07.899061 Server 1 Start command index 173 term 15
+2025/12/02 09:55:07.991078 Server 3 starting election for term 29
+2025/12/02 09:55:07.991111 Server 4 starting election for term 29
+2025/12/02 09:55:07.995641 Server 2 became follower in term 29 (RequestVote from 4)
+2025/12/02 09:55:07.997831 Server 2 granted vote to 3 in term 29
+2025/12/02 09:55:08.312212 Server 0 Start command index 176 term 14
+2025/12/02 09:55:08.312527 Server 1 Start command index 174 term 15
+2025/12/02 09:55:08.319110 Server 3 starting election for term 30
+2025/12/02 09:55:08.322678 Server 0 Start command index 177 term 14
+2025/12/02 09:55:08.322965 Server 1 Start command index 175 term 15
+2025/12/02 09:55:08.325816 Server 2 became follower in term 30 (RequestVote from 3)
+2025/12/02 09:55:08.325847 Server 2 granted vote to 3 in term 30
+2025/12/02 09:55:08.325905 Server 0 Start command index 178 term 14
+2025/12/02 09:55:08.326141 Server 1 Start command index 176 term 15
+2025/12/02 09:55:08.329862 Server 4 starting election for term 30
+2025/12/02 09:55:08.336681 Server 0 Start command index 179 term 14
+2025/12/02 09:55:08.336950 Server 1 Start command index 177 term 15
+2025/12/02 09:55:08.340945 Server 0 Start command index 180 term 14
+2025/12/02 09:55:08.341211 Server 1 Start command index 178 term 15
+2025/12/02 09:55:08.353789 Server 0 Start command index 181 term 14
+2025/12/02 09:55:08.354058 Server 1 Start command index 179 term 15
+2025/12/02 09:55:08.363152 Server 0 Start command index 182 term 14
+2025/12/02 09:55:08.363417 Server 1 Start command index 180 term 15
+2025/12/02 09:55:08.366420 Server 0 Start command index 183 term 14
+2025/12/02 09:55:08.366695 Server 1 Start command index 181 term 15
+2025/12/02 09:55:08.379049 Server 0 Start command index 184 term 14
+2025/12/02 09:55:08.379320 Server 1 Start command index 182 term 15
+2025/12/02 09:55:08.388866 Server 0 Start command index 185 term 14
+2025/12/02 09:55:08.389180 Server 1 Start command index 183 term 15
+2025/12/02 09:55:08.390569 Server 0 Start command index 186 term 14
+2025/12/02 09:55:08.390850 Server 1 Start command index 184 term 15
+2025/12/02 09:55:08.392701 Server 0 Start command index 187 term 14
+2025/12/02 09:55:08.392967 Server 1 Start command index 185 term 15
+2025/12/02 09:55:08.403374 Server 0 Start command index 188 term 14
+2025/12/02 09:55:08.403631 Server 1 Start command index 186 term 15
+2025/12/02 09:55:08.406630 Server 0 Start command index 189 term 14
+2025/12/02 09:55:08.406936 Server 1 Start command index 187 term 15
+2025/12/02 09:55:08.419256 Server 0 Start command index 190 term 14
+2025/12/02 09:55:08.419518 Server 1 Start command index 188 term 15
+2025/12/02 09:55:08.647778 Server 2 starting election for term 31
+2025/12/02 09:55:08.656423 Server 4 became follower in term 31 (RequestVote from 2)
+2025/12/02 09:55:08.656444 Server 4 granted vote to 2 in term 31
+2025/12/02 09:55:08.656460 Server 3 became follower in term 31 (RequestVote from 2)
+2025/12/02 09:55:08.785720 Server 0 Start command index 191 term 14
+2025/12/02 09:55:08.786020 Server 1 Start command index 189 term 15
+2025/12/02 09:55:08.846012 Server 0 Start command index 192 term 14
+2025/12/02 09:55:08.846292 Server 1 Start command index 190 term 15
+2025/12/02 09:55:08.936956 Server 0 Start command index 193 term 14
+2025/12/02 09:55:08.937261 Server 1 Start command index 191 term 15
+2025/12/02 09:55:08.942275 Server 0 Start command index 194 term 14
+2025/12/02 09:55:08.942561 Server 1 Start command index 192 term 15
+2025/12/02 09:55:08.954811 Server 2 starting election for term 32
+2025/12/02 09:55:08.955068 Server 0 Start command index 195 term 14
+2025/12/02 09:55:08.955409 Server 1 Start command index 193 term 15
+2025/12/02 09:55:08.963537 Server 3 became follower in term 32 (RequestVote from 2)
+2025/12/02 09:55:08.967906 Server 0 Start command index 196 term 14
+2025/12/02 09:55:08.968186 Server 1 Start command index 194 term 15
+2025/12/02 09:55:08.976099 Server 4 became follower in term 32 (RequestVote from 2)
+2025/12/02 09:55:08.976131 Server 4 granted vote to 2 in term 32
+2025/12/02 09:55:08.980498 Server 0 Start command index 197 term 14
+2025/12/02 09:55:08.980789 Server 1 Start command index 195 term 15
+2025/12/02 09:55:09.281142 Server 2 starting election for term 33
+2025/12/02 09:55:09.299378 Server 4 became follower in term 33 (RequestVote from 2)
+2025/12/02 09:55:09.299406 Server 4 granted vote to 2 in term 33
+2025/12/02 09:55:09.323490 Server 3 starting election for term 33
+2025/12/02 09:55:09.436795 Server 0 Start command index 198 term 14
+2025/12/02 09:55:09.437087 Server 1 Start command index 196 term 15
+2025/12/02 09:55:09.439972 Server 0 Start command index 199 term 14
+2025/12/02 09:55:09.440279 Server 1 Start command index 197 term 15
+2025/12/02 09:55:09.441672 Server 0 Start command index 200 term 14
+2025/12/02 09:55:09.441970 Server 1 Start command index 198 term 15
+2025/12/02 09:55:09.452299 Server 0 Start command index 201 term 14
+2025/12/02 09:55:09.452586 Server 1 Start command index 199 term 15
+2025/12/02 09:55:09.458635 Server 0 Start command index 202 term 14
+2025/12/02 09:55:09.458927 Server 1 Start command index 200 term 15
+2025/12/02 09:55:09.467239 Server 0 Start command index 203 term 14
+2025/12/02 09:55:09.467521 Server 1 Start command index 201 term 15
+2025/12/02 09:55:09.475750 Server 0 Start command index 204 term 14
+2025/12/02 09:55:09.476029 Server 1 Start command index 202 term 15
+2025/12/02 09:55:09.484037 Server 0 Start command index 205 term 14
+2025/12/02 09:55:09.484352 Server 1 Start command index 203 term 15
+2025/12/02 09:55:09.494590 Server 0 Start command index 206 term 14
+2025/12/02 09:55:09.494896 Server 1 Start command index 204 term 15
+2025/12/02 09:55:09.498842 Server 0 Start command index 207 term 14
+2025/12/02 09:55:09.499202 Server 1 Start command index 205 term 15
+2025/12/02 09:55:09.584041 Server 0 Start command index 208 term 14
+2025/12/02 09:55:09.584322 Server 1 Start command index 206 term 15
+2025/12/02 09:55:09.591656 Server 0 Start command index 209 term 14
+2025/12/02 09:55:09.591972 Server 1 Start command index 207 term 15
+2025/12/02 09:55:09.601316 Server 0 Start command index 210 term 14
+2025/12/02 09:55:09.601619 Server 1 Start command index 208 term 15
+2025/12/02 09:55:09.613645 Server 0 Start command index 211 term 14
+2025/12/02 09:55:09.614421 Server 1 Start command index 209 term 15
+2025/12/02 09:55:09.671771 Server 4 starting election for term 34
+2025/12/02 09:55:09.675202 Server 2 became follower in term 34 (RequestVote from 4)
+2025/12/02 09:55:09.682311 Server 3 starting election for term 34
+2025/12/02 09:55:09.691008 Server 2 granted vote to 3 in term 34
+2025/12/02 09:55:10.025165 Server 0 Start command index 212 term 14
+2025/12/02 09:55:10.025491 Server 1 Start command index 210 term 15
+2025/12/02 09:55:10.028994 Server 0 Start command index 213 term 14
+2025/12/02 09:55:10.029336 Server 1 Start command index 211 term 15
+2025/12/02 09:55:10.034429 Server 0 Start command index 214 term 14
+2025/12/02 09:55:10.034722 Server 1 Start command index 212 term 15
+2025/12/02 09:55:10.035025 Server 0 Start command index 215 term 14
+2025/12/02 09:55:10.035303 Server 1 Start command index 213 term 15
+2025/12/02 09:55:10.035587 Server 0 Start command index 216 term 14
+2025/12/02 09:55:10.035884 Server 1 Start command index 214 term 15
+2025/12/02 09:55:10.040312 Server 3 starting election for term 35
+2025/12/02 09:55:10.048221 Server 0 Start command index 217 term 14
+2025/12/02 09:55:10.048514 Server 1 Start command index 215 term 15
+2025/12/02 09:55:10.048807 Server 0 Start command index 218 term 14
+2025/12/02 09:55:10.049085 Server 1 Start command index 216 term 15
+2025/12/02 09:55:10.059975 Server 0 Start command index 219 term 14
+2025/12/02 09:55:10.060296 Server 1 Start command index 217 term 15
+2025/12/02 09:55:10.060985 Server 4 became follower in term 35 (RequestVote from 3)
+2025/12/02 09:55:10.061022 Server 4 granted vote to 3 in term 35
+2025/12/02 09:55:10.068630 Server 0 Start command index 220 term 14
+2025/12/02 09:55:10.068933 Server 1 Start command index 218 term 15
+2025/12/02 09:55:10.077212 Server 0 Start command index 221 term 14
+2025/12/02 09:55:10.077526 Server 1 Start command index 219 term 15
+2025/12/02 09:55:10.083488 Server 0 Start command index 222 term 14
+2025/12/02 09:55:10.083808 Server 1 Start command index 220 term 15
+2025/12/02 09:55:10.087753 Server 0 Start command index 223 term 14
+2025/12/02 09:55:10.088049 Server 1 Start command index 221 term 15
+2025/12/02 09:55:10.093135 Server 0 Start command index 224 term 14
+2025/12/02 09:55:10.093442 Server 1 Start command index 222 term 15
+2025/12/02 09:55:10.100669 Server 0 Start command index 225 term 14
+2025/12/02 09:55:10.100999 Server 1 Start command index 223 term 15
+2025/12/02 09:55:10.103640 Server 2 starting election for term 35
+2025/12/02 09:55:10.112601 Server 0 Start command index 226 term 14
+2025/12/02 09:55:10.112914 Server 1 Start command index 224 term 15
+2025/12/02 09:55:10.116959 Server 0 Start command index 227 term 14
+2025/12/02 09:55:10.117274 Server 1 Start command index 225 term 15
+2025/12/02 09:55:10.430857 Server 2 starting election for term 36
+2025/12/02 09:55:10.437587 Server 4 became follower in term 36 (RequestVote from 2)
+2025/12/02 09:55:10.437620 Server 4 granted vote to 2 in term 36
+2025/12/02 09:55:10.448147 Server 3 became follower in term 36 (RequestVote from 2)
+2025/12/02 09:55:10.538890 Server 0 Start command index 228 term 14
+2025/12/02 09:55:10.539203 Server 1 Start command index 226 term 15
+2025/12/02 09:55:10.548241 Server 0 Start command index 229 term 14
+2025/12/02 09:55:10.548539 Server 1 Start command index 227 term 15
+2025/12/02 09:55:10.563243 Server 0 Start command index 230 term 14
+2025/12/02 09:55:10.563561 Server 1 Start command index 228 term 15
+2025/12/02 09:55:10.574040 Server 0 Start command index 231 term 14
+2025/12/02 09:55:10.574372 Server 1 Start command index 229 term 15
+2025/12/02 09:55:10.575803 Server 0 Start command index 232 term 14
+2025/12/02 09:55:10.576114 Server 1 Start command index 230 term 15
+2025/12/02 09:55:10.586334 Server 0 Start command index 233 term 14
+2025/12/02 09:55:10.586648 Server 1 Start command index 231 term 15
+2025/12/02 09:55:10.594966 Server 0 Start command index 234 term 14
+2025/12/02 09:55:10.595302 Server 1 Start command index 232 term 15
+2025/12/02 09:55:10.599207 Server 0 Start command index 235 term 14
+2025/12/02 09:55:10.599534 Server 1 Start command index 233 term 15
+2025/12/02 09:55:10.736684 Server 2 starting election for term 37
+2025/12/02 09:55:10.745385 Server 4 became follower in term 37 (RequestVote from 2)
+2025/12/02 09:55:10.745415 Server 4 granted vote to 2 in term 37
+2025/12/02 09:55:10.747504 Server 3 became follower in term 37 (RequestVote from 2)
+2025/12/02 09:55:10.981056 Server 0 Start command index 236 term 14
+2025/12/02 09:55:10.981386 Server 1 Start command index 234 term 15
+2025/12/02 09:55:10.986438 Server 0 Start command index 237 term 14
+2025/12/02 09:55:10.986776 Server 1 Start command index 235 term 15
+2025/12/02 09:55:10.999079 Server 0 Start command index 238 term 14
+2025/12/02 09:55:10.999404 Server 1 Start command index 236 term 15
+2025/12/02 09:55:11.004401 Server 0 Start command index 239 term 14
+2025/12/02 09:55:11.004719 Server 1 Start command index 237 term 15
+2025/12/02 09:55:11.016133 Server 0 Start command index 240 term 14
+2025/12/02 09:55:11.016449 Server 1 Start command index 238 term 15
+2025/12/02 09:55:11.021566 Server 0 Start command index 241 term 14
+2025/12/02 09:55:11.021952 Server 1 Start command index 239 term 15
+2025/12/02 09:55:11.034165 Server 0 Start command index 242 term 14
+2025/12/02 09:55:11.034486 Server 1 Start command index 240 term 15
+2025/12/02 09:55:11.042973 Server 0 Start command index 243 term 14
+2025/12/02 09:55:11.043970 Server 1 Start command index 241 term 15
+2025/12/02 09:55:11.071291 Server 0 Start command index 244 term 14
+2025/12/02 09:55:11.071629 Server 1 Start command index 242 term 15
+2025/12/02 09:55:11.096605 Server 3 starting election for term 38
+2025/12/02 09:55:11.110558 Server 2 became follower in term 38 (RequestVote from 3)
+2025/12/02 09:55:11.110581 Server 2 granted vote to 3 in term 38
+2025/12/02 09:55:11.117858 Server 4 starting election for term 38
+2025/12/02 09:55:11.419405 Server 0 Start command index 245 term 14
+2025/12/02 09:55:11.419772 Server 1 Start command index 243 term 15
+2025/12/02 09:55:11.466458 Server 2 starting election for term 39
+2025/12/02 09:55:11.477096 Server 4 starting election for term 39
+2025/12/02 09:55:11.478692 Server 3 became follower in term 39 (RequestVote from 4)
+2025/12/02 09:55:11.781894 Server 0 Start command index 246 term 14
+2025/12/02 09:55:11.782258 Server 1 Start command index 244 term 15
+2025/12/02 09:55:11.804902 Server 2 starting election for term 40
+2025/12/02 09:55:11.822180 Server 3 became follower in term 40 (RequestVote from 2)
+2025/12/02 09:55:11.823305 Server 4 became follower in term 40 (RequestVote from 2)
+2025/12/02 09:55:11.823336 Server 4 granted vote to 2 in term 40
+2025/12/02 09:55:11.872303 Server 0 Start command index 247 term 14
+2025/12/02 09:55:11.872645 Server 1 Start command index 245 term 15
+2025/12/02 09:55:11.883034 Server 0 Start command index 248 term 14
+2025/12/02 09:55:11.883419 Server 1 Start command index 246 term 15
+2025/12/02 09:55:11.888329 Server 0 Start command index 249 term 14
+2025/12/02 09:55:11.888706 Server 1 Start command index 247 term 15
+2025/12/02 09:55:12.187043 Server 2 starting election for term 41
+2025/12/02 09:55:12.202264 Server 4 became follower in term 41 (RequestVote from 2)
+2025/12/02 09:55:12.202315 Server 4 granted vote to 2 in term 41
+2025/12/02 09:55:12.208356 Server 3 starting election for term 41
+2025/12/02 09:55:12.366625 Server 0 Start command index 250 term 14
+2025/12/02 09:55:12.366998 Server 1 Start command index 248 term 15
+2025/12/02 09:55:12.367323 Server 0 Start command index 251 term 14
+2025/12/02 09:55:12.367641 Server 1 Start command index 249 term 15
+2025/12/02 09:55:12.372006 Server 0 Start command index 252 term 14
+2025/12/02 09:55:12.372332 Server 1 Start command index 250 term 15
+2025/12/02 09:55:12.377260 Server 0 Start command index 253 term 14
+2025/12/02 09:55:12.377624 Server 1 Start command index 251 term 15
+2025/12/02 09:55:12.383596 Server 0 Start command index 254 term 14
+2025/12/02 09:55:12.383938 Server 1 Start command index 252 term 15
+2025/12/02 09:55:12.394244 Server 0 Start command index 255 term 14
+2025/12/02 09:55:12.394601 Server 1 Start command index 253 term 15
+2025/12/02 09:55:12.403801 Server 0 Start command index 256 term 14
+2025/12/02 09:55:12.404161 Server 1 Start command index 254 term 15
+2025/12/02 09:55:12.415572 Server 0 Start command index 257 term 14
+2025/12/02 09:55:12.415949 Server 1 Start command index 255 term 15
+2025/12/02 09:55:12.416286 Server 0 Start command index 258 term 14
+2025/12/02 09:55:12.416623 Server 1 Start command index 256 term 15
+2025/12/02 09:55:12.426194 Server 0 Start command index 259 term 14
+2025/12/02 09:55:12.426536 Server 1 Start command index 257 term 15
+2025/12/02 09:55:12.430339 Server 0 Start command index 260 term 14
+2025/12/02 09:55:12.430678 Server 1 Start command index 258 term 15
+2025/12/02 09:55:12.440982 Server 0 Start command index 261 term 14
+2025/12/02 09:55:12.441368 Server 1 Start command index 259 term 15
+2025/12/02 09:55:12.445272 Server 0 Start command index 262 term 14
+2025/12/02 09:55:12.445615 Server 1 Start command index 260 term 15
+2025/12/02 09:55:12.445966 Server 0 Start command index 263 term 14
+2025/12/02 09:55:12.446301 Server 1 Start command index 261 term 15
+2025/12/02 09:55:12.568727 Server 2 starting election for term 42
+2025/12/02 09:55:12.589915 Server 3 starting election for term 42
+2025/12/02 09:55:12.595367 Server 4 became follower in term 42 (RequestVote from 2)
+2025/12/02 09:55:12.595397 Server 4 granted vote to 2 in term 42
+2025/12/02 09:55:12.734459 Server 0 Start command index 264 term 14
+2025/12/02 09:55:12.734824 Server 1 Start command index 262 term 15
+2025/12/02 09:55:12.744033 Server 0 Start command index 265 term 14
+2025/12/02 09:55:12.744402 Server 1 Start command index 263 term 15
+2025/12/02 09:55:12.755128 Server 0 Start command index 266 term 14
+2025/12/02 09:55:12.756146 Server 1 Start command index 264 term 15
+2025/12/02 09:55:12.756542 Server 0 Start command index 267 term 14
+2025/12/02 09:55:12.756902 Server 1 Start command index 265 term 15
+2025/12/02 09:55:12.761294 Server 0 Start command index 268 term 14
+2025/12/02 09:55:12.761639 Server 1 Start command index 266 term 15
+2025/12/02 09:55:12.763459 Server 0 Start command index 269 term 14
+2025/12/02 09:55:12.763841 Server 1 Start command index 267 term 15
+2025/12/02 09:55:12.767398 Server 0 Start command index 270 term 14
+2025/12/02 09:55:12.767782 Server 1 Start command index 268 term 15
+2025/12/02 09:55:12.781108 Server 0 Start command index 271 term 14
+2025/12/02 09:55:12.781464 Server 1 Start command index 269 term 15
+2025/12/02 09:55:12.782948 Server 0 Start command index 272 term 14
+2025/12/02 09:55:12.783318 Server 1 Start command index 270 term 15
+2025/12/02 09:55:12.786198 Server 0 Start command index 273 term 14
+2025/12/02 09:55:12.786548 Server 1 Start command index 271 term 15
+2025/12/02 09:55:12.791542 Server 0 Start command index 274 term 14
+2025/12/02 09:55:12.791977 Server 1 Start command index 272 term 15
+2025/12/02 09:55:12.804170 Server 0 Start command index 275 term 14
+2025/12/02 09:55:12.804524 Server 1 Start command index 273 term 15
+2025/12/02 09:55:12.810474 Server 0 Start command index 276 term 14
+2025/12/02 09:55:12.810876 Server 1 Start command index 274 term 15
+2025/12/02 09:55:12.822012 Server 0 Start command index 277 term 14
+2025/12/02 09:55:12.822378 Server 1 Start command index 275 term 15
+2025/12/02 09:55:12.832357 Server 0 Start command index 278 term 14
+2025/12/02 09:55:12.832726 Server 1 Start command index 276 term 15
+2025/12/02 09:55:12.845039 Server 0 Start command index 279 term 14
+2025/12/02 09:55:12.845400 Server 1 Start command index 277 term 15
+2025/12/02 09:55:12.851298 Server 0 Start command index 280 term 14
+2025/12/02 09:55:12.851659 Server 1 Start command index 278 term 15
+2025/12/02 09:55:12.853487 Server 0 Start command index 281 term 14
+2025/12/02 09:55:12.853880 Server 1 Start command index 279 term 15
+2025/12/02 09:55:12.866294 Server 0 Start command index 282 term 14
+2025/12/02 09:55:12.866653 Server 1 Start command index 280 term 15
+2025/12/02 09:55:12.877872 Server 0 Start command index 283 term 14
+2025/12/02 09:55:12.878239 Server 1 Start command index 281 term 15
+2025/12/02 09:55:12.881116 Server 0 Start command index 284 term 14
+2025/12/02 09:55:12.881488 Server 1 Start command index 282 term 15
+2025/12/02 09:55:12.887340 Server 0 Start command index 285 term 14
+2025/12/02 09:55:12.887716 Server 1 Start command index 283 term 15
+2025/12/02 09:55:12.955976 Server 0 Start command index 286 term 14
+2025/12/02 09:55:12.956357 Server 1 Start command index 284 term 15
+2025/12/02 09:55:12.958856 Server 2 starting election for term 43
+2025/12/02 09:55:12.961427 Server 4 became follower in term 43 (RequestVote from 2)
+2025/12/02 09:55:12.961459 Server 4 granted vote to 2 in term 43
+2025/12/02 09:55:12.964796 Server 0 Start command index 287 term 14
+2025/12/02 09:55:12.965168 Server 1 Start command index 285 term 15
+2025/12/02 09:55:12.965532 Server 0 Start command index 288 term 14
+2025/12/02 09:55:12.965714 Server 3 became follower in term 43 (RequestVote from 2)
+2025/12/02 09:55:12.965907 Server 1 Start command index 286 term 15
+2025/12/02 09:55:12.974199 Server 0 Start command index 289 term 14
+2025/12/02 09:55:12.974575 Server 1 Start command index 287 term 15
+2025/12/02 09:55:12.974949 Server 0 Start command index 290 term 14
+2025/12/02 09:55:12.975319 Server 1 Start command index 288 term 15
+2025/12/02 09:55:12.982742 Server 0 Start command index 291 term 14
+2025/12/02 09:55:12.983130 Server 1 Start command index 289 term 15
+2025/12/02 09:55:12.983496 Server 0 Start command index 292 term 14
+2025/12/02 09:55:12.984131 Server 1 Start command index 290 term 15
+2025/12/02 09:55:12.994282 Server 0 Start command index 293 term 14
+2025/12/02 09:55:12.994677 Server 1 Start command index 291 term 15
+2025/12/02 09:55:12.999587 Server 0 Start command index 294 term 14
+2025/12/02 09:55:13.000235 Server 1 Start command index 292 term 15
+2025/12/02 09:55:13.008774 Server 0 Start command index 295 term 14
+2025/12/02 09:55:13.009168 Server 1 Start command index 293 term 15
+2025/12/02 09:55:13.316028 Server 3 starting election for term 44
+2025/12/02 09:55:13.322457 Server 4 became follower in term 44 (RequestVote from 3)
+2025/12/02 09:55:13.322495 Server 4 granted vote to 3 in term 44
+2025/12/02 09:55:13.333139 Server 2 became follower in term 44 (RequestVote from 3)
+2025/12/02 09:55:13.333170 Server 2 granted vote to 3 in term 44
+2025/12/02 09:55:13.468257 Server 0 Start command index 296 term 14
+2025/12/02 09:55:13.468658 Server 1 Start command index 294 term 15
+2025/12/02 09:55:13.473615 Server 0 Start command index 297 term 14
+2025/12/02 09:55:13.474026 Server 1 Start command index 295 term 15
+2025/12/02 09:55:13.478852 Server 0 Start command index 298 term 14
+2025/12/02 09:55:13.479250 Server 1 Start command index 296 term 15
+2025/12/02 09:55:13.485140 Server 0 Start command index 299 term 14
+2025/12/02 09:55:13.485526 Server 1 Start command index 297 term 15
+2025/12/02 09:55:13.488079 Server 0 Start command index 300 term 14
+2025/12/02 09:55:13.488465 Server 1 Start command index 298 term 15
+2025/12/02 09:55:13.497567 Server 0 Start command index 301 term 14
+2025/12/02 09:55:13.497969 Server 1 Start command index 299 term 15
+2025/12/02 09:55:13.500674 Server 0 Start command index 302 term 14
+2025/12/02 09:55:13.501104 Server 1 Start command index 300 term 15
+2025/12/02 09:55:13.512386 Server 0 Start command index 303 term 14
+2025/12/02 09:55:13.512819 Server 1 Start command index 301 term 15
+2025/12/02 09:55:13.524035 Server 0 Start command index 304 term 14
+2025/12/02 09:55:13.524428 Server 1 Start command index 302 term 15
+2025/12/02 09:55:13.531438 Server 0 Start command index 305 term 14
+2025/12/02 09:55:13.531905 Server 1 Start command index 303 term 15
+2025/12/02 09:55:13.540842 Server 0 Start command index 306 term 14
+2025/12/02 09:55:13.541282 Server 1 Start command index 304 term 15
+2025/12/02 09:55:13.553660 Server 0 Start command index 307 term 14
+2025/12/02 09:55:13.554114 Server 1 Start command index 305 term 15
+2025/12/02 09:55:13.572562 Server 0 Start command index 308 term 14
+2025/12/02 09:55:13.572969 Server 1 Start command index 306 term 15
+2025/12/02 09:55:13.573371 Server 0 Start command index 309 term 14
+2025/12/02 09:55:13.573760 Server 1 Start command index 307 term 15
+2025/12/02 09:55:13.576892 Server 0 Start command index 310 term 14
+2025/12/02 09:55:13.577298 Server 1 Start command index 308 term 15
+2025/12/02 09:55:13.588459 Server 0 Start command index 311 term 14
+2025/12/02 09:55:13.588865 Server 1 Start command index 309 term 15
+2025/12/02 09:55:13.593881 Server 0 Start command index 312 term 14
+2025/12/02 09:55:13.594295 Server 1 Start command index 310 term 15
+2025/12/02 09:55:13.653161 Server 4 starting election for term 45
+2025/12/02 09:55:13.674265 Server 2 starting election for term 45
+2025/12/02 09:55:13.685089 Server 3 starting election for term 45
+2025/12/02 09:55:13.687853 Server 0 Start command index 313 term 14
+2025/12/02 09:55:13.688291 Server 1 Start command index 311 term 15
+2025/12/02 09:55:13.701743 Server 0 Start command index 314 term 14
+2025/12/02 09:55:13.702166 Server 1 Start command index 312 term 15
+2025/12/02 09:55:13.712319 Server 0 Start command index 315 term 14
+2025/12/02 09:55:13.712723 Server 1 Start command index 313 term 15
+2025/12/02 09:55:13.718045 Server 0 Start command index 316 term 14
+2025/12/02 09:55:13.719159 Server 1 Start command index 314 term 15
+2025/12/02 09:55:13.730322 Server 0 Start command index 317 term 14
+2025/12/02 09:55:13.730768 Server 1 Start command index 315 term 15
+2025/12/02 09:55:13.738938 Server 0 Start command index 318 term 14
+2025/12/02 09:55:13.739357 Server 1 Start command index 316 term 15
+2025/12/02 09:55:13.752400 Server 0 Start command index 319 term 14
+2025/12/02 09:55:13.752849 Server 1 Start command index 317 term 15
+2025/12/02 09:55:13.761902 Server 0 Start command index 320 term 14
+2025/12/02 09:55:13.762339 Server 1 Start command index 318 term 15
+2025/12/02 09:55:13.766186 Server 0 Start command index 321 term 14
+2025/12/02 09:55:13.766635 Server 1 Start command index 319 term 15
+2025/12/02 09:55:13.772618 Server 0 Start command index 322 term 14
+2025/12/02 09:55:13.773040 Server 1 Start command index 320 term 15
+2025/12/02 09:55:14.001029 Server 3 starting election for term 46
+2025/12/02 09:55:14.006445 Server 4 became follower in term 46 (RequestVote from 3)
+2025/12/02 09:55:14.006481 Server 4 granted vote to 3 in term 46
+2025/12/02 09:55:14.006447 Server 2 became follower in term 46 (RequestVote from 3)
+2025/12/02 09:55:14.006572 Server 2 granted vote to 3 in term 46
+2025/12/02 09:55:14.223925 Server 0 Start command index 323 term 14
+2025/12/02 09:55:14.224364 Server 1 Start command index 321 term 15
+2025/12/02 09:55:14.317455 Server 4 starting election for term 47
+2025/12/02 09:55:14.323980 Server 2 became follower in term 47 (RequestVote from 4)
+2025/12/02 09:55:14.328087 Server 3 starting election for term 47
+2025/12/02 09:55:14.348369 Server 2 granted vote to 3 in term 47
+2025/12/02 09:55:14.638013 Server 0 Start command index 324 term 14
+2025/12/02 09:55:14.638441 Server 1 Start command index 322 term 15
+2025/12/02 09:55:14.651560 Server 0 Start command index 325 term 14
+2025/12/02 09:55:14.652019 Server 1 Start command index 323 term 15
+2025/12/02 09:55:14.654247 Server 4 starting election for term 48
+2025/12/02 09:55:14.654655 Server 0 Start command index 326 term 14
+2025/12/02 09:55:14.655085 Server 1 Start command index 324 term 15
+2025/12/02 09:55:14.662914 Server 3 became follower in term 48 (RequestVote from 4)
+2025/12/02 09:55:14.668597 Server 0 Start command index 327 term 14
+2025/12/02 09:55:14.669038 Server 1 Start command index 325 term 15
+2025/12/02 09:55:14.676855 Server 2 became follower in term 48 (RequestVote from 4)
+2025/12/02 09:55:14.677517 Server 0 Start command index 328 term 14
+2025/12/02 09:55:14.677955 Server 1 Start command index 326 term 15
+2025/12/02 09:55:14.991222 Server 4 starting election for term 49
+2025/12/02 09:55:15.002134 Server 0 Start command index 329 term 14
+2025/12/02 09:55:15.002575 Server 1 Start command index 327 term 15
+2025/12/02 09:55:15.015495 Server 3 became follower in term 49 (RequestVote from 4)
+2025/12/02 09:55:15.017701 Server 2 became follower in term 49 (RequestVote from 4)
+2025/12/02 09:55:15.291392 Server 0 Start command index 330 term 14
+2025/12/02 09:55:15.291847 Server 1 Start command index 328 term 15
+2025/12/02 09:55:15.303073 Server 0 Start command index 331 term 14
+2025/12/02 09:55:15.303516 Server 1 Start command index 329 term 15
+2025/12/02 09:55:15.303941 Server 0 Start command index 332 term 14
+2025/12/02 09:55:15.304351 Server 1 Start command index 330 term 15
+2025/12/02 09:55:15.306710 Server 0 Start command index 333 term 14
+2025/12/02 09:55:15.307700 Server 1 Start command index 331 term 15
+2025/12/02 09:55:15.348756 Server 4 starting election for term 50
+2025/12/02 09:55:15.350414 Server 3 became follower in term 50 (RequestVote from 4)
+2025/12/02 09:55:15.363167 Server 2 became follower in term 50 (RequestVote from 4)
+2025/12/02 09:55:15.679592 Server 0 Start command index 334 term 14
+2025/12/02 09:55:15.680057 Server 1 Start command index 332 term 15
+2025/12/02 09:55:15.685440 Server 4 starting election for term 51
+2025/12/02 09:55:15.685846 Server 0 Start command index 335 term 14
+2025/12/02 09:55:15.686287 Server 1 Start command index 333 term 15
+2025/12/02 09:55:15.695195 Server 0 Start command index 336 term 14
+2025/12/02 09:55:15.695625 Server 1 Start command index 334 term 15
+2025/12/02 09:55:15.695675 Server 2 starting election for term 51
+2025/12/02 09:55:15.706841 Server 0 Start command index 337 term 14
+2025/12/02 09:55:15.707293 Server 1 Start command index 335 term 15
+2025/12/02 09:55:15.707515 Server 3 became follower in term 51 (RequestVote from 4)
+2025/12/02 09:55:15.902370 Server 0 Start command index 338 term 14
+2025/12/02 09:55:15.902826 Server 1 Start command index 336 term 15
+2025/12/02 09:55:15.911952 Server 0 Start command index 339 term 14
+2025/12/02 09:55:15.912412 Server 1 Start command index 337 term 15
+2025/12/02 09:55:15.922446 Server 0 Start command index 340 term 14
+2025/12/02 09:55:15.922901 Server 1 Start command index 338 term 15
+2025/12/02 09:55:15.923337 Server 0 Start command index 341 term 14
+2025/12/02 09:55:15.923769 Server 1 Start command index 339 term 15
+2025/12/02 09:55:15.934038 Server 0 Start command index 342 term 14
+2025/12/02 09:55:15.934485 Server 1 Start command index 340 term 15
+2025/12/02 09:55:15.944541 Server 0 Start command index 343 term 14
+2025/12/02 09:55:15.944988 Server 1 Start command index 341 term 15
+2025/12/02 09:55:15.948693 Server 0 Start command index 344 term 14
+2025/12/02 09:55:15.949144 Server 1 Start command index 342 term 15
+2025/12/02 09:55:15.951938 Server 0 Start command index 345 term 14
+2025/12/02 09:55:15.952374 Server 1 Start command index 343 term 15
+2025/12/02 09:55:15.955133 Server 0 Start command index 346 term 14
+2025/12/02 09:55:15.955566 Server 1 Start command index 344 term 15
+2025/12/02 09:55:15.963502 Server 0 Start command index 347 term 14
+2025/12/02 09:55:15.963964 Server 1 Start command index 345 term 15
+2025/12/02 09:55:15.965558 Server 0 Start command index 348 term 14
+2025/12/02 09:55:15.966038 Server 1 Start command index 346 term 15
+2025/12/02 09:55:15.978277 Server 0 Start command index 349 term 14
+2025/12/02 09:55:15.978775 Server 1 Start command index 347 term 15
+2025/12/02 09:55:15.990020 Server 0 Start command index 350 term 14
+2025/12/02 09:55:15.990466 Server 1 Start command index 348 term 15
+2025/12/02 09:55:15.990913 Server 0 Start command index 351 term 14
+2025/12/02 09:55:15.991348 Server 1 Start command index 349 term 15
+2025/12/02 09:55:16.000089 Server 0 Start command index 352 term 14
+2025/12/02 09:55:16.001275 Server 1 Start command index 350 term 15
+2025/12/02 09:55:16.011220 Server 0 Start command index 353 term 14
+2025/12/02 09:55:16.011706 Server 1 Start command index 351 term 15
+2025/12/02 09:55:16.020662 Server 0 Start command index 354 term 14
+2025/12/02 09:55:16.021172 Server 1 Start command index 352 term 15
+2025/12/02 09:55:16.029065 Server 0 Start command index 355 term 14
+2025/12/02 09:55:16.029534 Server 1 Start command index 353 term 15
+2025/12/02 09:55:16.030024 Server 0 Start command index 356 term 14
+2025/12/02 09:55:16.030501 Server 1 Start command index 354 term 15
+2025/12/02 09:55:16.040708 Server 0 Start command index 357 term 14
+2025/12/02 09:55:16.041207 Server 1 Start command index 355 term 15
+2025/12/02 09:55:16.041653 Server 0 Start command index 358 term 14
+2025/12/02 09:55:16.042099 Server 1 Start command index 356 term 15
+2025/12/02 09:55:16.045009 Server 0 Start command index 359 term 14
+2025/12/02 09:55:16.045508 Server 1 Start command index 357 term 15
+2025/12/02 09:55:16.053992 Server 2 starting election for term 52
+2025/12/02 09:55:16.058789 Server 0 Start command index 360 term 14
+2025/12/02 09:55:16.059256 Server 1 Start command index 358 term 15
+2025/12/02 09:55:16.063018 Server 0 Start command index 361 term 14
+2025/12/02 09:55:16.063489 Server 1 Start command index 359 term 15
+2025/12/02 09:55:16.066227 Server 0 Start command index 362 term 14
+2025/12/02 09:55:16.066701 Server 1 Start command index 360 term 15
+2025/12/02 09:55:16.070286 Server 4 became follower in term 52 (RequestVote from 2)
+2025/12/02 09:55:16.070304 Server 4 granted vote to 2 in term 52
+2025/12/02 09:55:16.117550 Server 3 starting election for term 52
+2025/12/02 09:55:16.401450 Server 2 starting election for term 53
+2025/12/02 09:55:16.419537 Server 3 became follower in term 53 (RequestVote from 2)
+2025/12/02 09:55:16.421692 Server 4 became follower in term 53 (RequestVote from 2)
+2025/12/02 09:55:16.421717 Server 4 granted vote to 2 in term 53
+2025/12/02 09:55:16.561828 Server 0 Start command index 363 term 14
+2025/12/02 09:55:16.562286 Server 1 Start command index 361 term 15
+2025/12/02 09:55:16.563910 Server 0 Start command index 364 term 14
+2025/12/02 09:55:16.564396 Server 1 Start command index 362 term 15
+2025/12/02 09:55:16.567084 Server 0 Start command index 365 term 14
+2025/12/02 09:55:16.567545 Server 1 Start command index 363 term 15
+2025/12/02 09:55:16.575591 Server 0 Start command index 366 term 14
+2025/12/02 09:55:16.576065 Server 1 Start command index 364 term 15
+2025/12/02 09:55:16.579827 Server 0 Start command index 367 term 14
+2025/12/02 09:55:16.580313 Server 1 Start command index 365 term 15
+2025/12/02 09:55:16.583008 Server 0 Start command index 368 term 14
+2025/12/02 09:55:16.583479 Server 1 Start command index 366 term 15
+2025/12/02 09:55:16.596795 Server 0 Start command index 369 term 14
+2025/12/02 09:55:16.597351 Server 1 Start command index 367 term 15
+2025/12/02 09:55:16.603225 Server 0 Start command index 370 term 14
+2025/12/02 09:55:16.603751 Server 1 Start command index 368 term 15
+2025/12/02 09:55:16.610014 Server 0 Start command index 371 term 14
+2025/12/02 09:55:16.611083 Server 1 Start command index 369 term 15
+2025/12/02 09:55:16.615269 Server 0 Start command index 372 term 14
+2025/12/02 09:55:16.615791 Server 1 Start command index 370 term 15
+2025/12/02 09:55:16.617435 Server 0 Start command index 373 term 14
+2025/12/02 09:55:16.617976 Server 1 Start command index 371 term 15
+2025/12/02 09:55:16.626807 Server 0 Start command index 374 term 14
+2025/12/02 09:55:16.627277 Server 1 Start command index 372 term 15
+2025/12/02 09:55:16.632095 Server 0 Start command index 375 term 14
+2025/12/02 09:55:16.632592 Server 1 Start command index 373 term 15
+2025/12/02 09:55:16.640647 Server 0 Start command index 376 term 14
+2025/12/02 09:55:16.641123 Server 1 Start command index 374 term 15
+2025/12/02 09:55:16.651213 Server 0 Start command index 377 term 14
+2025/12/02 09:55:16.651676 Server 1 Start command index 375 term 15
+2025/12/02 09:55:16.660675 Server 0 Start command index 378 term 14
+2025/12/02 09:55:16.661190 Server 1 Start command index 376 term 15
+2025/12/02 09:55:16.791762 Server 2 starting election for term 54
+2025/12/02 09:55:16.791777 Server 4 starting election for term 54
+2025/12/02 09:55:16.802545 Server 3 became follower in term 54 (RequestVote from 2)
+2025/12/02 09:55:16.975444 Server 0 Start command index 379 term 14
+2025/12/02 09:55:16.975963 Server 1 Start command index 377 term 15
+2025/12/02 09:55:16.980778 Server 0 Start command index 380 term 14
+2025/12/02 09:55:16.981291 Server 1 Start command index 378 term 15
+2025/12/02 09:55:16.985104 Server 0 Start command index 381 term 14
+2025/12/02 09:55:16.985600 Server 1 Start command index 379 term 15
+2025/12/02 09:55:16.993467 Server 0 Start command index 382 term 14
+2025/12/02 09:55:16.993979 Server 1 Start command index 380 term 15
+2025/12/02 09:55:17.002974 Server 0 Start command index 383 term 14
+2025/12/02 09:55:17.003485 Server 1 Start command index 381 term 15
+2025/12/02 09:55:17.149645 Server 3 starting election for term 55
+2025/12/02 09:55:17.163704 Server 2 became follower in term 55 (RequestVote from 3)
+2025/12/02 09:55:17.163729 Server 2 granted vote to 3 in term 55
+2025/12/02 09:55:17.176295 Server 4 became follower in term 55 (RequestVote from 3)
+2025/12/02 09:55:17.176329 Server 4 granted vote to 3 in term 55
+2025/12/02 09:55:17.245268 Server 0 Start command index 384 term 14
+2025/12/02 09:55:17.245774 Server 1 Start command index 382 term 15
+2025/12/02 09:55:17.253744 Server 0 Start command index 385 term 14
+2025/12/02 09:55:17.254245 Server 1 Start command index 383 term 15
+2025/12/02 09:55:17.257051 Server 0 Start command index 386 term 14
+2025/12/02 09:55:17.257552 Server 1 Start command index 384 term 15
+2025/12/02 09:55:17.258043 Server 0 Start command index 387 term 14
+2025/12/02 09:55:17.258515 Server 1 Start command index 385 term 15
+2025/12/02 09:55:17.261218 Server 0 Start command index 388 term 14
+2025/12/02 09:55:17.261714 Server 1 Start command index 386 term 15
+2025/12/02 09:55:17.270350 Server 0 Start command index 389 term 14
+2025/12/02 09:55:17.271355 Server 1 Start command index 387 term 15
+2025/12/02 09:55:17.283458 Server 0 Start command index 390 term 14
+2025/12/02 09:55:17.283972 Server 1 Start command index 388 term 15
+2025/12/02 09:55:17.297356 Server 0 Start command index 391 term 14
+2025/12/02 09:55:17.297868 Server 1 Start command index 389 term 15
+2025/12/02 09:55:17.305811 Server 0 Start command index 392 term 14
+2025/12/02 09:55:17.306314 Server 1 Start command index 390 term 15
+2025/12/02 09:55:17.318483 Server 0 Start command index 393 term 14
+2025/12/02 09:55:17.319000 Server 1 Start command index 391 term 15
+2025/12/02 09:55:17.319500 Server 0 Start command index 394 term 14
+2025/12/02 09:55:17.320007 Server 1 Start command index 392 term 15
+2025/12/02 09:55:17.520650 Server 3 starting election for term 56
+2025/12/02 09:55:17.529190 Server 4 became follower in term 56 (RequestVote from 3)
+2025/12/02 09:55:17.529223 Server 4 granted vote to 3 in term 56
+2025/12/02 09:55:17.533528 Server 2 became follower in term 56 (RequestVote from 3)
+2025/12/02 09:55:17.533555 Server 2 granted vote to 3 in term 56
+2025/12/02 09:55:17.800638 Server 0 Start command index 395 term 14
+2025/12/02 09:55:17.801178 Server 1 Start command index 393 term 15
+2025/12/02 09:55:17.808191 Server 0 Start command index 396 term 14
+2025/12/02 09:55:17.808694 Server 1 Start command index 394 term 15
+2025/12/02 09:55:17.809200 Server 0 Start command index 397 term 14
+2025/12/02 09:55:17.809692 Server 1 Start command index 395 term 15
+2025/12/02 09:55:17.816682 Server 0 Start command index 398 term 14
+2025/12/02 09:55:17.817184 Server 1 Start command index 396 term 15
+2025/12/02 09:55:17.820037 Server 0 Start command index 399 term 14
+2025/12/02 09:55:17.820582 Server 1 Start command index 397 term 15
+2025/12/02 09:55:17.859699 Server 2 starting election for term 57
+2025/12/02 09:55:17.870377 Server 3 starting election for term 57
+2025/12/02 09:55:17.878107 Server 4 became follower in term 57 (RequestVote from 2)
+2025/12/02 09:55:17.878138 Server 4 granted vote to 2 in term 57
+2025/12/02 09:55:17.974996 Server 0 Start command index 400 term 14
+2025/12/02 09:55:17.975511 Server 1 Start command index 398 term 15
+2025/12/02 09:55:17.982577 Server 0 Start command index 401 term 14
+2025/12/02 09:55:17.983150 Server 1 Start command index 399 term 15
+2025/12/02 09:55:17.991112 Server 0 Start command index 402 term 14
+2025/12/02 09:55:17.991638 Server 1 Start command index 400 term 15
+2025/12/02 09:55:18.002889 Server 0 Start command index 403 term 14
+2025/12/02 09:55:18.003871 Server 1 Start command index 401 term 15
+2025/12/02 09:55:18.005112 Server 0 Start command index 404 term 14
+2025/12/02 09:55:18.005724 Server 1 Start command index 402 term 15
+2025/12/02 09:55:18.016326 Server 0 Start command index 405 term 14
+2025/12/02 09:55:18.016865 Server 1 Start command index 403 term 15
+2025/12/02 09:55:18.020760 Server 0 Start command index 406 term 14
+2025/12/02 09:55:18.021315 Server 1 Start command index 404 term 15
+2025/12/02 09:55:18.028210 Server 0 Start command index 407 term 14
+2025/12/02 09:55:18.028775 Server 1 Start command index 405 term 15
+2025/12/02 09:55:18.039785 Server 0 Start command index 408 term 14
+2025/12/02 09:55:18.040364 Server 1 Start command index 406 term 15
+2025/12/02 09:55:18.048237 Server 0 Start command index 409 term 14
+2025/12/02 09:55:18.048773 Server 1 Start command index 407 term 15
+2025/12/02 09:55:18.050359 Server 0 Start command index 410 term 14
+2025/12/02 09:55:18.050896 Server 1 Start command index 408 term 15
+2025/12/02 09:55:18.064249 Server 0 Start command index 411 term 14
+2025/12/02 09:55:18.064776 Server 1 Start command index 409 term 15
+2025/12/02 09:55:18.068490 Server 0 Start command index 412 term 14
+2025/12/02 09:55:18.069015 Server 1 Start command index 410 term 15
+2025/12/02 09:55:18.076967 Server 0 Start command index 413 term 14
+2025/12/02 09:55:18.077500 Server 1 Start command index 411 term 15
+2025/12/02 09:55:18.189060 Server 3 starting election for term 58
+2025/12/02 09:55:18.189078 Server 2 starting election for term 58
+2025/12/02 09:55:18.206073 Server 4 became follower in term 58 (RequestVote from 3)
+2025/12/02 09:55:18.206101 Server 4 granted vote to 3 in term 58
+2025/12/02 09:55:18.376205 Server 0 Start command index 414 term 14
+2025/12/02 09:55:18.376728 Server 1 Start command index 412 term 15
+2025/12/02 09:55:18.390126 Server 0 Start command index 415 term 14
+2025/12/02 09:55:18.390672 Server 1 Start command index 413 term 15
+2025/12/02 09:55:18.402901 Server 0 Start command index 416 term 14
+2025/12/02 09:55:18.403483 Server 1 Start command index 414 term 15
+2025/12/02 09:55:18.407066 Server 0 Start command index 417 term 14
+2025/12/02 09:55:18.407605 Server 1 Start command index 415 term 15
+2025/12/02 09:55:18.414517 Server 0 Start command index 418 term 14
+2025/12/02 09:55:18.415637 Server 1 Start command index 416 term 15
+2025/12/02 09:55:18.421574 Server 0 Start command index 419 term 14
+2025/12/02 09:55:18.422140 Server 1 Start command index 417 term 15
+2025/12/02 09:55:18.559900 Server 4 starting election for term 59
+2025/12/02 09:55:18.576182 Server 2 became follower in term 59 (RequestVote from 4)
+2025/12/02 09:55:18.583699 Server 3 became follower in term 59 (RequestVote from 4)
+2025/12/02 09:55:18.848327 Server 0 Start command index 420 term 14
+2025/12/02 09:55:18.848925 Server 1 Start command index 418 term 15
+2025/12/02 09:55:18.849465 Server 0 Start command index 421 term 14
+2025/12/02 09:55:18.849993 Server 1 Start command index 419 term 15
+2025/12/02 09:55:18.861219 Server 0 Start command index 422 term 14
+2025/12/02 09:55:18.861797 Server 1 Start command index 420 term 15
+2025/12/02 09:55:18.875074 Server 0 Start command index 423 term 14
+2025/12/02 09:55:18.875622 Server 1 Start command index 421 term 15
+2025/12/02 09:55:18.884685 Server 0 Start command index 424 term 14
+2025/12/02 09:55:18.885232 Server 1 Start command index 422 term 15
+2025/12/02 09:55:18.891198 Server 0 Start command index 425 term 14
+2025/12/02 09:55:18.891762 Server 1 Start command index 423 term 15
+2025/12/02 09:55:18.899573 Server 0 Start command index 426 term 14
+2025/12/02 09:55:18.900113 Server 4 starting election for term 60
+2025/12/02 09:55:18.900120 Server 1 Start command index 424 term 15
+2025/12/02 09:55:18.904128 Server 0 Start command index 427 term 14
+2025/12/02 09:55:18.904676 Server 1 Start command index 425 term 15
+2025/12/02 09:55:18.905215 Server 0 Start command index 428 term 14
+2025/12/02 09:55:18.905755 Server 1 Start command index 426 term 15
+2025/12/02 09:55:18.913284 Server 2 became follower in term 60 (RequestVote from 4)
+2025/12/02 09:55:18.919694 Server 3 became follower in term 60 (RequestVote from 4)
+2025/12/02 09:55:19.053632 Server 0 Start command index 429 term 14
+2025/12/02 09:55:19.054238 Server 1 Start command index 427 term 15
+2025/12/02 09:55:19.067537 Server 0 Start command index 430 term 14
+2025/12/02 09:55:19.068105 Server 1 Start command index 428 term 15
+2025/12/02 09:55:19.080410 Server 0 Start command index 431 term 14
+2025/12/02 09:55:19.080971 Server 1 Start command index 429 term 15
+2025/12/02 09:55:19.093878 Server 0 Start command index 432 term 14
+2025/12/02 09:55:19.095017 Server 1 Start command index 430 term 15
+2025/12/02 09:55:19.104728 Server 0 Start command index 433 term 14
+2025/12/02 09:55:19.105312 Server 1 Start command index 431 term 15
+2025/12/02 09:55:19.109309 Server 0 Start command index 434 term 14
+2025/12/02 09:55:19.109881 Server 1 Start command index 432 term 15
+2025/12/02 09:55:19.112487 Server 0 Start command index 435 term 14
+2025/12/02 09:55:19.113037 Server 1 Start command index 433 term 15
+2025/12/02 09:55:19.123195 Server 0 Start command index 436 term 14
+2025/12/02 09:55:19.123739 Server 1 Start command index 434 term 15
+2025/12/02 09:55:19.272098 Server 4 starting election for term 61
+2025/12/02 09:55:19.272115 Server 3 starting election for term 61
+2025/12/02 09:55:19.281911 Server 2 became follower in term 61 (RequestVote from 4)
+2025/12/02 09:55:19.288462 Server 2 granted vote to 3 in term 61
+2025/12/02 09:55:19.383984 Server 0 Start command index 437 term 14
+2025/12/02 09:55:19.384578 Server 1 Start command index 435 term 15
+2025/12/02 09:55:19.394534 Server 0 Start command index 438 term 14
+2025/12/02 09:55:19.395160 Server 1 Start command index 436 term 15
+2025/12/02 09:55:19.406145 Server 0 Start command index 439 term 14
+2025/12/02 09:55:19.406724 Server 1 Start command index 437 term 15
+2025/12/02 09:55:19.418839 Server 0 Start command index 440 term 14
+2025/12/02 09:55:19.419412 Server 1 Start command index 438 term 15
+2025/12/02 09:55:19.589624 Server 3 starting election for term 62
+2025/12/02 09:55:19.604441 Server 4 became follower in term 62 (RequestVote from 3)
+2025/12/02 09:55:19.604467 Server 4 granted vote to 3 in term 62
+2025/12/02 09:55:19.612972 Server 2 became follower in term 62 (RequestVote from 3)
+2025/12/02 09:55:19.612998 Server 2 granted vote to 3 in term 62
+2025/12/02 09:55:19.670704 Server 0 Start command index 441 term 14
+2025/12/02 09:55:19.671293 Server 1 Start command index 439 term 15
+2025/12/02 09:55:19.675049 Server 0 Start command index 442 term 14
+2025/12/02 09:55:19.675614 Server 1 Start command index 440 term 15
+2025/12/02 09:55:19.686770 Server 0 Start command index 443 term 14
+2025/12/02 09:55:19.687324 Server 1 Start command index 441 term 15
+2025/12/02 09:55:19.690057 Server 0 Start command index 444 term 14
+2025/12/02 09:55:19.690608 Server 1 Start command index 442 term 15
+2025/12/02 09:55:19.700606 Server 0 Start command index 445 term 14
+2025/12/02 09:55:19.701251 Server 1 Start command index 443 term 15
+2025/12/02 09:55:19.707348 Server 0 Start command index 446 term 14
+2025/12/02 09:55:19.708780 Server 1 Start command index 444 term 15
+2025/12/02 09:55:19.716406 Server 0 Start command index 447 term 14
+2025/12/02 09:55:19.716982 Server 1 Start command index 445 term 15
+2025/12/02 09:55:19.726968 Server 0 Start command index 448 term 14
+2025/12/02 09:55:19.727561 Server 1 Start command index 446 term 15
+2025/12/02 09:55:19.912004 Server 3 became leader for term 62
+2025/12/02 09:55:19.919480 Server 4 conflict in AppendEntries. PrevLogIndex: 7, MyTerm: 8, ArgsTerm: 14
+2025/12/02 09:55:19.932132 Server 2 conflict in AppendEntries. PrevLogIndex: 7, MyTerm: 11, ArgsTerm: 14
+2025/12/02 09:55:20.182081 Server 3 AppendEntries failed for 2. XTerm 11, XIndex 5, XLen 29
+2025/12/02 09:55:20.184706 Server 0 Start command index 449 term 14
+2025/12/02 09:55:20.185334 Server 1 Start command index 447 term 15
+2025/12/02 09:55:20.185382 Server 3 Start command index 8 term 62
+2025/12/02 09:55:20.196350 Server 0 Start command index 450 term 14
+2025/12/02 09:55:20.196985 Server 1 Start command index 448 term 15
+2025/12/02 09:55:20.197036 Server 3 Start command index 9 term 62
+2025/12/02 09:55:20.197627 Server 0 Start command index 451 term 14
+2025/12/02 09:55:20.198189 Server 1 Start command index 449 term 15
+2025/12/02 09:55:20.198232 Server 3 Start command index 10 term 62
+2025/12/02 09:55:20.200575 Server 0 Start command index 452 term 14
+2025/12/02 09:55:20.201154 Server 1 Start command index 450 term 15
+2025/12/02 09:55:20.201205 Server 3 Start command index 11 term 62
+2025/12/02 09:55:20.214267 Server 0 Start command index 453 term 14
+2025/12/02 09:55:20.214851 Server 1 Start command index 451 term 15
+2025/12/02 09:55:20.214905 Server 3 Start command index 12 term 62
+2025/12/02 09:55:20.219468 Server 0 Start command index 454 term 14
+2025/12/02 09:55:20.220049 Server 1 Start command index 452 term 15
+2025/12/02 09:55:20.220110 Server 3 Start command index 13 term 62
+2025/12/02 09:55:20.233225 Server 0 Start command index 455 term 14
+2025/12/02 09:55:20.233808 Server 1 Start command index 453 term 15
+2025/12/02 09:55:20.233858 Server 3 Start command index 14 term 62
+2025/12/02 09:55:20.241592 Server 0 Start command index 456 term 14
+2025/12/02 09:55:20.242183 Server 1 Start command index 454 term 15
+2025/12/02 09:55:20.242235 Server 3 Start command index 15 term 62
+2025/12/02 09:55:20.251116 Server 0 Start command index 457 term 14
+2025/12/02 09:55:20.251686 Server 1 Start command index 455 term 15
+2025/12/02 09:55:20.251755 Server 3 Start command index 16 term 62
+2025/12/02 09:55:20.263969 Server 0 Start command index 458 term 14
+2025/12/02 09:55:20.264535 Server 1 Start command index 456 term 15
+2025/12/02 09:55:20.264586 Server 3 Start command index 17 term 62
+2025/12/02 09:55:20.277632 Server 0 Start command index 459 term 14
+2025/12/02 09:55:20.278239 Server 1 Start command index 457 term 15
+2025/12/02 09:55:20.278299 Server 3 Start command index 18 term 62
+2025/12/02 09:55:20.283375 Server 4 starting election for term 63
+2025/12/02 09:55:20.287498 Server 0 Start command index 460 term 14
+2025/12/02 09:55:20.288147 Server 1 Start command index 458 term 15
+2025/12/02 09:55:20.288212 Server 3 Start command index 19 term 62
+2025/12/02 09:55:20.288442 Server 2 became follower in term 63 (RequestVote from 4)
+2025/12/02 09:55:20.295700 Server 0 Start command index 461 term 14
+2025/12/02 09:55:20.296311 Server 1 Start command index 459 term 15
+2025/12/02 09:55:20.296374 Server 3 Start command index 20 term 62
+2025/12/02 09:55:20.299152 Server 0 Start command index 462 term 14
+2025/12/02 09:55:20.299755 Server 1 Start command index 460 term 15
+2025/12/02 09:55:20.299818 Server 3 Start command index 21 term 62
+2025/12/02 09:55:20.310356 Server 1 became follower in term 63 (RequestVote from 4)
+2025/12/02 09:55:20.311658 Server 0 Start command index 463 term 14
+2025/12/02 09:55:20.311754 Server 3 Start command index 22 term 62
+2025/12/02 09:55:20.322325 Server 0 Start command index 464 term 14
+2025/12/02 09:55:20.322405 Server 3 Start command index 23 term 62
+2025/12/02 09:55:20.324109 Server 0 Start command index 465 term 14
+2025/12/02 09:55:20.324197 Server 3 Start command index 24 term 62
+2025/12/02 09:55:20.377798 Server 0 Start command index 466 term 14
+2025/12/02 09:55:20.377885 Server 3 Start command index 25 term 62
+2025/12/02 09:55:20.389298 Server 0 Start command index 467 term 14
+2025/12/02 09:55:20.389375 Server 3 Start command index 26 term 62
+2025/12/02 09:55:20.574797 Server 3 AppendEntries failed for 4. XTerm 8, XIndex 4, XLen 126
+2025/12/02 09:55:20.618638 Server 2 starting election for term 64
+2025/12/02 09:55:20.638555 Server 4 became follower in term 64 (RequestVote from 2)
+2025/12/02 09:55:20.638581 Server 4 granted vote to 2 in term 64
+2025/12/02 09:55:20.639663 Server 1 became follower in term 64 (RequestVote from 2)
+2025/12/02 09:55:20.639694 Server 1 granted vote to 2 in term 64
+2025/12/02 09:55:20.661150 Server 0 Start command index 468 term 14
+2025/12/02 09:55:20.661258 Server 3 Start command index 27 term 62
+2025/12/02 09:55:20.670416 Server 0 Start command index 469 term 14
+2025/12/02 09:55:20.670511 Server 3 Start command index 28 term 62
+2025/12/02 09:55:20.673600 Server 0 Start command index 470 term 14
+2025/12/02 09:55:20.673682 Server 3 Start command index 29 term 62
+2025/12/02 09:55:20.675768 Server 0 Start command index 471 term 14
+2025/12/02 09:55:20.675844 Server 3 Start command index 30 term 62
+2025/12/02 09:55:20.676421 Server 0 Start command index 472 term 14
+2025/12/02 09:55:20.676495 Server 3 Start command index 31 term 62
+2025/12/02 09:55:20.682060 Server 0 Start command index 473 term 14
+2025/12/02 09:55:20.682140 Server 3 Start command index 32 term 62
+2025/12/02 09:55:20.694800 Server 0 Start command index 474 term 14
+2025/12/02 09:55:20.694880 Server 3 Start command index 33 term 62
+2025/12/02 09:55:20.703514 Server 0 Start command index 475 term 14
+2025/12/02 09:55:20.703611 Server 3 Start command index 34 term 62
+2025/12/02 09:55:20.747762 Server 0 Start command index 476 term 14
+2025/12/02 09:55:20.747850 Server 3 Start command index 35 term 62
+2025/12/02 09:55:20.749539 Server 0 Start command index 477 term 14
+2025/12/02 09:55:20.749635 Server 3 Start command index 36 term 62
+2025/12/02 09:55:20.750278 Server 0 Start command index 478 term 14
+2025/12/02 09:55:20.750367 Server 3 Start command index 37 term 62
+2025/12/02 09:55:21.028086 Server 4 starting election for term 65
+2025/12/02 09:55:21.028122 Server 2 starting election for term 65
+2025/12/02 09:55:21.028105 Server 1 starting election for term 65
+2025/12/02 09:55:21.234396 Server 0 Start command index 479 term 14
+2025/12/02 09:55:21.234518 Server 3 Start command index 38 term 62
+2025/12/02 09:55:21.245981 Server 0 Start command index 480 term 14
+2025/12/02 09:55:21.246069 Server 3 Start command index 39 term 62
+2025/12/02 09:55:21.251377 Server 0 Start command index 481 term 14
+2025/12/02 09:55:21.251489 Server 3 Start command index 40 term 62
+2025/12/02 09:55:21.252120 Server 0 Start command index 482 term 14
+2025/12/02 09:55:21.252204 Server 3 Start command index 41 term 62
+2025/12/02 09:55:21.254984 Server 0 Start command index 483 term 14
+2025/12/02 09:55:21.255076 Server 3 Start command index 42 term 62
+2025/12/02 09:55:21.263584 Server 0 Start command index 484 term 14
+2025/12/02 09:55:21.263691 Server 3 Start command index 43 term 62
+2025/12/02 09:55:21.265700 Server 0 Start command index 485 term 14
+2025/12/02 09:55:21.265818 Server 3 Start command index 44 term 62
+2025/12/02 09:55:21.365757 Server 4 starting election for term 66
+2025/12/02 09:55:21.390070 Server 1 became follower in term 66 (RequestVote from 4)
+2025/12/02 09:55:21.392222 Server 2 became follower in term 66 (RequestVote from 4)
+2025/12/02 09:55:21.630865 Server 0 Start command index 486 term 14
+2025/12/02 09:55:21.630978 Server 3 Start command index 45 term 62
+2025/12/02 09:55:21.637160 Server 0 Start command index 487 term 14
+2025/12/02 09:55:21.637284 Server 3 Start command index 46 term 62
+2025/12/02 09:55:21.648810 Server 0 Start command index 488 term 14
+2025/12/02 09:55:21.648931 Server 3 Start command index 47 term 62
+2025/12/02 09:55:21.649525 Server 0 Start command index 489 term 14
+2025/12/02 09:55:21.649629 Server 3 Start command index 48 term 62
+2025/12/02 09:55:21.657262 Server 0 Start command index 490 term 14
+2025/12/02 09:55:21.657370 Server 3 Start command index 49 term 62
+2025/12/02 09:55:21.664648 Server 0 Start command index 491 term 14
+2025/12/02 09:55:21.664761 Server 3 Start command index 50 term 62
+2025/12/02 09:55:21.668960 Server 0 Start command index 492 term 14
+2025/12/02 09:55:21.669072 Server 3 Start command index 51 term 62
+2025/12/02 09:55:21.677374 Server 0 Start command index 493 term 14
+2025/12/02 09:55:21.677481 Server 3 Start command index 52 term 62
+2025/12/02 09:55:21.686931 Server 0 Start command index 494 term 14
+2025/12/02 09:55:21.687054 Server 3 Start command index 53 term 62
+2025/12/02 09:55:21.697312 Server 0 Start command index 495 term 14
+2025/12/02 09:55:21.697418 Server 3 Start command index 54 term 62
+2025/12/02 09:55:21.699439 Server 0 Start command index 496 term 14
+2025/12/02 09:55:21.699552 Server 3 Start command index 55 term 62
+2025/12/02 09:55:21.708984 Server 0 Start command index 497 term 14
+2025/12/02 09:55:21.709095 Server 3 Start command index 56 term 62
+2025/12/02 09:55:21.718487 Server 0 Start command index 498 term 14
+2025/12/02 09:55:21.718603 Server 3 Start command index 57 term 62
+2025/12/02 09:55:21.732157 Server 0 Start command index 499 term 14
+2025/12/02 09:55:21.732278 Server 3 Start command index 58 term 62
+2025/12/02 09:55:21.737767 Server 0 Start command index 500 term 14
+2025/12/02 09:55:21.737911 Server 3 Start command index 59 term 62
+2025/12/02 09:55:21.743898 Server 0 Start command index 501 term 14
+2025/12/02 09:55:21.744018 Server 3 Start command index 60 term 62
+2025/12/02 09:55:21.746042 Server 0 Start command index 502 term 14
+2025/12/02 09:55:21.746171 Server 3 Start command index 61 term 62
+2025/12/02 09:55:21.754493 Server 0 Start command index 503 term 14
+2025/12/02 09:55:21.754625 Server 3 Start command index 62 term 62
+2025/12/02 09:55:21.756641 Server 0 Start command index 504 term 14
+2025/12/02 09:55:21.756770 Server 3 Start command index 63 term 62
+2025/12/02 09:55:21.757387 Server 0 Start command index 505 term 14
+2025/12/02 09:55:21.757503 Server 3 Start command index 64 term 62
+2025/12/02 09:55:21.766593 Server 1 starting election for term 67
+2025/12/02 09:55:21.769405 Server 0 Start command index 506 term 14
+2025/12/02 09:55:21.769531 Server 3 Start command index 65 term 62
+2025/12/02 09:55:21.781048 Server 0 Start command index 507 term 14
+2025/12/02 09:55:21.781165 Server 3 Start command index 66 term 62
+2025/12/02 09:55:21.784910 Server 4 became follower in term 67 (RequestVote from 1)
+2025/12/02 09:55:21.784944 Server 4 granted vote to 1 in term 67
+2025/12/02 09:55:21.785337 Server 0 Start command index 508 term 14
+2025/12/02 09:55:21.785452 Server 3 Start command index 67 term 62
+2025/12/02 09:55:21.786909 Server 2 starting election for term 67
+2025/12/02 09:55:21.796344 Server 0 Start command index 509 term 14
+2025/12/02 09:55:21.796477 Server 3 Start command index 68 term 62
+2025/12/02 09:55:21.804858 Server 0 Start command index 510 term 14
+2025/12/02 09:55:21.804987 Server 3 Start command index 69 term 62
+2025/12/02 09:55:21.813458 Server 0 Start command index 511 term 14
+2025/12/02 09:55:21.813596 Server 3 Start command index 70 term 62
+2025/12/02 09:55:21.820870 Server 0 Start command index 512 term 14
+2025/12/02 09:55:21.820992 Server 3 Start command index 71 term 62
+2025/12/02 09:55:21.825095 Server 0 Start command index 513 term 14
+2025/12/02 09:55:21.825231 Server 3 Start command index 72 term 62
+2025/12/02 09:55:21.831595 Server 0 Start command index 514 term 14
+2025/12/02 09:55:21.831718 Server 3 Start command index 73 term 62
+2025/12/02 09:55:21.837834 Server 0 Start command index 515 term 14
+2025/12/02 09:55:21.838308 Server 3 Start command index 74 term 62
+2025/12/02 09:55:21.849345 Server 0 Start command index 516 term 14
+2025/12/02 09:55:21.849495 Server 3 Start command index 75 term 62
+2025/12/02 09:55:21.853627 Server 0 Start command index 517 term 14
+2025/12/02 09:55:21.853799 Server 3 Start command index 76 term 62
+2025/12/02 09:55:21.884065 Server 0 Start command index 518 term 14
+2025/12/02 09:55:21.884201 Server 3 Start command index 77 term 62
+2025/12/02 09:55:21.892489 Server 0 Start command index 519 term 14
+2025/12/02 09:55:21.892654 Server 3 Start command index 78 term 62
+2025/12/02 09:55:21.897180 Server 0 Start command index 520 term 14
+2025/12/02 09:55:21.897492 Server 3 Start command index 79 term 62
+2025/12/02 09:55:21.908866 Server 0 Start command index 521 term 14
+2025/12/02 09:55:21.909019 Server 3 Start command index 80 term 62
+2025/12/02 09:55:21.914092 Server 0 Start command index 522 term 14
+2025/12/02 09:55:21.914229 Server 3 Start command index 81 term 62
+2025/12/02 09:55:21.922546 Server 0 Start command index 523 term 14
+2025/12/02 09:55:21.922702 Server 3 Start command index 82 term 62
+2025/12/02 09:55:21.933000 Server 0 Start command index 524 term 14
+2025/12/02 09:55:21.933152 Server 3 Start command index 83 term 62
+2025/12/02 09:55:21.935130 Server 0 Start command index 525 term 14
+2025/12/02 09:55:21.935285 Server 3 Start command index 84 term 62
+2025/12/02 09:55:21.946798 Server 0 Start command index 526 term 14
+2025/12/02 09:55:21.946943 Server 3 Start command index 85 term 62
+2025/12/02 09:55:21.954242 Server 0 Start command index 527 term 14
+2025/12/02 09:55:21.954394 Server 3 Start command index 86 term 62
+2025/12/02 09:55:21.958588 Server 0 Start command index 528 term 14
+2025/12/02 09:55:21.958747 Server 3 Start command index 87 term 62
+2025/12/02 09:55:21.969212 Server 0 Start command index 529 term 14
+2025/12/02 09:55:21.969362 Server 3 Start command index 88 term 62
+2025/12/02 09:55:21.982941 Server 0 Start command index 530 term 14
+2025/12/02 09:55:21.983094 Server 3 Start command index 89 term 62
+2025/12/02 09:55:21.995616 Server 0 Start command index 531 term 14
+2025/12/02 09:55:21.995780 Server 3 Start command index 90 term 62
+2025/12/02 09:55:21.997593 Server 0 Start command index 532 term 14
+2025/12/02 09:55:21.997761 Server 3 Start command index 91 term 62
+2025/12/02 09:55:22.000781 Server 0 Start command index 533 term 14
+2025/12/02 09:55:22.000933 Server 3 Start command index 92 term 62
+2025/12/02 09:55:22.008155 Server 0 Start command index 534 term 14
+2025/12/02 09:55:22.008310 Server 3 Start command index 93 term 62
+2025/12/02 09:55:22.013617 Server 0 Start command index 535 term 14
+2025/12/02 09:55:22.013784 Server 3 Start command index 94 term 62
+2025/12/02 09:55:22.019893 Server 0 Start command index 536 term 14
+2025/12/02 09:55:22.020041 Server 3 Start command index 95 term 62
+2025/12/02 09:55:22.022065 Server 0 Start command index 537 term 14
+2025/12/02 09:55:22.022229 Server 3 Start command index 96 term 62
+2025/12/02 09:55:22.031353 Server 0 Start command index 538 term 14
+2025/12/02 09:55:22.031504 Server 3 Start command index 97 term 62
+2025/12/02 09:55:22.035727 Server 0 Start command index 539 term 14
+2025/12/02 09:55:22.035934 Server 3 Start command index 98 term 62
+2025/12/02 09:55:22.044190 Server 0 Start command index 540 term 14
+2025/12/02 09:55:22.044353 Server 3 Start command index 99 term 62
+2025/12/02 09:55:22.103564 Server 4 starting election for term 68
+2025/12/02 09:55:22.116574 Server 2 became follower in term 68 (RequestVote from 4)
+2025/12/02 09:55:22.120943 Server 1 became follower in term 68 (RequestVote from 4)
+2025/12/02 09:55:22.409812 Server 0 Start command index 541 term 14
+2025/12/02 09:55:22.410601 Server 3 Start command index 100 term 62
+2025/12/02 09:55:22.417296 Server 0 Start command index 542 term 14
+2025/12/02 09:55:22.417476 Server 3 Start command index 101 term 62
+2025/12/02 09:55:22.419307 Server 0 Start command index 543 term 14
+2025/12/02 09:55:22.419486 Server 3 Start command index 102 term 62
+2025/12/02 09:55:22.423603 Server 0 Start command index 544 term 14
+2025/12/02 09:55:22.423796 Server 3 Start command index 103 term 62
+2025/12/02 09:55:22.433195 Server 0 Start command index 545 term 14
+2025/12/02 09:55:22.433367 Server 3 Start command index 104 term 62
+2025/12/02 09:55:22.438598 Server 0 Start command index 546 term 14
+2025/12/02 09:55:22.438778 Server 3 Start command index 105 term 62
+2025/12/02 09:55:22.473760 Server 4 starting election for term 69
+2025/12/02 09:55:22.484341 Server 2 starting election for term 69
+2025/12/02 09:55:22.488611 Server 1 starting election for term 69
+2025/12/02 09:55:22.658690 Server 0 Start command index 547 term 14
+2025/12/02 09:55:22.658891 Server 3 Start command index 106 term 62
+2025/12/02 09:55:22.669300 Server 0 Start command index 548 term 14
+2025/12/02 09:55:22.669463 Server 3 Start command index 107 term 62
+2025/12/02 09:55:22.672504 Server 0 Start command index 549 term 14
+2025/12/02 09:55:22.672696 Server 3 Start command index 108 term 62
+2025/12/02 09:55:22.681085 Server 0 Start command index 550 term 14
+2025/12/02 09:55:22.681264 Server 3 Start command index 109 term 62
+2025/12/02 09:55:22.823338 Server 2 starting election for term 70
+2025/12/02 09:55:22.823728 Server 1 became follower in term 70 (RequestVote from 2)
+2025/12/02 09:55:22.823776 Server 1 granted vote to 2 in term 70
+2025/12/02 09:55:22.855011 Server 4 starting election for term 70
+2025/12/02 09:55:23.004072 Server 0 Start command index 551 term 14
+2025/12/02 09:55:23.004357 Server 3 Start command index 110 term 62
+2025/12/02 09:55:23.011925 Server 0 Start command index 552 term 14
+2025/12/02 09:55:23.012125 Server 3 Start command index 111 term 62
+2025/12/02 09:55:23.024623 Server 0 Start command index 553 term 14
+2025/12/02 09:55:23.024806 Server 3 Start command index 112 term 62
+2025/12/02 09:55:23.033138 Server 0 Start command index 554 term 14
+2025/12/02 09:55:23.033330 Server 3 Start command index 113 term 62
+2025/12/02 09:55:23.037442 Server 0 Start command index 555 term 14
+2025/12/02 09:55:23.037641 Server 3 Start command index 114 term 62
+2025/12/02 09:55:23.039594 Server 0 Start command index 556 term 14
+2025/12/02 09:55:23.039793 Server 3 Start command index 115 term 62
+2025/12/02 09:55:23.048088 Server 0 Start command index 557 term 14
+2025/12/02 09:55:23.048271 Server 3 Start command index 116 term 62
+2025/12/02 09:55:23.060970 Server 0 Start command index 558 term 14
+2025/12/02 09:55:23.061153 Server 3 Start command index 117 term 62
+2025/12/02 09:55:23.070474 Server 0 Start command index 559 term 14
+2025/12/02 09:55:23.070656 Server 3 Start command index 118 term 62
+2025/12/02 09:55:23.084264 Server 0 Start command index 560 term 14
+2025/12/02 09:55:23.084451 Server 3 Start command index 119 term 62
+2025/12/02 09:55:23.189172 Server 1 starting election for term 71
+2025/12/02 09:55:23.199835 Server 4 became follower in term 71 (RequestVote from 1)
+2025/12/02 09:55:23.199860 Server 4 granted vote to 1 in term 71
+2025/12/02 09:55:23.214382 Server 2 starting election for term 71
+2025/12/02 09:55:23.418889 Server 0 Start command index 561 term 14
+2025/12/02 09:55:23.419091 Server 3 Start command index 120 term 62
+2025/12/02 09:55:23.426302 Server 0 Start command index 562 term 14
+2025/12/02 09:55:23.426508 Server 3 Start command index 121 term 62
+2025/12/02 09:55:23.436965 Server 0 Start command index 563 term 14
+2025/12/02 09:55:23.437175 Server 3 Start command index 122 term 62
+2025/12/02 09:55:23.438983 Server 0 Start command index 564 term 14
+2025/12/02 09:55:23.439172 Server 3 Start command index 123 term 62
+2025/12/02 09:55:23.447471 Server 0 Start command index 565 term 14
+2025/12/02 09:55:23.447670 Server 3 Start command index 124 term 62
+2025/12/02 09:55:23.457863 Server 0 Start command index 566 term 14
+2025/12/02 09:55:23.458057 Server 3 Start command index 125 term 62
+2025/12/02 09:55:23.462095 Server 0 Start command index 567 term 14
+2025/12/02 09:55:23.462286 Server 3 Start command index 126 term 62
+2025/12/02 09:55:23.464984 Server 0 Start command index 568 term 14
+2025/12/02 09:55:23.465719 Server 3 Start command index 127 term 62
+2025/12/02 09:55:23.478948 Server 0 Start command index 569 term 14
+2025/12/02 09:55:23.479148 Server 3 Start command index 128 term 62
+2025/12/02 09:55:23.479850 Server 0 Start command index 570 term 14
+2025/12/02 09:55:23.480058 Server 3 Start command index 129 term 62
+2025/12/02 09:55:23.489454 Server 0 Start command index 571 term 14
+2025/12/02 09:55:23.489654 Server 3 Start command index 130 term 62
+2025/12/02 09:55:23.551993 Server 2 starting election for term 72
+2025/12/02 09:55:23.554635 Server 1 became follower in term 72 (RequestVote from 2)
+2025/12/02 09:55:23.554661 Server 1 granted vote to 2 in term 72
+2025/12/02 09:55:23.570470 Server 4 became follower in term 72 (RequestVote from 2)
+2025/12/02 09:55:23.570493 Server 4 granted vote to 2 in term 72
+2025/12/02 09:55:23.655658 Server 0 Start command index 572 term 14
+2025/12/02 09:55:23.655888 Server 3 Start command index 131 term 62
+2025/12/02 09:55:23.811142 Server 0 Start command index 573 term 14
+2025/12/02 09:55:23.811351 Server 3 Start command index 132 term 62
+2025/12/02 09:55:23.823895 Server 0 Start command index 574 term 14
+2025/12/02 09:55:23.824111 Server 3 Start command index 133 term 62
+2025/12/02 09:55:23.836507 Server 0 Start command index 575 term 14
+2025/12/02 09:55:23.836742 Server 3 Start command index 134 term 62
+2025/12/02 09:55:23.847988 Server 0 Start command index 576 term 14
+2025/12/02 09:55:23.848192 Server 3 Start command index 135 term 62
+2025/12/02 09:55:23.853304 Server 0 Start command index 577 term 14
+2025/12/02 09:55:23.853513 Server 3 Start command index 136 term 62
+2025/12/02 09:55:23.865872 Server 0 Start command index 578 term 14
+2025/12/02 09:55:23.866078 Server 3 Start command index 137 term 62
+2025/12/02 09:55:23.878507 Server 0 Start command index 579 term 14
+2025/12/02 09:55:23.878729 Server 3 Start command index 138 term 62
+2025/12/02 09:55:23.878787 Server 2 starting election for term 73
+2025/12/02 09:55:23.880799 Server 0 Start command index 580 term 14
+2025/12/02 09:55:23.881011 Server 3 Start command index 139 term 62
+2025/12/02 09:55:23.882854 Server 0 Start command index 581 term 14
+2025/12/02 09:55:23.883067 Server 3 Start command index 140 term 62
+2025/12/02 09:55:23.888676 Server 1 became follower in term 73 (RequestVote from 2)
+2025/12/02 09:55:23.888698 Server 1 granted vote to 2 in term 73
+2025/12/02 09:55:23.891150 Server 0 Start command index 582 term 14
+2025/12/02 09:55:23.891406 Server 3 Start command index 141 term 62
+2025/12/02 09:55:23.895075 Server 0 Start command index 583 term 14
+2025/12/02 09:55:23.895304 Server 3 Start command index 142 term 62
+2025/12/02 09:55:23.899079 Server 0 Start command index 584 term 14
+2025/12/02 09:55:23.899300 Server 3 Start command index 143 term 62
+2025/12/02 09:55:23.899496 Server 4 became follower in term 73 (RequestVote from 2)
+2025/12/02 09:55:23.899508 Server 4 granted vote to 2 in term 73
+2025/12/02 09:55:23.903505 Server 0 Start command index 585 term 14
+2025/12/02 09:55:23.903756 Server 3 Start command index 144 term 62
+2025/12/02 09:55:23.906623 Server 0 Start command index 586 term 14
+2025/12/02 09:55:23.906870 Server 3 Start command index 145 term 62
+2025/12/02 09:55:23.908695 Server 0 Start command index 587 term 14
+2025/12/02 09:55:23.908914 Server 3 Start command index 146 term 62
+2025/12/02 09:55:23.916220 Server 0 Start command index 588 term 14
+2025/12/02 09:55:23.916436 Server 3 Start command index 147 term 62
+2025/12/02 09:55:23.925705 Server 0 Start command index 589 term 14
+2025/12/02 09:55:23.925948 Server 3 Start command index 148 term 62
+2025/12/02 09:55:23.931136 Server 0 Start command index 590 term 14
+2025/12/02 09:55:23.931357 Server 3 Start command index 149 term 62
+2025/12/02 09:55:23.944976 Server 0 Start command index 591 term 14
+2025/12/02 09:55:23.945196 Server 3 Start command index 150 term 62
+2025/12/02 09:55:24.134320 Server 0 Start command index 592 term 14
+2025/12/02 09:55:24.134553 Server 3 Start command index 151 term 62
+2025/12/02 09:55:24.146160 Server 0 Start command index 593 term 14
+2025/12/02 09:55:24.146396 Server 3 Start command index 152 term 62
+2025/12/02 09:55:24.150437 Server 0 Start command index 594 term 14
+2025/12/02 09:55:24.150697 Server 3 Start command index 153 term 62
+2025/12/02 09:55:24.158802 Server 0 Start command index 595 term 14
+2025/12/02 09:55:24.159041 Server 3 Start command index 154 term 62
+2025/12/02 09:55:24.159773 Server 0 Start command index 596 term 14
+2025/12/02 09:55:24.159988 Server 3 Start command index 155 term 62
+2025/12/02 09:55:24.167309 Server 0 Start command index 597 term 14
+2025/12/02 09:55:24.167543 Server 3 Start command index 156 term 62
+2025/12/02 09:55:24.174431 Server 0 Start command index 598 term 14
+2025/12/02 09:55:24.174974 Server 3 Start command index 157 term 62
+2025/12/02 09:55:24.187345 Server 0 Start command index 599 term 14
+2025/12/02 09:55:24.187585 Server 3 Start command index 158 term 62
+2025/12/02 09:55:24.195124 Server 2 starting election for term 74
+2025/12/02 09:55:24.201204 Server 0 Start command index 600 term 14
+2025/12/02 09:55:24.201434 Server 3 Start command index 159 term 62
+2025/12/02 09:55:24.202166 Server 0 Start command index 601 term 14
+2025/12/02 09:55:24.202387 Server 3 Start command index 160 term 62
+2025/12/02 09:55:24.206553 Server 0 Start command index 602 term 14
+2025/12/02 09:55:24.206787 Server 3 Start command index 161 term 62
+2025/12/02 09:55:24.206983 Server 4 became follower in term 74 (RequestVote from 2)
+2025/12/02 09:55:24.206996 Server 4 granted vote to 2 in term 74
+2025/12/02 09:55:24.220459 Server 0 Start command index 603 term 14
+2025/12/02 09:55:24.220708 Server 3 Start command index 162 term 62
+2025/12/02 09:55:24.221909 Server 1 became follower in term 74 (RequestVote from 2)
+2025/12/02 09:55:24.221932 Server 1 granted vote to 2 in term 74
+2025/12/02 09:55:24.233223 Server 0 Start command index 604 term 14
+2025/12/02 09:55:24.233482 Server 3 Start command index 163 term 62
+2025/12/02 09:55:24.239707 Server 0 Start command index 605 term 14
+2025/12/02 09:55:24.239957 Server 3 Start command index 164 term 62
+2025/12/02 09:55:24.579682 Server 0 Start command index 606 term 14
+2025/12/02 09:55:24.579956 Server 3 Start command index 165 term 62
+2025/12/02 09:55:24.583794 Server 0 Start command index 607 term 14
+2025/12/02 09:55:24.584049 Server 3 Start command index 166 term 62
+2025/12/02 09:55:24.595465 Server 0 Start command index 608 term 14
+2025/12/02 09:55:24.595705 Server 3 Start command index 167 term 62
+2025/12/02 09:55:24.604195 Server 1 starting election for term 75
+2025/12/02 09:55:24.608595 Server 2 starting election for term 75
+2025/12/02 09:55:24.612066 Server 4 became follower in term 75 (RequestVote from 2)
+2025/12/02 09:55:24.612104 Server 4 granted vote to 2 in term 75
+2025/12/02 09:55:24.914443 Server 0 Start command index 609 term 14
+2025/12/02 09:55:24.914704 Server 3 Start command index 168 term 62
+2025/12/02 09:55:24.928400 Server 0 Start command index 610 term 14
+2025/12/02 09:55:24.928933 Server 3 Start command index 169 term 62
+2025/12/02 09:55:24.941025 Server 0 Start command index 611 term 14
+2025/12/02 09:55:24.941273 Server 3 Start command index 170 term 62
+2025/12/02 09:55:24.942021 Server 0 Start command index 612 term 14
+2025/12/02 09:55:24.942255 Server 3 Start command index 171 term 62
+2025/12/02 09:55:25.000295 Server 4 starting election for term 76
+2025/12/02 09:55:25.011029 Server 2 starting election for term 76
+2025/12/02 09:55:25.016422 Server 1 starting election for term 76
+2025/12/02 09:55:25.096148 Server 0 Start command index 613 term 14
+2025/12/02 09:55:25.096412 Server 3 Start command index 172 term 62
+2025/12/02 09:55:25.109794 Server 0 Start command index 614 term 14
+2025/12/02 09:55:25.110050 Server 3 Start command index 173 term 62
+2025/12/02 09:55:25.122635 Server 0 Start command index 615 term 14
+2025/12/02 09:55:25.122895 Server 3 Start command index 174 term 62
+2025/12/02 09:55:25.126955 Server 0 Start command index 616 term 14
+2025/12/02 09:55:25.127221 Server 3 Start command index 175 term 62
+2025/12/02 09:55:25.360469 Server 4 starting election for term 77
+2025/12/02 09:55:25.402979 Server 2 starting election for term 77
+2025/12/02 09:55:25.419918 Server 1 starting election for term 77
+2025/12/02 09:55:25.548831 Server 0 Start command index 617 term 14
+2025/12/02 09:55:25.549095 Server 3 Start command index 176 term 62
+2025/12/02 09:55:25.553556 Server 0 Start command index 618 term 14
+2025/12/02 09:55:25.554490 Server 3 Start command index 177 term 62
+2025/12/02 09:55:25.568181 Server 0 Start command index 619 term 14
+2025/12/02 09:55:25.568465 Server 3 Start command index 178 term 62
+2025/12/02 09:55:25.572448 Server 0 Start command index 620 term 14
+2025/12/02 09:55:25.572702 Server 3 Start command index 179 term 62
+2025/12/02 09:55:25.574711 Server 0 Start command index 621 term 14
+2025/12/02 09:55:25.575002 Server 3 Start command index 180 term 62
+2025/12/02 09:55:25.580050 Server 0 Start command index 622 term 14
+2025/12/02 09:55:25.580321 Server 3 Start command index 181 term 62
+2025/12/02 09:55:25.587681 Server 0 Start command index 623 term 14
+2025/12/02 09:55:25.587962 Server 3 Start command index 182 term 62
+2025/12/02 09:55:25.588716 Server 0 Start command index 624 term 14
+2025/12/02 09:55:25.588960 Server 3 Start command index 183 term 62
+2025/12/02 09:55:25.601430 Server 0 Start command index 625 term 14
+2025/12/02 09:55:25.601713 Server 3 Start command index 184 term 62
+2025/12/02 09:55:25.603518 Server 0 Start command index 626 term 14
+2025/12/02 09:55:25.603795 Server 3 Start command index 185 term 62
+2025/12/02 09:55:25.608862 Server 0 Start command index 627 term 14
+2025/12/02 09:55:25.609142 Server 3 Start command index 186 term 62
+2025/12/02 09:55:25.620417 Server 0 Start command index 628 term 14
+2025/12/02 09:55:25.620697 Server 3 Start command index 187 term 62
+2025/12/02 09:55:25.627858 Server 0 Start command index 629 term 14
+2025/12/02 09:55:25.628130 Server 3 Start command index 188 term 62
+2025/12/02 09:55:25.639400 Server 0 Start command index 630 term 14
+2025/12/02 09:55:25.639691 Server 3 Start command index 189 term 62
+2025/12/02 09:55:25.649091 Server 0 Start command index 631 term 14
+2025/12/02 09:55:25.649362 Server 3 Start command index 190 term 62
+2025/12/02 09:55:25.708367 Server 0 Start command index 632 term 14
+2025/12/02 09:55:25.708651 Server 3 Start command index 191 term 62
+2025/12/02 09:55:25.709432 Server 0 Start command index 633 term 14
+2025/12/02 09:55:25.709690 Server 3 Start command index 192 term 62
+2025/12/02 09:55:25.715798 Server 0 Start command index 634 term 14
+2025/12/02 09:55:25.716066 Server 3 Start command index 193 term 62
+2025/12/02 09:55:25.723358 Server 0 Start command index 635 term 14
+2025/12/02 09:55:25.723642 Server 3 Start command index 194 term 62
+2025/12/02 09:55:25.731323 Server 0 Start command index 636 term 14
+2025/12/02 09:55:25.732140 Server 3 Start command index 195 term 62
+2025/12/02 09:55:25.740455 Server 0 Start command index 637 term 14
+2025/12/02 09:55:25.740757 Server 3 Start command index 196 term 62
+2025/12/02 09:55:25.749066 Server 0 Start command index 638 term 14
+2025/12/02 09:55:25.749399 Server 3 Start command index 197 term 62
+2025/12/02 09:55:25.757672 Server 1 starting election for term 78
+2025/12/02 09:55:25.760636 Server 0 Start command index 639 term 14
+2025/12/02 09:55:25.760944 Server 3 Start command index 198 term 62
+2025/12/02 09:55:25.763308 Server 4 became follower in term 78 (RequestVote from 1)
+2025/12/02 09:55:25.763332 Server 4 granted vote to 1 in term 78
+2025/12/02 09:55:25.763745 Server 2 became follower in term 78 (RequestVote from 1)
+2025/12/02 09:55:25.763904 Server 0 Start command index 640 term 14
+2025/12/02 09:55:25.764171 Server 3 Start command index 199 term 62
+2025/12/02 09:55:25.769426 Server 0 Start command index 641 term 14
+2025/12/02 09:55:25.769705 Server 3 Start command index 200 term 62
+2025/12/02 09:55:25.775573 Server 0 Start command index 642 term 14
+2025/12/02 09:55:25.775872 Server 3 Start command index 201 term 62
+2025/12/02 09:55:25.780947 Server 0 Start command index 643 term 14
+2025/12/02 09:55:25.781225 Server 3 Start command index 202 term 62
+2025/12/02 09:55:25.790264 Server 0 Start command index 644 term 14
+2025/12/02 09:55:25.790548 Server 3 Start command index 203 term 62
+2025/12/02 09:55:25.794520 Server 0 Start command index 645 term 14
+2025/12/02 09:55:25.794809 Server 3 Start command index 204 term 62
+2025/12/02 09:55:25.805112 Server 0 Start command index 646 term 14
+2025/12/02 09:55:25.805390 Server 3 Start command index 205 term 62
+2025/12/02 09:55:25.811520 Server 0 Start command index 647 term 14
+2025/12/02 09:55:25.811838 Server 3 Start command index 206 term 62
+2025/12/02 09:55:25.821235 Server 0 Start command index 648 term 14
+2025/12/02 09:55:25.821528 Server 3 Start command index 207 term 62
+2025/12/02 09:55:25.834124 Server 0 Start command index 649 term 14
+2025/12/02 09:55:25.834458 Server 3 Start command index 208 term 62
+2025/12/02 09:55:25.841189 Server 0 Start command index 650 term 14
+2025/12/02 09:55:25.841491 Server 3 Start command index 209 term 62
+2025/12/02 09:55:25.847694 Server 0 Start command index 651 term 14
+2025/12/02 09:55:25.848023 Server 3 Start command index 210 term 62
+2025/12/02 09:55:25.853055 Server 0 Start command index 652 term 14
+2025/12/02 09:55:25.853349 Server 3 Start command index 211 term 62
+2025/12/02 09:55:25.862354 Server 0 Start command index 653 term 14
+2025/12/02 09:55:25.862643 Server 3 Start command index 212 term 62
+2025/12/02 09:55:25.876125 Server 0 Start command index 654 term 14
+2025/12/02 09:55:25.876431 Server 3 Start command index 213 term 62
+2025/12/02 09:55:25.878362 Server 0 Start command index 655 term 14
+2025/12/02 09:55:25.878658 Server 3 Start command index 214 term 62
+2025/12/02 09:55:25.895123 Server 0 Start command index 656 term 14
+2025/12/02 09:55:25.895422 Server 3 Start command index 215 term 62
+2025/12/02 09:55:26.089418 Server 2 starting election for term 79
+2025/12/02 09:55:26.100152 Server 4 became follower in term 79 (RequestVote from 2)
+2025/12/02 09:55:26.100183 Server 4 granted vote to 2 in term 79
+2025/12/02 09:55:26.112617 Server 1 became follower in term 79 (RequestVote from 2)
+2025/12/02 09:55:26.112638 Server 1 granted vote to 2 in term 79
+2025/12/02 09:55:26.132211 Server 0 Start command index 657 term 14
+2025/12/02 09:55:26.132530 Server 3 Start command index 216 term 62
+2025/12/02 09:55:26.139572 Server 0 Start command index 658 term 14
+2025/12/02 09:55:26.139895 Server 3 Start command index 217 term 62
+2025/12/02 09:55:26.144854 Server 0 Start command index 659 term 14
+2025/12/02 09:55:26.145158 Server 3 Start command index 218 term 62
+2025/12/02 09:55:26.153367 Server 0 Start command index 660 term 14
+2025/12/02 09:55:26.153701 Server 3 Start command index 219 term 62
+2025/12/02 09:55:26.159796 Server 0 Start command index 661 term 14
+2025/12/02 09:55:26.160101 Server 3 Start command index 220 term 62
+2025/12/02 09:55:26.169779 Server 0 Start command index 662 term 14
+2025/12/02 09:55:26.170130 Server 3 Start command index 221 term 62
+2025/12/02 09:55:26.177247 Server 0 Start command index 663 term 14
+2025/12/02 09:55:26.177548 Server 3 Start command index 222 term 62
+2025/12/02 09:55:26.187248 Server 0 Start command index 664 term 14
+2025/12/02 09:55:26.187562 Server 3 Start command index 223 term 62
+2025/12/02 09:55:26.198917 Server 0 Start command index 665 term 14
+2025/12/02 09:55:26.199223 Server 3 Start command index 224 term 62
+2025/12/02 09:55:26.210597 Server 0 Start command index 666 term 14
+2025/12/02 09:55:26.210908 Server 3 Start command index 225 term 62
+2025/12/02 09:55:26.219195 Server 0 Start command index 667 term 14
+2025/12/02 09:55:26.219502 Server 3 Start command index 226 term 62
+2025/12/02 09:55:26.221343 Server 0 Start command index 668 term 14
+2025/12/02 09:55:26.221645 Server 3 Start command index 227 term 62
+2025/12/02 09:55:26.248593 Server 0 Start command index 669 term 14
+2025/12/02 09:55:26.248928 Server 3 Start command index 228 term 62
+2025/12/02 09:55:26.258202 Server 0 Start command index 670 term 14
+2025/12/02 09:55:26.258531 Server 3 Start command index 229 term 62
+2025/12/02 09:55:26.263531 Server 0 Start command index 671 term 14
+2025/12/02 09:55:26.263840 Server 3 Start command index 230 term 62
+2025/12/02 09:55:26.275253 Server 0 Start command index 672 term 14
+2025/12/02 09:55:26.275568 Server 3 Start command index 231 term 62
+2025/12/02 09:55:26.280474 Server 0 Start command index 673 term 14
+2025/12/02 09:55:26.280811 Server 3 Start command index 232 term 62
+2025/12/02 09:55:26.290927 Server 0 Start command index 674 term 14
+2025/12/02 09:55:26.291251 Server 3 Start command index 233 term 62
+2025/12/02 09:55:26.298381 Server 0 Start command index 675 term 14
+2025/12/02 09:55:26.298690 Server 3 Start command index 234 term 62
+2025/12/02 09:55:26.301531 Server 0 Start command index 676 term 14
+2025/12/02 09:55:26.301853 Server 3 Start command index 235 term 62
+2025/12/02 09:55:26.307980 Server 0 Start command index 677 term 14
+2025/12/02 09:55:26.308851 Server 3 Start command index 236 term 62
+2025/12/02 09:55:26.310886 Server 0 Start command index 678 term 14
+2025/12/02 09:55:26.311226 Server 3 Start command index 237 term 62
+2025/12/02 09:55:26.323711 Server 0 Start command index 679 term 14
+2025/12/02 09:55:26.324069 Server 3 Start command index 238 term 62
+2025/12/02 09:55:26.330046 Server 0 Start command index 680 term 14
+2025/12/02 09:55:26.330365 Server 3 Start command index 239 term 62
+2025/12/02 09:55:26.338662 Server 0 Start command index 681 term 14
+2025/12/02 09:55:26.338996 Server 3 Start command index 240 term 62
+2025/12/02 09:55:26.348167 Server 0 Start command index 682 term 14
+2025/12/02 09:55:26.348504 Server 3 Start command index 241 term 62
+2025/12/02 09:55:26.358765 Server 0 Start command index 683 term 14
+2025/12/02 09:55:26.359096 Server 3 Start command index 242 term 62
+2025/12/02 09:55:26.368201 Server 0 Start command index 684 term 14
+2025/12/02 09:55:26.368553 Server 3 Start command index 243 term 62
+2025/12/02 09:55:26.373451 Server 0 Start command index 685 term 14
+2025/12/02 09:55:26.373790 Server 3 Start command index 244 term 62
+2025/12/02 09:55:26.385137 Server 0 Start command index 686 term 14
+2025/12/02 09:55:26.385474 Server 3 Start command index 245 term 62
+2025/12/02 09:55:26.392656 Server 0 Start command index 687 term 14
+2025/12/02 09:55:26.392997 Server 3 Start command index 246 term 62
+2025/12/02 09:55:26.406454 Server 0 Start command index 688 term 14
+2025/12/02 09:55:26.406703 Server 2 starting election for term 80
+2025/12/02 09:55:26.406798 Server 3 Start command index 247 term 62
+2025/12/02 09:55:26.414438 Server 1 became follower in term 80 (RequestVote from 2)
+2025/12/02 09:55:26.414470 Server 1 granted vote to 2 in term 80
+2025/12/02 09:55:26.417305 Server 0 Start command index 689 term 14
+2025/12/02 09:55:26.417653 Server 3 Start command index 248 term 62
+2025/12/02 09:55:26.424946 Server 0 Start command index 690 term 14
+2025/12/02 09:55:26.425284 Server 3 Start command index 249 term 62
+2025/12/02 09:55:26.426113 Server 0 Start command index 691 term 14
+2025/12/02 09:55:26.426437 Server 3 Start command index 250 term 62
+2025/12/02 09:55:26.428479 Server 4 became follower in term 80 (RequestVote from 2)
+2025/12/02 09:55:26.428500 Server 4 granted vote to 2 in term 80
+2025/12/02 09:55:26.441166 Server 0 Start command index 692 term 14
+2025/12/02 09:55:26.441556 Server 3 Start command index 251 term 62
+2025/12/02 09:55:26.490624 Server 0 Start command index 693 term 14
+2025/12/02 09:55:26.490987 Server 3 Start command index 252 term 62
+2025/12/02 09:55:26.497113 Server 0 Start command index 694 term 14
+2025/12/02 09:55:26.497456 Server 3 Start command index 253 term 62
+2025/12/02 09:55:26.501446 Server 0 Start command index 695 term 14
+2025/12/02 09:55:26.501826 Server 3 Start command index 254 term 62
+2025/12/02 09:55:26.512036 Server 0 Start command index 696 term 14
+2025/12/02 09:55:26.512380 Server 3 Start command index 255 term 62
+2025/12/02 09:55:26.523757 Server 0 Start command index 697 term 14
+2025/12/02 09:55:26.524104 Server 3 Start command index 256 term 62
+2025/12/02 09:55:26.734764 Server 2 starting election for term 81
+2025/12/02 09:55:26.735208 Server 1 became follower in term 81 (RequestVote from 2)
+2025/12/02 09:55:26.735231 Server 1 granted vote to 2 in term 81
+2025/12/02 09:55:26.739319 Server 4 became follower in term 81 (RequestVote from 2)
+2025/12/02 09:55:26.739342 Server 4 granted vote to 2 in term 81
+2025/12/02 09:55:26.777005 Server 0 Start command index 698 term 14
+2025/12/02 09:55:26.777351 Server 3 Start command index 257 term 62
+2025/12/02 09:55:26.778211 Server 0 Start command index 699 term 14
+2025/12/02 09:55:26.778545 Server 3 Start command index 258 term 62
+2025/12/02 09:55:26.786526 Server 0 Start command index 700 term 14
+2025/12/02 09:55:26.786898 Server 3 Start command index 259 term 62
+2025/12/02 09:55:27.062022 Server 2 starting election for term 82
+2025/12/02 09:55:27.063435 Server 4 became follower in term 82 (RequestVote from 2)
+2025/12/02 09:55:27.063463 Server 4 granted vote to 2 in term 82
+2025/12/02 09:55:27.077246 Server 1 became follower in term 82 (RequestVote from 2)
+2025/12/02 09:55:27.077280 Server 1 granted vote to 2 in term 82
+2025/12/02 09:55:27.269050 Server 0 Start command index 701 term 14
+2025/12/02 09:55:27.270181 Server 3 Start command index 260 term 62
+2025/12/02 09:55:27.323186 Server 0 Start command index 702 term 14
+2025/12/02 09:55:27.323558 Server 3 Start command index 261 term 62
+2025/12/02 09:55:27.324418 Server 0 Start command index 703 term 14
+2025/12/02 09:55:27.324763 Server 3 Start command index 262 term 62
+2025/12/02 09:55:27.329713 Server 0 Start command index 704 term 14
+2025/12/02 09:55:27.330101 Server 3 Start command index 263 term 62
+2025/12/02 09:55:27.342311 Server 0 Start command index 705 term 14
+2025/12/02 09:55:27.342680 Server 3 Start command index 264 term 62
+2025/12/02 09:55:27.345566 Server 0 Start command index 706 term 14
+2025/12/02 09:55:27.345933 Server 3 Start command index 265 term 62
+2025/12/02 09:55:27.355104 Server 0 Start command index 707 term 14
+2025/12/02 09:55:27.355482 Server 3 Start command index 266 term 62
+2025/12/02 09:55:27.369088 Server 0 Start command index 708 term 14
+2025/12/02 09:55:27.369516 Server 3 Start command index 267 term 62
+2025/12/02 09:55:27.376412 Server 0 Start command index 709 term 14
+2025/12/02 09:55:27.376818 Server 3 Start command index 268 term 62
+2025/12/02 09:55:27.389290 Server 0 Start command index 710 term 14
+2025/12/02 09:55:27.389661 Server 3 Start command index 269 term 62
+2025/12/02 09:55:27.402079 Server 0 Start command index 711 term 14
+2025/12/02 09:55:27.402443 Server 3 Start command index 270 term 62
+2025/12/02 09:55:27.415790 Server 0 Start command index 712 term 14
+2025/12/02 09:55:27.416168 Server 3 Start command index 271 term 62
+2025/12/02 09:55:27.421173 Server 4 starting election for term 83
+2025/12/02 09:55:27.421188 Server 2 starting election for term 83
+2025/12/02 09:55:27.424144 Server 1 became follower in term 83 (RequestVote from 2)
+2025/12/02 09:55:27.424177 Server 1 granted vote to 2 in term 83
+2025/12/02 09:55:27.425505 Server 0 Start command index 713 term 14
+2025/12/02 09:55:27.425892 Server 3 Start command index 272 term 62
+2025/12/02 09:55:27.434102 Server 0 Start command index 714 term 14
+2025/12/02 09:55:27.434482 Server 3 Start command index 273 term 62
+2025/12/02 09:55:27.436501 Server 0 Start command index 715 term 14
+2025/12/02 09:55:27.436897 Server 3 Start command index 274 term 62
+2025/12/02 09:55:27.437784 Server 0 Start command index 716 term 14
+2025/12/02 09:55:27.438142 Server 3 Start command index 275 term 62
+2025/12/02 09:55:27.449160 Server 0 Start command index 717 term 14
+2025/12/02 09:55:27.449525 Server 3 Start command index 276 term 62
+2025/12/02 09:55:27.453560 Server 0 Start command index 718 term 14
+2025/12/02 09:55:27.453933 Server 3 Start command index 277 term 62
+2025/12/02 09:55:27.454866 Server 0 Start command index 719 term 14
+2025/12/02 09:55:27.455241 Server 3 Start command index 278 term 62
+2025/12/02 09:55:27.462992 Server 0 Start command index 720 term 14
+2025/12/02 09:55:27.463353 Server 3 Start command index 279 term 62
+2025/12/02 09:55:27.477003 Server 0 Start command index 721 term 14
+2025/12/02 09:55:27.477382 Server 3 Start command index 280 term 62
+2025/12/02 09:55:27.486472 Server 0 Start command index 722 term 14
+2025/12/02 09:55:27.486848 Server 3 Start command index 281 term 62
+2025/12/02 09:55:27.495140 Server 0 Start command index 723 term 14
+2025/12/02 09:55:27.495572 Server 3 Start command index 282 term 62
+2025/12/02 09:55:27.500305 Server 0 Start command index 724 term 14
+2025/12/02 09:55:27.501138 Server 3 Start command index 283 term 62
+2025/12/02 09:55:27.509164 Server 0 Start command index 725 term 14
+2025/12/02 09:55:27.509567 Server 3 Start command index 284 term 62
+2025/12/02 09:55:27.523032 Server 0 Start command index 726 term 14
+2025/12/02 09:55:27.523435 Server 3 Start command index 285 term 62
+2025/12/02 09:55:27.534709 Server 0 Start command index 727 term 14
+2025/12/02 09:55:27.535101 Server 3 Start command index 286 term 62
+2025/12/02 09:55:27.544251 Server 0 Start command index 728 term 14
+2025/12/02 09:55:27.544637 Server 3 Start command index 287 term 62
+2025/12/02 09:55:27.552629 Server 0 Start command index 729 term 14
+2025/12/02 09:55:27.553019 Server 3 Start command index 288 term 62
+2025/12/02 09:55:27.562982 Server 0 Start command index 730 term 14
+2025/12/02 09:55:27.563357 Server 3 Start command index 289 term 62
+2025/12/02 09:55:27.569292 Server 0 Start command index 731 term 14
+2025/12/02 09:55:27.569686 Server 3 Start command index 290 term 62
+2025/12/02 09:55:27.571629 Server 0 Start command index 732 term 14
+2025/12/02 09:55:27.572016 Server 3 Start command index 291 term 62
+2025/12/02 09:55:27.574871 Server 0 Start command index 733 term 14
+2025/12/02 09:55:27.575246 Server 3 Start command index 292 term 62
+2025/12/02 09:55:27.586678 Server 0 Start command index 734 term 14
+2025/12/02 09:55:27.587078 Server 3 Start command index 293 term 62
+2025/12/02 09:55:27.591919 Server 0 Start command index 735 term 14
+2025/12/02 09:55:27.592295 Server 3 Start command index 294 term 62
+2025/12/02 09:55:27.618194 Server 0 Start command index 736 term 14
+2025/12/02 09:55:27.618601 Server 3 Start command index 295 term 62
+2025/12/02 09:55:27.630567 Server 0 Start command index 737 term 14
+2025/12/02 09:55:27.631456 Server 3 Start command index 296 term 62
+2025/12/02 09:55:27.637121 Server 0 Start command index 738 term 14
+2025/12/02 09:55:27.637512 Server 3 Start command index 297 term 62
+2025/12/02 09:55:27.645507 Server 0 Start command index 739 term 14
+2025/12/02 09:55:27.645920 Server 3 Start command index 298 term 62
+2025/12/02 09:55:27.654009 Server 0 Start command index 740 term 14
+2025/12/02 09:55:27.654411 Server 3 Start command index 299 term 62
+2025/12/02 09:55:27.747988 Server 4 starting election for term 84
+2025/12/02 09:55:27.764912 Server 2 became follower in term 84 (RequestVote from 4)
+2025/12/02 09:55:27.765947 Server 1 became follower in term 84 (RequestVote from 4)
+2025/12/02 09:55:27.993389 Server 0 Start command index 741 term 14
+2025/12/02 09:55:27.993872 Server 3 Start command index 300 term 62
+2025/12/02 09:55:28.019392 Server 0 Start command index 742 term 14
+2025/12/02 09:55:28.019816 Server 3 Start command index 301 term 62
+2025/12/02 09:55:28.024765 Server 0 Start command index 743 term 14
+2025/12/02 09:55:28.025169 Server 3 Start command index 302 term 62
+2025/12/02 09:55:28.032134 Server 0 Start command index 744 term 14
+2025/12/02 09:55:28.032534 Server 3 Start command index 303 term 62
+2025/12/02 09:55:28.094045 Server 2 starting election for term 85
+2025/12/02 09:55:28.094451 Server 1 became follower in term 85 (RequestVote from 2)
+2025/12/02 09:55:28.094474 Server 1 granted vote to 2 in term 85
+2025/12/02 09:55:28.099510 Server 4 became follower in term 85 (RequestVote from 2)
+2025/12/02 09:55:28.099546 Server 4 granted vote to 2 in term 85
+2025/12/02 09:55:28.146531 Server 0 Start command index 745 term 14
+2025/12/02 09:55:28.146957 Server 3 Start command index 304 term 62
+2025/12/02 09:55:28.157837 Server 0 Start command index 746 term 14
+2025/12/02 09:55:28.158846 Server 3 Start command index 305 term 62
+2025/12/02 09:55:28.453853 Server 1 starting election for term 86
+2025/12/02 09:55:28.477097 Server 4 became follower in term 86 (RequestVote from 1)
+2025/12/02 09:55:28.477134 Server 4 granted vote to 1 in term 86
+2025/12/02 09:55:28.477114 Server 2 became follower in term 86 (RequestVote from 1)
+2025/12/02 09:55:28.611037 Server 0 Start command index 747 term 14
+2025/12/02 09:55:28.611451 Server 3 Start command index 306 term 62
+2025/12/02 09:55:28.623661 Server 0 Start command index 748 term 14
+2025/12/02 09:55:28.624091 Server 3 Start command index 307 term 62
+2025/12/02 09:55:28.632163 Server 0 Start command index 749 term 14
+2025/12/02 09:55:28.632565 Server 3 Start command index 308 term 62
+2025/12/02 09:55:28.642680 Server 0 Start command index 750 term 14
+2025/12/02 09:55:28.643118 Server 3 Start command index 309 term 62
+2025/12/02 09:55:28.654558 Server 0 Start command index 751 term 14
+2025/12/02 09:55:28.654998 Server 3 Start command index 310 term 62
+2025/12/02 09:55:28.663976 Server 0 Start command index 752 term 14
+2025/12/02 09:55:28.664397 Server 3 Start command index 311 term 62
+2025/12/02 09:55:28.765270 Server 0 Start command index 753 term 14
+2025/12/02 09:55:28.765692 Server 3 Start command index 312 term 62
+2025/12/02 09:55:28.776694 Server 0 Start command index 754 term 14
+2025/12/02 09:55:28.777106 Server 3 Start command index 313 term 62
+2025/12/02 09:55:28.782345 Server 0 Start command index 755 term 14
+2025/12/02 09:55:28.783816 Server 3 Start command index 314 term 62
+2025/12/02 09:55:28.784801 Server 0 Start command index 756 term 14
+2025/12/02 09:55:28.785209 Server 3 Start command index 315 term 62
+2025/12/02 09:55:28.793276 Server 0 Start command index 757 term 14
+2025/12/02 09:55:28.793718 Server 3 Start command index 316 term 62
+2025/12/02 09:55:28.798633 Server 0 Start command index 758 term 14
+2025/12/02 09:55:28.799075 Server 3 Start command index 317 term 62
+2025/12/02 09:55:28.800211 Server 1 starting election for term 87
+2025/12/02 09:55:28.801115 Server 0 Start command index 759 term 14
+2025/12/02 09:55:28.801544 Server 3 Start command index 318 term 62
+2025/12/02 09:55:28.806673 Server 0 Start command index 760 term 14
+2025/12/02 09:55:28.806828 Server 2 starting election for term 87
+2025/12/02 09:55:28.807112 Server 3 Start command index 319 term 62
+2025/12/02 09:55:28.808131 Server 4 became follower in term 87 (RequestVote from 1)
+2025/12/02 09:55:28.808164 Server 4 granted vote to 1 in term 87
+2025/12/02 09:55:28.857336 Server 0 Start command index 761 term 14
+2025/12/02 09:55:28.857779 Server 3 Start command index 320 term 62
+2025/12/02 09:55:28.869017 Server 0 Start command index 762 term 14
+2025/12/02 09:55:28.869469 Server 3 Start command index 321 term 62
+2025/12/02 09:55:28.879568 Server 0 Start command index 763 term 14
+2025/12/02 09:55:28.881040 Server 3 Start command index 322 term 62
+2025/12/02 09:55:28.887137 Server 0 Start command index 764 term 14
+2025/12/02 09:55:28.887571 Server 3 Start command index 323 term 62
+2025/12/02 09:55:28.891564 Server 0 Start command index 765 term 14
+2025/12/02 09:55:28.891987 Server 3 Start command index 324 term 62
+2025/12/02 09:55:28.905031 Server 0 Start command index 766 term 14
+2025/12/02 09:55:28.905451 Server 3 Start command index 325 term 62
+2025/12/02 09:55:28.993491 Server 0 Start command index 767 term 14
+2025/12/02 09:55:28.993945 Server 3 Start command index 326 term 62
+2025/12/02 09:55:29.002022 Server 0 Start command index 768 term 14
+2025/12/02 09:55:29.002504 Server 3 Start command index 327 term 62
+2025/12/02 09:55:29.014718 Server 0 Start command index 769 term 14
+2025/12/02 09:55:29.015152 Server 3 Start command index 328 term 62
+2025/12/02 09:55:29.017224 Server 0 Start command index 770 term 14
+2025/12/02 09:55:29.017666 Server 3 Start command index 329 term 62
+2025/12/02 09:55:29.024633 Server 0 Start command index 771 term 14
+2025/12/02 09:55:29.025060 Server 3 Start command index 330 term 62
+2025/12/02 09:55:29.037380 Server 0 Start command index 772 term 14
+2025/12/02 09:55:29.037839 Server 3 Start command index 331 term 62
+2025/12/02 09:55:29.051225 Server 0 Start command index 773 term 14
+2025/12/02 09:55:29.051657 Server 3 Start command index 332 term 62
+2025/12/02 09:55:29.133003 Server 2 starting election for term 88
+2025/12/02 09:55:29.143675 Server 1 became follower in term 88 (RequestVote from 2)
+2025/12/02 09:55:29.143727 Server 1 granted vote to 2 in term 88
+2025/12/02 09:55:29.148341 Server 4 became follower in term 88 (RequestVote from 2)
+2025/12/02 09:55:29.148380 Server 4 granted vote to 2 in term 88
+2025/12/02 09:55:29.250309 Server 0 Start command index 774 term 14
+2025/12/02 09:55:29.250766 Server 3 Start command index 333 term 62
+2025/12/02 09:55:29.252837 Server 0 Start command index 775 term 14
+2025/12/02 09:55:29.253287 Server 3 Start command index 334 term 62
+2025/12/02 09:55:29.256118 Server 0 Start command index 776 term 14
+2025/12/02 09:55:29.256571 Server 3 Start command index 335 term 62
+2025/12/02 09:55:29.264492 Server 0 Start command index 777 term 14
+2025/12/02 09:55:29.264944 Server 3 Start command index 336 term 62
+2025/12/02 09:55:29.471017 Server 2 starting election for term 89
+2025/12/02 09:55:29.489314 Server 4 became follower in term 89 (RequestVote from 2)
+2025/12/02 09:55:29.489349 Server 4 granted vote to 2 in term 89
+2025/12/02 09:55:29.495700 Server 1 became follower in term 89 (RequestVote from 2)
+2025/12/02 09:55:29.495746 Server 1 granted vote to 2 in term 89
+2025/12/02 09:55:29.679002 Server 0 Start command index 778 term 14
+2025/12/02 09:55:29.679456 Server 3 Start command index 337 term 62
+2025/12/02 09:55:29.688506 Server 0 Start command index 779 term 14
+2025/12/02 09:55:29.688972 Server 3 Start command index 338 term 62
+2025/12/02 09:55:29.691690 Server 0 Start command index 780 term 14
+2025/12/02 09:55:29.692157 Server 3 Start command index 339 term 62
+2025/12/02 09:55:29.695961 Server 0 Start command index 781 term 14
+2025/12/02 09:55:29.696411 Server 3 Start command index 340 term 62
+2025/12/02 09:55:29.707763 Server 0 Start command index 782 term 14
+2025/12/02 09:55:29.708210 Server 3 Start command index 341 term 62
+2025/12/02 09:55:29.720620 Server 0 Start command index 783 term 14
+2025/12/02 09:55:29.721089 Server 3 Start command index 342 term 62
+2025/12/02 09:55:29.730126 Server 0 Start command index 784 term 14
+2025/12/02 09:55:29.731062 Server 3 Start command index 343 term 62
+2025/12/02 09:55:29.733198 Server 0 Start command index 785 term 14
+2025/12/02 09:55:29.733660 Server 3 Start command index 344 term 62
+2025/12/02 09:55:29.744246 Server 0 Start command index 786 term 14
+2025/12/02 09:55:29.744717 Server 3 Start command index 345 term 62
+2025/12/02 09:55:29.756887 Server 0 Start command index 787 term 14
+2025/12/02 09:55:29.757343 Server 3 Start command index 346 term 62
+2025/12/02 09:55:29.760514 Server 0 Start command index 788 term 14
+2025/12/02 09:55:29.760981 Server 3 Start command index 347 term 62
+2025/12/02 09:55:29.789041 Server 2 starting election for term 90
+2025/12/02 09:55:29.792444 Server 1 became follower in term 90 (RequestVote from 2)
+2025/12/02 09:55:29.792474 Server 1 granted vote to 2 in term 90
+2025/12/02 09:55:29.810598 Server 4 became follower in term 90 (RequestVote from 2)
+2025/12/02 09:55:29.810626 Server 4 granted vote to 2 in term 90
+2025/12/02 09:55:29.810962 Server 2 became leader for term 90
+2025/12/02 09:55:29.812900 Server 4 conflict in AppendEntries. PrevLogIndex: 8, MyTerm: 8, ArgsTerm: 62
+2025/12/02 09:55:29.820181 Server 1 conflict in AppendEntries. PrevLogIndex: 8, MyTerm: 15, ArgsTerm: 62
+2025/12/02 09:55:30.027600 Server 2 AppendEntries failed for 4. XTerm 8, XIndex 4, XLen 126
+2025/12/02 09:55:30.204905 Server 2 AppendEntries failed for 1. XTerm 15, XIndex 8, XLen 461
+2025/12/02 09:55:30.240827 Server 0 Start command index 789 term 14
+2025/12/02 09:55:30.240900 Server 2 Start command index 9 term 90
+2025/12/02 09:55:30.241329 Server 3 Start command index 348 term 62
+2025/12/02 09:55:30.246285 Server 0 Start command index 790 term 14
+2025/12/02 09:55:30.246358 Server 2 Start command index 10 term 90
+2025/12/02 09:55:30.246806 Server 3 Start command index 349 term 62
+2025/12/02 09:55:30.250384 Server 0 Start command index 791 term 14
+2025/12/02 09:55:30.250489 Server 2 Start command index 11 term 90
+2025/12/02 09:55:30.250967 Server 3 Start command index 350 term 62
+2025/12/02 09:55:30.257464 Server 0 Start command index 792 term 14
+2025/12/02 09:55:30.257518 Server 2 Start command index 12 term 90
+2025/12/02 09:55:30.257956 Server 3 Start command index 351 term 62
+2025/12/02 09:55:30.269140 Server 0 Start command index 793 term 14
+2025/12/02 09:55:30.269206 Server 2 Start command index 13 term 90
+2025/12/02 09:55:30.269698 Server 3 Start command index 352 term 62
+2025/12/02 09:55:30.421575 Server 4 starting election for term 91
+2025/12/02 09:55:30.578083 Server 1 starting election for term 91
+2025/12/02 09:55:30.586790 Server 2 became follower in term 91 (RequestVote from 1)
+2025/12/02 09:55:30.732940 Server 0 Start command index 794 term 14
+2025/12/02 09:55:30.733425 Server 3 Start command index 353 term 62
+2025/12/02 09:55:30.738369 Server 0 Start command index 795 term 14
+2025/12/02 09:55:30.738869 Server 3 Start command index 354 term 62
+2025/12/02 09:55:30.801532 Server 0 Start command index 796 term 14
+2025/12/02 09:55:30.802001 Server 3 Start command index 355 term 62
+2025/12/02 09:55:30.809848 Server 0 Start command index 797 term 14
+2025/12/02 09:55:30.810299 Server 3 Start command index 356 term 62
+2025/12/02 09:55:30.817389 Server 0 Start command index 798 term 14
+2025/12/02 09:55:30.817872 Server 3 Start command index 357 term 62
+2025/12/02 09:55:30.822623 Server 0 Start command index 799 term 14
+2025/12/02 09:55:30.823077 Server 3 Start command index 358 term 62
+2025/12/02 09:55:30.831976 Server 0 Start command index 800 term 14
+2025/12/02 09:55:30.832448 Server 3 Start command index 359 term 62
+2025/12/02 09:55:30.854269 Server 0 Start command index 801 term 14
+2025/12/02 09:55:30.854860 Server 3 Start command index 360 term 62
+2025/12/02 09:55:30.866594 Server 0 Start command index 802 term 14
+2025/12/02 09:55:30.867082 Server 3 Start command index 361 term 62
+2025/12/02 09:55:30.872262 Server 0 Start command index 803 term 14
+2025/12/02 09:55:30.872729 Server 3 Start command index 362 term 62
+2025/12/02 09:55:30.883838 Server 0 Start command index 804 term 14
+2025/12/02 09:55:30.884289 Server 3 Start command index 363 term 62
+2025/12/02 09:55:30.890290 Server 0 Start command index 805 term 14
+2025/12/02 09:55:30.890755 Server 3 Start command index 364 term 62
+2025/12/02 09:55:30.895658 Server 0 Start command index 806 term 14
+2025/12/02 09:55:30.896222 Server 3 Start command index 365 term 62
+2025/12/02 09:55:30.901931 Server 0 Start command index 807 term 14
+2025/12/02 09:55:30.902395 Server 3 Start command index 366 term 62
+2025/12/02 09:55:30.905187 Server 0 Start command index 808 term 14
+2025/12/02 09:55:30.905667 Server 3 Start command index 367 term 62
+2025/12/02 09:55:30.908479 Server 0 Start command index 809 term 14
+2025/12/02 09:55:30.909015 Server 3 Start command index 368 term 62
+2025/12/02 09:55:30.914814 Server 0 Start command index 810 term 14
+2025/12/02 09:55:30.915290 Server 3 Start command index 369 term 62
+2025/12/02 09:55:30.925545 Server 1 starting election for term 92
+2025/12/02 09:55:30.925972 Server 4 became follower in term 92 (RequestVote from 1)
+2025/12/02 09:55:30.925991 Server 4 granted vote to 1 in term 92
+2025/12/02 09:55:30.927620 Server 0 Start command index 811 term 14
+2025/12/02 09:55:30.928098 Server 3 Start command index 370 term 62
+2025/12/02 09:55:30.936185 Server 2 starting election for term 92
+2025/12/02 09:55:30.939540 Server 0 Start command index 812 term 14
+2025/12/02 09:55:30.939659 Server 0 became follower in term 92 (RequestVote from 1)
+2025/12/02 09:55:30.939680 Server 0 granted vote to 1 in term 92
+2025/12/02 09:55:30.940076 Server 3 Start command index 371 term 62
+2025/12/02 09:55:30.945692 Server 3 Start command index 372 term 62
+2025/12/02 09:55:30.959043 Server 3 Start command index 373 term 62
+2025/12/02 09:55:30.959542 Server 3 Start command index 374 term 62
+2025/12/02 09:55:30.961189 Server 3 Start command index 375 term 62
+2025/12/02 09:55:30.969525 Server 3 Start command index 376 term 62
+2025/12/02 09:55:30.972831 Server 3 Start command index 377 term 62
+2025/12/02 09:55:31.262969 Server 1 starting election for term 93
+2025/12/02 09:55:31.263635 Server 2 became follower in term 93 (RequestVote from 1)
+2025/12/02 09:55:31.284426 Server 4 became follower in term 93 (RequestVote from 1)
+2025/12/02 09:55:31.284459 Server 4 granted vote to 1 in term 93
+2025/12/02 09:55:31.326719 Server 0 starting election for term 93
+2025/12/02 09:55:31.377636 Server 3 Start command index 378 term 62
+2025/12/02 09:55:31.383076 Server 3 Start command index 379 term 62
+2025/12/02 09:55:31.613996 Server 1 starting election for term 94
+2025/12/02 09:55:31.624507 Server 2 starting election for term 94
+2025/12/02 09:55:31.632347 Server 4 became follower in term 94 (RequestVote from 2)
+2025/12/02 09:55:31.632377 Server 4 granted vote to 2 in term 94
+2025/12/02 09:55:31.635506 Server 0 became follower in term 94 (RequestVote from 1)
+2025/12/02 09:55:31.635526 Server 0 granted vote to 1 in term 94
+2025/12/02 09:55:31.637729 Server 3 became follower in term 94 (RequestVote from 1)
+2025/12/02 09:55:31.646358 Server 3 granted vote to 2 in term 94
+2025/12/02 09:55:31.953931 Server 1 starting election for term 95
+2025/12/02 09:55:31.955069 Server 0 starting election for term 95
+2025/12/02 09:55:31.969110 Server 4 became follower in term 95 (RequestVote from 0)
+2025/12/02 09:55:31.970988 Server 4 granted vote to 1 in term 95
+2025/12/02 09:55:31.971467 Server 3 became follower in term 95 (RequestVote from 1)
+2025/12/02 09:55:31.976061 Server 2 became follower in term 95 (RequestVote from 1)
+2025/12/02 09:55:32.285091 Server 0 starting election for term 96
+2025/12/02 09:55:32.291629 Server 4 became follower in term 96 (RequestVote from 0)
+2025/12/02 09:55:32.295974 Server 1 became follower in term 96 (RequestVote from 0)
+2025/12/02 09:55:32.301426 Server 2 became follower in term 96 (RequestVote from 0)
+2025/12/02 09:55:32.319526 Server 3 starting election for term 96
+2025/12/02 09:55:32.323598 Server 1 granted vote to 3 in term 96
+2025/12/02 09:55:32.338892 Server 4 granted vote to 3 in term 96
+2025/12/02 09:55:32.647726 Server 0 starting election for term 97
+2025/12/02 09:55:32.654212 Server 4 became follower in term 97 (RequestVote from 0)
+2025/12/02 09:55:32.654212 Server 2 became follower in term 97 (RequestVote from 0)
+2025/12/02 09:55:32.664011 Server 3 became follower in term 97 (RequestVote from 0)
+2025/12/02 09:55:32.671476 Server 1 became follower in term 97 (RequestVote from 0)
+2025/12/02 09:55:32.990884 Server 0 starting election for term 98
+2025/12/02 09:55:33.001711 Server 1 became follower in term 98 (RequestVote from 0)
+2025/12/02 09:55:33.008856 Server 4 starting election for term 98
+2025/12/02 09:55:33.010351 Server 3 became follower in term 98 (RequestVote from 0)
+2025/12/02 09:55:33.015613 Server 1 granted vote to 4 in term 98
+2025/12/02 09:55:33.016724 Server 2 became follower in term 98 (RequestVote from 4)
+2025/12/02 09:55:33.350002 Server 1 starting election for term 99
+2025/12/02 09:55:33.354477 Server 2 became follower in term 99 (RequestVote from 1)
+2025/12/02 09:55:33.364001 Server 4 became follower in term 99 (RequestVote from 1)
+2025/12/02 09:55:33.364032 Server 4 granted vote to 1 in term 99
+2025/12/02 09:55:33.364918 Server 0 starting election for term 99
+2025/12/02 09:55:33.370388 Server 3 became follower in term 99 (RequestVote from 1)
+2025/12/02 09:55:33.709765 Server 1 starting election for term 100
+2025/12/02 09:55:33.712126 Server 0 became follower in term 100 (RequestVote from 1)
+2025/12/02 09:55:33.712158 Server 0 granted vote to 1 in term 100
+2025/12/02 09:55:33.714328 Server 3 became follower in term 100 (RequestVote from 1)
+2025/12/02 09:55:33.723935 Server 4 became follower in term 100 (RequestVote from 1)
+2025/12/02 09:55:33.723962 Server 4 granted vote to 1 in term 100
+2025/12/02 09:55:33.728232 Server 2 became follower in term 100 (RequestVote from 1)
+2025/12/02 09:55:34.049391 Server 1 starting election for term 101
+2025/12/02 09:55:34.050844 Server 4 became follower in term 101 (RequestVote from 1)
+2025/12/02 09:55:34.050878 Server 4 granted vote to 1 in term 101
+2025/12/02 09:55:34.056100 Server 3 starting election for term 101
+2025/12/02 09:55:34.073258 Server 0 became follower in term 101 (RequestVote from 1)
+2025/12/02 09:55:34.073298 Server 0 granted vote to 1 in term 101
+2025/12/02 09:55:34.145456 Server 2 starting election for term 101
+2025/12/02 09:55:34.442777 Server 1 starting election for term 102
+2025/12/02 09:55:34.447187 Server 3 became follower in term 102 (RequestVote from 1)
+2025/12/02 09:55:34.453658 Server 4 became follower in term 102 (RequestVote from 1)
+2025/12/02 09:55:34.453689 Server 4 granted vote to 1 in term 102
+2025/12/02 09:55:34.462159 Server 0 became follower in term 102 (RequestVote from 1)
+2025/12/02 09:55:34.462185 Server 0 granted vote to 1 in term 102
+2025/12/02 09:55:34.464290 Server 2 became follower in term 102 (RequestVote from 1)
+2025/12/02 09:55:34.814682 Server 2 starting election for term 103
+2025/12/02 09:55:34.817329 Server 1 became follower in term 103 (RequestVote from 2)
+2025/12/02 09:55:34.817364 Server 1 granted vote to 2 in term 103
+2025/12/02 09:55:34.820570 Server 4 became follower in term 103 (RequestVote from 2)
+2025/12/02 09:55:34.820609 Server 4 granted vote to 2 in term 103
+2025/12/02 09:55:34.832211 Server 3 became follower in term 103 (RequestVote from 2)
+2025/12/02 09:55:34.832235 Server 3 granted vote to 2 in term 103
+2025/12/02 09:55:34.838768 Server 0 became follower in term 103 (RequestVote from 2)
+2025/12/02 09:55:34.838801 Server 0 granted vote to 2 in term 103
+2025/12/02 09:55:35.143346 Server 2 became leader for term 103
+2025/12/02 09:55:35.165845 Server 4 starting election for term 104
+2025/12/02 09:55:35.166152 Server 3 conflict in AppendEntries. PrevLogIndex: 13, MyTerm: 62, ArgsTerm: 90
+2025/12/02 09:55:35.168036 Server 2 Start command index 14 term 103
+2025/12/02 09:55:35.169261 Server 0 conflict in AppendEntries. PrevLogIndex: 13, MyTerm: 14, ArgsTerm: 90
+2025/12/02 09:55:35.169283 Server 1 log too short for AppendEntries. PrevLogIndex: 13, LogLen: 9
+2025/12/02 09:55:35.170372 Server 0 became follower in term 104 (RequestVote from 4)
+2025/12/02 09:55:35.170399 Server 0 granted vote to 4 in term 104
+2025/12/02 09:55:35.178801 Server 1 became follower in term 104 (RequestVote from 4)
+2025/12/02 09:55:35.178826 Server 1 granted vote to 4 in term 104
+2025/12/02 09:55:35.189490 Server 2 became follower in term 104 (RequestVote from 4)
+2025/12/02 09:55:35.191674 Server 3 became follower in term 104 (RequestVote from 4)
+2025/12/02 09:55:35.517851 Server 2 starting election for term 105
+2025/12/02 09:55:35.522284 Server 1 became follower in term 105 (RequestVote from 2)
+2025/12/02 09:55:35.522320 Server 1 granted vote to 2 in term 105
+2025/12/02 09:55:35.531896 Server 4 became follower in term 105 (RequestVote from 2)
+2025/12/02 09:55:35.531943 Server 4 granted vote to 2 in term 105
+2025/12/02 09:55:35.531961 Server 3 became follower in term 105 (RequestVote from 2)
+2025/12/02 09:55:35.531987 Server 3 granted vote to 2 in term 105
+2025/12/02 09:55:35.542612 Server 0 became follower in term 105 (RequestVote from 2)
+2025/12/02 09:55:35.542635 Server 0 granted vote to 2 in term 105
+2025/12/02 09:55:35.771791 Server 2 became leader for term 105
+2025/12/02 09:55:35.777272 Server 1 log too short for AppendEntries. PrevLogIndex: 14, LogLen: 9
+2025/12/02 09:55:35.779451 Server 4 log too short for AppendEntries. PrevLogIndex: 14, LogLen: 9
+2025/12/02 09:55:35.779591 Server 2 AppendEntries failed for 4. XTerm 0, XIndex 0, XLen 9
+2025/12/02 09:55:35.787981 Server 0 conflict in AppendEntries. PrevLogIndex: 14, MyTerm: 14, ArgsTerm: 103
+2025/12/02 09:55:35.788262 Server 3 conflict in AppendEntries. PrevLogIndex: 14, MyTerm: 62, ArgsTerm: 103
+2025/12/02 09:55:35.788408 Server 2 AppendEntries failed for 3. XTerm 62, XIndex 8, XLen 380
+2025/12/02 09:55:36.137468 Server 0 starting election for term 106
+2025/12/02 09:55:36.139925 Server 1 became follower in term 106 (RequestVote from 0)
+2025/12/02 09:55:36.149563 Server 3 became follower in term 106 (RequestVote from 0)
+2025/12/02 09:55:36.149890 Server 4 became follower in term 106 (RequestVote from 0)
+2025/12/02 09:55:36.153834 Server 2 became follower in term 106 (RequestVote from 0)
+2025/12/02 09:55:36.468371 Server 3 starting election for term 107
+2025/12/02 09:55:36.470682 Server 1 became follower in term 107 (RequestVote from 3)
+2025/12/02 09:55:36.470710 Server 1 granted vote to 3 in term 107
+2025/12/02 09:55:36.478240 Server 4 became follower in term 107 (RequestVote from 3)
+2025/12/02 09:55:36.478271 Server 4 granted vote to 3 in term 107
+2025/12/02 09:55:36.486693 Server 2 starting election for term 107
+2025/12/02 09:55:36.486884 Server 0 became follower in term 107 (RequestVote from 3)
+2025/12/02 09:55:36.486910 Server 0 granted vote to 3 in term 107
+2025/12/02 09:55:36.841367 Server 3 starting election for term 108
+2025/12/02 09:55:36.842485 Server 0 starting election for term 108
+2025/12/02 09:55:36.848820 Server 1 starting election for term 108
+2025/12/02 09:55:36.856478 Server 4 became follower in term 108 (RequestVote from 1)
+2025/12/02 09:55:36.856797 Server 2 became follower in term 108 (RequestVote from 3)
+2025/12/02 09:55:36.856827 Server 2 granted vote to 3 in term 108
+2025/12/02 09:55:36.867291 Server 4 granted vote to 3 in term 108
+2025/12/02 09:55:37.069980 Server 3 became leader for term 108
+2025/12/02 09:55:37.085362 Server 1 became follower from AppendEntries in term 108 (Leader 3)
+2025/12/02 09:55:37.085395 Server 1 log too short for AppendEntries. PrevLogIndex: 14, LogLen: 9
+2025/12/02 09:55:37.088585 Server 0 became follower from AppendEntries in term 108 (Leader 3)
+2025/12/02 09:55:37.088617 Server 0 conflict in AppendEntries. PrevLogIndex: 14, MyTerm: 14, ArgsTerm: 103
+2025/12/02 09:55:37.177932 Server 3 Start command index 15 term 108
+2025/12/02 09:55:37.421914 Server 2 starting election for term 109
+2025/12/02 09:55:37.424258 Server 4 became follower in term 109 (RequestVote from 2)
+2025/12/02 09:55:37.424285 Server 4 granted vote to 2 in term 109
+2025/12/02 09:55:37.428709 Server 0 became follower in term 109 (RequestVote from 2)
+2025/12/02 09:55:37.428767 Server 0 granted vote to 2 in term 109
+2025/12/02 09:55:37.446877 Server 1 became follower in term 109 (RequestVote from 2)
+2025/12/02 09:55:37.446898 Server 1 granted vote to 2 in term 109
+2025/12/02 09:55:37.721185 Server 3 AppendEntries failed for 0. XTerm 14, XIndex 6, XLen 813
+2025/12/02 09:55:37.743903 Server 3 became follower (higher term in AppendEntries reply from 0)
+2025/12/02 09:55:37.752054 Server 4 starting election for term 110
+2025/12/02 09:55:37.753564 Server 2 became follower in term 110 (RequestVote from 4)
+2025/12/02 09:55:37.753591 Server 2 granted vote to 4 in term 110
+2025/12/02 09:55:37.755769 Server 0 became follower in term 110 (RequestVote from 4)
+2025/12/02 09:55:37.755803 Server 0 granted vote to 4 in term 110
+2025/12/02 09:55:37.774972 Server 3 became follower in term 110 (RequestVote from 4)
+2025/12/02 09:55:37.816729 Server 1 starting election for term 110
+2025/12/02 09:55:38.156159 Server 1 starting election for term 111
+2025/12/02 09:55:38.158790 Server 3 became follower in term 111 (RequestVote from 1)
+2025/12/02 09:55:38.162929 Server 2 became follower in term 111 (RequestVote from 1)
+2025/12/02 09:55:38.168364 Server 4 became follower in term 111 (RequestVote from 1)
+2025/12/02 09:55:38.171647 Server 0 became follower in term 111 (RequestVote from 1)
+2025/12/02 09:55:38.171672 Server 0 granted vote to 1 in term 111
+2025/12/02 09:55:38.489619 Server 3 starting election for term 112
+2025/12/02 09:55:38.489996 Server 0 became follower in term 112 (RequestVote from 3)
+2025/12/02 09:55:38.490035 Server 0 granted vote to 3 in term 112
+2025/12/02 09:55:38.493964 Server 4 became follower in term 112 (RequestVote from 3)
+2025/12/02 09:55:38.494024 Server 4 granted vote to 3 in term 112
+2025/12/02 09:55:38.494277 Server 1 became follower in term 112 (RequestVote from 3)
+2025/12/02 09:55:38.494294 Server 1 granted vote to 3 in term 112
+2025/12/02 09:55:38.507881 Server 2 became follower in term 112 (RequestVote from 3)
+2025/12/02 09:55:38.507910 Server 2 granted vote to 3 in term 112
+2025/12/02 09:55:38.735285 Server 3 became leader for term 112
+2025/12/02 09:55:38.749347 Server 1 log too short for AppendEntries. PrevLogIndex: 15, LogLen: 9
+2025/12/02 09:55:38.749623 Server 0 conflict in AppendEntries. PrevLogIndex: 15, MyTerm: 14, ArgsTerm: 108
+2025/12/02 09:55:38.761243 Server 4 log too short for AppendEntries. PrevLogIndex: 15, LogLen: 15
+2025/12/02 09:55:38.842328 Server 2 log too short for AppendEntries. PrevLogIndex: 15, LogLen: 15
+2025/12/02 09:55:38.842487 Server 3 AppendEntries failed for 2. XTerm 0, XIndex 0, XLen 15
+2025/12/02 09:55:39.058524 Server 0 starting election for term 113
+2025/12/02 09:55:39.076658 Server 3 became follower in term 113 (RequestVote from 0)
+2025/12/02 09:55:39.082983 Server 2 became follower in term 113 (RequestVote from 0)
+2025/12/02 09:55:39.083940 Server 4 starting election for term 113
+2025/12/02 09:55:39.084100 Server 1 became follower in term 113 (RequestVote from 0)
+2025/12/02 09:55:39.087328 Server 1 granted vote to 4 in term 113
+2025/12/02 09:55:39.408844 Server 0 starting election for term 114
+2025/12/02 09:55:39.421772 Server 1 became follower in term 114 (RequestVote from 0)
+2025/12/02 09:55:39.421829 Server 2 became follower in term 114 (RequestVote from 0)
+2025/12/02 09:55:39.428335 Server 4 became follower in term 114 (RequestVote from 0)
+2025/12/02 09:55:39.428351 Server 3 became follower in term 114 (RequestVote from 0)
+2025/12/02 09:55:39.738038 Server 0 starting election for term 115
+2025/12/02 09:55:39.743711 Server 3 became follower in term 115 (RequestVote from 0)
+2025/12/02 09:55:39.750839 Server 2 starting election for term 115
+2025/12/02 09:55:39.751229 Server 3 granted vote to 2 in term 115
+2025/12/02 09:55:39.751447 Server 4 became follower in term 115 (RequestVote from 0)
+2025/12/02 09:55:39.754246 Server 1 became follower in term 115 (RequestVote from 2)
+2025/12/02 09:55:39.754276 Server 1 granted vote to 2 in term 115
+2025/12/02 09:55:39.777478 Server 4 granted vote to 2 in term 115
+2025/12/02 09:55:40.116560 Server 3 starting election for term 116
+2025/12/02 09:55:40.119920 Server 4 became follower in term 116 (RequestVote from 3)
+2025/12/02 09:55:40.119955 Server 4 granted vote to 3 in term 116
+2025/12/02 09:55:40.127026 Server 2 starting election for term 116
+2025/12/02 09:55:40.128451 Server 1 became follower in term 116 (RequestVote from 2)
+2025/12/02 09:55:40.128474 Server 1 granted vote to 2 in term 116
+2025/12/02 09:55:40.133625 Server 0 became follower in term 116 (RequestVote from 2)
+2025/12/02 09:55:40.133648 Server 0 granted vote to 2 in term 116
+2025/12/02 09:55:40.471892 Server 2 starting election for term 117
+2025/12/02 09:55:40.474405 Server 1 became follower in term 117 (RequestVote from 2)
+2025/12/02 09:55:40.474438 Server 1 granted vote to 2 in term 117
+2025/12/02 09:55:40.477526 Server 0 became follower in term 117 (RequestVote from 2)
+2025/12/02 09:55:40.477555 Server 0 granted vote to 2 in term 117
+2025/12/02 09:55:40.482709 Server 4 starting election for term 117
+2025/12/02 09:55:40.495615 Server 3 became follower in term 117 (RequestVote from 4)
+2025/12/02 09:55:40.496690 Server 3 granted vote to 2 in term 117
+2025/12/02 09:55:40.496901 Server 2 became leader for term 117
+2025/12/02 09:55:40.507963 Server 2 Start command index 16 term 117
+2025/12/02 09:55:40.511218 Server 1 log too short for AppendEntries. PrevLogIndex: 15, LogLen: 9
+2025/12/02 09:55:40.511253 Server 0 conflict in AppendEntries. PrevLogIndex: 15, MyTerm: 14, ArgsTerm: 108
+2025/12/02 09:55:40.511853 Server 2 AppendEntries failed for 0. XTerm 14, XIndex 6, XLen 813
+2025/12/02 09:55:40.512023 Server 2 AppendEntries failed for 1. XTerm 0, XIndex 0, XLen 9
+2025/12/02 09:55:40.521980 Server 4 became follower from AppendEntries in term 117 (Leader 2)
+2025/12/02 09:55:40.522008 Server 4 log too short for AppendEntries. PrevLogIndex: 15, LogLen: 15
+2025/12/02 09:55:40.522168 Server 2 AppendEntries failed for 4. XTerm 0, XIndex 0, XLen 15
+2025/12/02 09:55:40.901837 Server 3 starting election for term 118
+2025/12/02 09:55:40.907478 Server 0 became follower in term 118 (RequestVote from 3)
+2025/12/02 09:55:40.911563 Server 2 became follower in term 118 (RequestVote from 3)
+2025/12/02 09:55:40.912648 Server 4 became follower in term 118 (RequestVote from 3)
+2025/12/02 09:55:40.927790 Server 1 became follower in term 118 (RequestVote from 3)
+2025/12/02 09:55:41.228124 Server 2 starting election for term 119
+2025/12/02 09:55:41.236804 Server 3 became follower in term 119 (RequestVote from 2)
+2025/12/02 09:55:41.236836 Server 3 granted vote to 2 in term 119
+2025/12/02 09:55:41.238796 Server 4 starting election for term 119
+2025/12/02 09:55:41.241034 Server 1 became follower in term 119 (RequestVote from 2)
+2025/12/02 09:55:41.241057 Server 1 granted vote to 2 in term 119
+2025/12/02 09:55:41.249620 Server 0 became follower in term 119 (RequestVote from 2)
+2025/12/02 09:55:41.249638 Server 0 granted vote to 2 in term 119
+2025/12/02 09:55:41.525408 Server 2 became leader for term 119
+2025/12/02 09:55:41.535498 Server 3 log too short for AppendEntries. PrevLogIndex: 16, LogLen: 16
+2025/12/02 09:55:41.552307 Server 4 became follower from AppendEntries in term 119 (Leader 2)
+2025/12/02 09:55:41.755718 Server 2 AppendEntries failed for 3. XTerm 0, XIndex 0, XLen 16
+2025/12/02 09:55:41.889697 Server 1 starting election for term 120
+2025/12/02 09:55:41.890042 Server 4 became follower in term 120 (RequestVote from 1)
+2025/12/02 09:55:41.890063 Server 4 granted vote to 1 in term 120
+2025/12/02 09:55:41.892292 Server 3 became follower in term 120 (RequestVote from 1)
+2025/12/02 09:55:41.892321 Server 3 granted vote to 1 in term 120
+2025/12/02 09:55:41.900780 Server 0 became follower in term 120 (RequestVote from 1)
+2025/12/02 09:55:41.900817 Server 0 granted vote to 1 in term 120
+2025/12/02 09:55:41.905099 Server 2 became follower in term 120 (RequestVote from 1)
+2025/12/02 09:55:41.905140 Server 2 granted vote to 1 in term 120
+2025/12/02 09:55:42.204172 Server 4 starting election for term 121
+2025/12/02 09:55:42.211562 Server 1 became leader for term 120
+2025/12/02 09:55:42.219165 Server 1 became follower in term 121 (RequestVote from 4)
+2025/12/02 09:55:42.219192 Server 1 granted vote to 4 in term 121
+2025/12/02 09:55:42.219505 Server 3 became follower in term 121 (RequestVote from 4)
+2025/12/02 09:55:42.219518 Server 3 granted vote to 4 in term 121
+2025/12/02 09:55:42.224458 Server 2 became follower in term 121 (RequestVote from 4)
+2025/12/02 09:55:42.224484 Server 2 granted vote to 4 in term 121
+2025/12/02 09:55:42.224654 Server 4 became leader for term 121
+2025/12/02 09:55:42.247976 Server 0 became follower from AppendEntries in term 121 (Leader 4)
+2025/12/02 09:55:42.527214 Server 0 killed
+2025/12/02 09:55:42.527241 Server 1 killed
+2025/12/02 09:55:42.527249 Server 2 killed
+2025/12/02 09:55:42.527260 Server 3 killed
+2025/12/02 09:55:42.527267 Server 4 killed
