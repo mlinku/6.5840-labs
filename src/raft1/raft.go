@@ -853,25 +853,12 @@ func (rf *Raft) replicator(server int) {
 				time.Sleep(20 * time.Millisecond) // 避免忙等待
 			}
 		}()
-		// go func(){
-			// reply := &AppendEntriesReply{}
-			// if !rf.sendNewLogEntries(server, args, reply) {
-			// 	shouldRetry = true
-			// 	time.Sleep(20 * time.Millisecond) // 避免忙等待
-			// }else {
-			// 	// Case B: 发送成功。
-			// 	// 检查是否还有更多日志需要发送？如果有，不要等待，立即触发下一次发送
-			// 	rf.mu.Lock()
-			// 	if rf.nextIndex[server] < len(rf.log) {
-			// 		shouldRetry = true // 还有数据，趁热打铁，立即发送下一批
-			// 	}
-			// 	rf.mu.Unlock()
-			// 	time.Sleep(20 * time.Millisecond) // 避免忙等待
-			// }
-		// }()
+
 
     }
 }
+
+
 // the service or tester wants to create a Raft server. the ports
 // of all the Raft servers (including this one) are in peers[]. this
 // server's port is peers[me]. all the servers' peers[] arrays
