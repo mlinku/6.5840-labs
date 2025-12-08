@@ -1069,10 +1069,6 @@ func (rf *Raft) replicator(server int) {
 	}
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> ba09164 (完成3D，通过完整的race下raft测试)
 // the service or tester wants to create a Raft server. the ports
 // of all the Raft servers (including this one) are in peers[]. this
 // server's port is peers[me]. all the servers' peers[] arrays
