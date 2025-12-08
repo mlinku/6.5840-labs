@@ -1,25 +1,26 @@
 package rsm
 
 import (
+	"strconv"
 	"sync"
 
 	"6.5840/kvsrv1/rpc"
 	"6.5840/labrpc"
-	"6.5840/raft1"
+	raft "6.5840/raft1"
 	"6.5840/raftapi"
-	"6.5840/tester1"
-
+	tester "6.5840/tester1"
 )
 
 var useRaftStateMachine bool // to plug in another raft besided raft1
-
 
 type Op struct {
 	// Your definitions here.
 	// Field names must start with capital letters,
 	// otherwise RPC will break.
+	Me  int
+	Id  string
+	Req any
 }
-
 
 // A server (i.e., ../server.go) that wants to replicate itself calls
 // MakeRSM and must implement the StateMachine interface.  This
@@ -40,7 +41,10 @@ type RSM struct {
 	applyCh      chan raftapi.ApplyMsg
 	maxraftstate int // snapshot if log grows this big
 	sm           StateMachine
+
 	// Your definitions here.
+	reqIndex   int
+	reqChanMap map[string]chan any
 }
 
 // servers[] contains the ports of the set of
@@ -75,7 +79,6 @@ func (rsm *RSM) Raft() raftapi.Raft {
 	return rsm.rf
 }
 
-
 // Submit a command to Raft, and wait for it to be committed.  It
 // should return ErrWrongLeader if client should find new leader and
 // try again.
@@ -86,5 +89,19 @@ func (rsm *RSM) Submit(req any) (rpc.Err, any) {
 	// is the argument to Submit and id is a unique id for the op.
 
 	// your code here
+	// Id consist of me and rsm.reqIndex
+	rsm.mu.Lock()
+	rsm.reqIndex++
+	op := Op{Me: rsm.me, Id: strconv.Itoa(rsm.me) + "-" + strconv.Itoa(rsm.reqIndex), Req: req}
+	_, _, isLeader := rsm.rf.Start(op)
+	if !isLeader {
+		rsm.mu.Unlock()
+		return rpc.ErrWrongLeader, nil
+	} else {
+		// wait for the command to be applied
+
+	}
+	rsm.mu.Unlock()
+
 	return rpc.ErrWrongLeader, nil // i'm dead, try another server.
 }
