@@ -23,7 +23,7 @@ import (
 )
 
 // Debugging
-const Debug_raft = true
+const Debug_raft = false
 
 // 全局 Logger，用于写入文件
 var DLog *log.Logger
@@ -847,6 +847,7 @@ func (rf *Raft) committer() {
 					CommandValid: true,
 					Command:      rf.log[i-rf.lastSnapshotIndex].Command,
 					CommandIndex: rf.log[i-rf.lastSnapshotIndex].Index,
+					CommandTerm:  rf.log[i-rf.lastSnapshotIndex].Term,
 				}
 				applyMsgs = append(applyMsgs, msg)
 			}
