@@ -47,3 +47,11 @@
 - 客户端可能需要多次发送 RPC 请求，直到找到能够成功回复的 kvserver。
     - 如果领导者在将条目提交到 Raft 日志后立即失败，客户端可能不会收到回复，因此可能会将请求重新发送给另一个领导者。每次对`Start()`的调用，对于特定的版本号，应仅导致一次执行。
     - **没有实现序列号，但是通过测试了，可能原因在于version机制的存在**
+
+#### task 4C
+- 目前没有调用snapshot方法，重启服务器必须重放完整的raft日志才能恢复状态。 因为需要修改kvserver和rsm，使其与raft协作，利用lab 3D中的Raft Snapshot()功能来节省日志空间并减少重启时间。
+- 测试程序将 maxraftstate 传递给你的 StartKVServer() ，后者再将其传递给 rsm 。
+    - maxraftstate 表示持久化 Raft 状态（包括日志，但不包括快照）允许的最大字节数。
+    - 比较 maxraftstate 与 rf.PersistBytes() 。每当你的 rsm 检测到 Raft 状态大小接近此阈值时，应通过调用 Raft 的 Snapshot 来保存快照。
+    - rsm可以通过 StateMachine 接口的 Snapshot 方法获取 kvserver 的快照来创建此快照。如果 maxraftstate 为-1，则无需创建快照。
+        - maxraftstate 限制适用于 Raft 作为第一个参数传递给 persister.Save() 的 GOB 编码字节。

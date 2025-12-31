@@ -68,6 +68,7 @@ type Raft struct {
 	state          serverState         // server state: follower, candidate, leader
 	applyCh        chan raftapi.ApplyMsg
 	replicatorCond []chan struct{} // condition variables for each follower's log replicator goroutine
+
 	// Your data here (3A, 3B, 3C).
 	// 3A
 	currentTerm     int           // current term of
@@ -78,6 +79,8 @@ type Raft struct {
 	lastRPCtime     time.Time     // time of last RPC received
 	electionTimeout time.Duration // time to wait before starting election
 	rng             *rand.Rand    // 新增专用随机生成器
+
+	applyCond *sync.Cond // 用于唤醒 committer
 	// Look at the paper's Figure 2 for a description of what
 	// state a Raft server must maintain.
 
@@ -477,7 +480,7 @@ func (rf *Raft) AppendEntries(args *AppendEntriesArgs, reply *AppendEntriesReply
 		// 【关键修正】只有当计算出的 newCommitIndex 比当前大时，才更新！
 		if newCommitIndex > rf.commitIndex {
 			rf.commitIndex = newCommitIndex
-			// fmt.Printf("Server %d updated commitIndex to %d\n", rf.me, rf.commitIndex)
+			rf.applyCond.Broadcast()
 		}
 	}
 
@@ -768,6 +771,7 @@ func (rf *Raft) sendNewLogEntries(server int, args *AppendEntriesArgs, reply *Ap
 				// 注意不能提交前朝的日志
 				if count > len(rf.peers)/2 && rf.log[N-rf.lastSnapshotIndex].Term == rf.currentTerm {
 					rf.commitIndex = N
+					rf.applyCond.Broadcast()
 				}
 			}
 		}
@@ -820,7 +824,7 @@ func (rf *Raft) sendNewLogEntries(server int, args *AppendEntriesArgs, reply *Ap
 
 func (rf *Raft) ticker() {
 	for rf.killed() == false {
-		time.Sleep(10 * time.Millisecond)
+		time.Sleep(5 * time.Millisecond)
 
 		rf.mu.Lock()
 		state := rf.state
@@ -837,30 +841,34 @@ func (rf *Raft) ticker() {
 }
 
 func (rf *Raft) committer() {
+	rf.mu.Lock()
+	defer rf.mu.Unlock()
+
 	for rf.killed() == false {
-		rf.mu.Lock()
-		applyMsgs := []raftapi.ApplyMsg{}
+		for rf.lastApplied >= rf.commitIndex && !rf.killed() {
+			rf.applyCond.Wait()
+		}
+		if rf.killed() {
+			return
+		}
 
-		if rf.commitIndex > rf.lastApplied {
-			for i := rf.lastApplied + 1; i <= rf.commitIndex; i++ {
-				msg := raftapi.ApplyMsg{
-					CommandValid: true,
-					Command:      rf.log[i-rf.lastSnapshotIndex].Command,
-					CommandIndex: rf.log[i-rf.lastSnapshotIndex].Index,
-					CommandTerm:  rf.log[i-rf.lastSnapshotIndex].Term,
-				}
-				applyMsgs = append(applyMsgs, msg)
+		commitIndex := rf.commitIndex
+		lastApplied := rf.lastApplied
+		entries := make([]LogEntry, commitIndex-lastApplied)
+		copy(entries, rf.log[lastApplied+1-rf.lastSnapshotIndex:commitIndex+1-rf.lastSnapshotIndex])
+
+		rf.lastApplied = commitIndex
+
+		rf.mu.Unlock()
+		for _, entry := range entries {
+			rf.applyCh <- raftapi.ApplyMsg{
+				CommandValid: true,
+				Command:      entry.Command,
+				CommandIndex: entry.Index,
+				CommandTerm:  entry.Term,
 			}
-			rf.lastApplied = rf.commitIndex
 		}
-		rf.mu.Unlock() // <--- 先解锁！
-
-		// 在锁外发送
-		for _, msg := range applyMsgs {
-			rf.applyCh <- msg
-		}
-
-		time.Sleep(10 * time.Millisecond)
+		rf.mu.Lock()
 	}
 }
 
@@ -993,6 +1001,7 @@ func (rf *Raft) InstallSnapshot(args *InstallSnapshotArgs, reply *InstallSnapsho
 	// 更新 commitIndex 和 lastApplied
 	if rf.commitIndex < args.LastIncludedIndex {
 		rf.commitIndex = args.LastIncludedIndex
+		rf.applyCond.Broadcast()
 	}
 	if rf.lastApplied < args.LastIncludedIndex {
 		rf.lastApplied = args.LastIncludedIndex
@@ -1086,6 +1095,7 @@ func Make(peers []*labrpc.ClientEnd, me int,
 	rf.persister = persister
 	rf.me = me
 	rf.applyCh = applyCh
+	rf.applyCond = sync.NewCond(&rf.mu)
 	rf.replicatorCond = make([]chan struct{}, len(peers))
 	for i := range rf.replicatorCond {
 		rf.replicatorCond[i] = make(chan struct{}, 1)

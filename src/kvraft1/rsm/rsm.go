@@ -104,12 +104,19 @@ func MakeRSM(servers []*labrpc.ClientEnd, me int, persister *tester.Persister, m
 		applyCh:         make(chan raftapi.ApplyMsg),
 		sm:              sm,
 		reqIndex:        0,
-		timeOutInterval: 2 * time.Second, // was 1s; keep > test window
+		timeOutInterval: 1300 * time.Millisecond, // was 1s; keep > test window
 		reqChanMap:      map[taskInfo]chan resultInfo{},
 	}
 	if !useRaftStateMachine {
 		rsm.rf = raft.Make(servers, me, persister, rsm.applyCh)
 	}
+
+	snapshotData := persister.ReadSnapshot()
+	if len(snapshotData) > 0 {
+		dbgLogger.Printf("[lifecycle] me=%d recovering state machine from snapshot (len=%d)", me, len(snapshotData))
+		rsm.sm.Restore(snapshotData)
+	}
+
 	go rsm.applier()
 	return rsm
 }
@@ -136,7 +143,18 @@ func (rsm *RSM) applier() {
 				}
 			}
 			rsm.mu.Unlock()
+			if rsm.maxraftstate != -1 && rsm.rf.PersistBytes() > rsm.maxraftstate {
+				dbgLogger.Printf("[applier] me=%d snapshotting idx=%d size=%d", rsm.me, msg.CommandIndex, rsm.rf.PersistBytes())
+				// 1. 获取状态机快照
+				snapshot := rsm.sm.Snapshot()
+				// 2. 通知 Raft 截断日志
+				rsm.rf.Snapshot(msg.CommandIndex, snapshot)
+			}
+		} else if msg.SnapshotValid {
+			dbgLogger.Printf("[applier] me=%d restore snapshot", rsm.me)
+			rsm.sm.Restore(msg.Snapshot)
 		}
+
 	}
 }
 
