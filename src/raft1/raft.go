@@ -20,6 +20,7 @@ import (
 	"6.5840/labrpc"
 	"6.5840/raftapi"
 	tester "6.5840/tester1"
+	"6.5840/transport"
 )
 
 // Debugging
@@ -60,12 +61,12 @@ const (
 
 // A Go object implementing a single Raft peer.
 type Raft struct {
-	mu             sync.Mutex          // Lock to protect shared access to this peer's state
-	peers          []*labrpc.ClientEnd // RPC end points of all peers
-	persister      *tester.Persister   // Object to hold this peer's persisted state
-	me             int                 // this peer's index into peers[]
-	dead           int32               // set by Kill()
-	state          serverState         // server state: follower, candidate, leader
+	mu             sync.Mutex         // Lock to protect shared access to this peer's state
+	peers          []transport.Caller // RPC end points of all peers (支持 labrpc 和 TCP)
+	persister      *tester.Persister  // Object to hold this peer's persisted state
+	me             int                // this peer's index into peers[]
+	dead           int32              // set by Kill()
+	state          serverState        // server state: follower, candidate, leader
 	applyCh        chan raftapi.ApplyMsg
 	replicatorCond []chan struct{} // condition variables for each follower's log replicator goroutine
 
@@ -1089,6 +1090,18 @@ func (rf *Raft) replicator(server int) {
 // Make() must return quickly, so it should start goroutines
 // for any long-running work.
 func Make(peers []*labrpc.ClientEnd, me int,
+	persister *tester.Persister, applyCh chan raftapi.ApplyMsg) raftapi.Raft {
+	// 将 []*labrpc.ClientEnd 转换为 []transport.Caller
+	callers := make([]transport.Caller, len(peers))
+	for i, p := range peers {
+		callers[i] = p
+	}
+	return MakeWithCallers(callers, me, persister, applyCh)
+}
+
+// MakeWithCallers 使用通用的 Caller 接口创建 Raft 实例
+// 支持 labrpc.ClientEnd 和 transport.ClientEnd
+func MakeWithCallers(peers []transport.Caller, me int,
 	persister *tester.Persister, applyCh chan raftapi.ApplyMsg) raftapi.Raft {
 	rf := &Raft{}
 	rf.peers = peers
